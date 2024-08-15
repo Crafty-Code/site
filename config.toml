@@ -1,0 +1,10 @@
+[[params.ananke_socials]]
+name = "instagram"
+url = "https://www.instagram.com/crafty.code/"
+
+[[params.ananke_socials]]
+name = "github"
+url = "https://github.com/Crafty-Code"
+
+[params]
+  date_format = "2 January 2006"
