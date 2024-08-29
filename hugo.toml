@@ -21,6 +21,10 @@ url = "http://www.patreon.com/craftycode"
 [params]
   date_format = "2 January 2006"
 
+[services]
+  [services.googleAnalytics]
+    id = 'GTM-MPBP6D2T'
+
 hasCJKLanguage = "false"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = "false"
