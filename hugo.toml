@@ -1,10 +1,26 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'CraftyCode'
-contentDir = "content/en/"
+content = '/content/en/'
+
+theme = ["github.com/theNewDynamic/gohugo-theme-ananke"]
+
+[[params.ananke_socials]]
+name = "instagram"
+url = "https://www.instagram.com/crafty.code/"
+[[params.ananke_socials]]
+name = "github"
+url = "https://github.com/Crafty-Code"
+[[params.ananke_socials]]
+name = "youtube"
+url = "https://www.youtube.com/@craftycodeie"
+[[params.ananke_socials]]
+name = "patreon"
+url = "http://www.patreon.com/craftycode"
+
+[params]
+  date_format = "2 January 2006"
 
 hasCJKLanguage = "false"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = "false"
-
-theme = ["github.com/theNewDynamic/gohugo-theme-ananke"]
