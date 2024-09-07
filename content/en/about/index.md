@@ -1,7 +1,7 @@
 +++
 title = 'About Crafty Code'
 date = 2024-07-09T21:12:53+01:00
-draft = true
+draft = false
 +++
 
 At Crafty Code, the aim is to link the world of Software Development to its place in the real world.
