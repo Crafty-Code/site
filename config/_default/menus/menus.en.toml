@@ -3,8 +3,8 @@
     pageRef = '/dev'
     weight = 10
   [[main]]
-    name = 'Business'
-    pageRef = '/business'
+    name = 'Books'
+    pageRef = '/books'
     weight = 20
   [[main]]
     name = 'About'
