@@ -1,7 +1,7 @@
 baseURL = 'https://craftycode.org/'
 languageCode = 'en-us'
 title = 'Crafty Code'
-content = '/content/'
+content = 'content/'
 
 theme = ["github.com/theNewDynamic/gohugo-theme-ananke"]
 
