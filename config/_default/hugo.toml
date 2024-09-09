@@ -1,7 +1,7 @@
 baseURL = 'https://craftycode.org/'
 languageCode = 'en-us'
-title = 'CraftyCode'
-content = '/content/en/'
+title = 'Crafty Code'
+content = '/content/'
 theme = ["github.com/theNewDynamic/gohugo-theme-ananke"]
 
 [[params.ananke_socials]]
@@ -17,10 +17,6 @@ url = "https://www.youtube.com/@craftycodeie"
 # name = "patreon"
 # url = "http://www.patreon.com/craftycode"
 
-[params]
-  date_format = "2 January 2006"
-
 hasCJKLanguage = "false"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = "false"
-show_reading_time = "true"
