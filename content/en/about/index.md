@@ -14,8 +14,9 @@ I write code, lead, and manage software teams. I'm also interested in business a
 
 ### Background
 
-- MSc Strategy Management UCD Smurfit Business School (2022-2024)
-- BSC & MSc in Software Engineering - Dublin City University (2005-2011)
+- MSc. Strategy Management UCD Smurfit Business School (2022-2024)
+- Dip. Leadership Dorset College (2020)
+- BSc. & MSc in Software Engineering - Dublin City University (2005-2011)
 - 10+ years in Software Industry
 
 ## Why am I doing this?
