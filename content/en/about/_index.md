@@ -4,8 +4,6 @@ date = 2024-07-09T21:12:53+01:00
 draft = false
 +++
 
-# A little bit about Crafty Code
-
 At Crafty Code, the aim is to link the world of Software Development to its place in the real world.
 
 While there's already a wealth of content focused on the US, Crafty Code will focus on the EU's software development and business landscape.

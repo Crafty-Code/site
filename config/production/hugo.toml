@@ -1,7 +1,7 @@
 baseURL = 'https://craftycode.org/'
 languageCode = 'en-us'
-title = 'CraftyCode'
-content = '/content/en/'
+title = 'Crafty Code'
+content = '/content/'
 
 theme = ["github.com/theNewDynamic/gohugo-theme-ananke"]
 
@@ -17,9 +17,6 @@ url = "https://www.youtube.com/@craftycodeie"
 # [[params.ananke_socials]]
 # name = "patreon"
 # url = "http://www.patreon.com/craftycode"
-
-[params]
-  date_format = "2 January 2006"
 
 [services]
   [services.googleAnalytics]
