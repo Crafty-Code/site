@@ -1,12 +1,12 @@
   [[main]]
-    name = 'Dev'
-    pageRef = '/dev'
+    name = 'Blog'
+    pageRef = '/en/blog'
     weight = 10
   [[main]]
     name = 'Books'
-    pageRef = '/books'
+    pageRef = '/en/books'
     weight = 20
   [[main]]
     name = 'About'
-    pageRef = '/about/index'
+    pageRef = '/en/about/index'
     weight = 30
