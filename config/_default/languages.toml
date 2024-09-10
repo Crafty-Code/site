@@ -1,4 +1,35 @@
 [en]
-contentDir = "content/en"
-languageName = "English"
-weight = 1
+    contentDir = 'content/en'
+    disabled = false
+    languageCode = 'en-GB'
+    languageDirection = 'ltr'
+    languageName = 'English'
+    weight = 1
+[de]
+    contentDir = 'content/de'
+    disabled = false
+    languageCode = 'de-DE'
+    languageDirection = 'ltr'
+    languageName = 'Deutsch'
+    weight = 2
+[es]
+    contentDir = 'content/es'
+    disabled = false
+    languageCode = 'es-ES'
+    languageDirection = 'ltr'
+    languageName = 'Español'
+    weight = 3
+[fr]
+    contentDir = 'content/fr'
+    disabled = false
+    languageCode = 'fr-FR'
+    languageDirection = 'ltr'
+    languageName = 'Français'
+    weight = 4
+[ie]
+    contentDir = 'content/ie'
+    disabled = false
+    languageCode = 'ie-IE'
+    languageDirection = 'ltr'
+    languageName = 'Gaeilge'
+    weight = 5
