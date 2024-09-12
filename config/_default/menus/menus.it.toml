@@ -1,0 +1,12 @@
+[[main]]
+  name = 'Blog'
+  pageRef = '/blog'
+  weight = 10
+[[main]]
+  name = 'Libri'
+  pageRef = '/books'
+  weight = 20
+[[main]]
+  name = 'Di'
+  pageRef = '/about'
+  weight = 30
