@@ -33,3 +33,10 @@
     languageDirection = 'ltr'
     languageName = 'Gaeilge'
     weight = 5
+[it]
+    contentDir = 'content/it'
+    disabled = false
+    languageCode = 'it-IT'
+    languageDirection = 'ltr'
+    languageName = 'Italiano'
+    weight = 6
