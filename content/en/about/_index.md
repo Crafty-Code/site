@@ -1,24 +1,24 @@
 ---
-description: Explore Crafty Code, a blog by Jeff, focusing on software development,
-  business strategy, and leadership within the EU, and intertwined with personal interests
-  such as cycling and gaming.
+description: Discover the European software and business landscape with Crafty Code.
+  Led by Jeff, this blog explores software development, business strategy, and current
+  industry trends.
 keywords:
-- Crafty Code
-- software development
-- EU business landscape
-- Jeff
+- European software development
 - business strategy
-- AI in writing
-- leadership
-- cycling and gaming
-- software engineering
+- software industry
+- AI in content creation
+- software teams leadership
+- gaming industry
+- cycling interests
+- technology and business
+- AI-generated images
 - monetizing blogs
-og_description: Join Jeff in exploring the intersection of software development and
-  business strategy, with insights on leadership, cycling, and gaming.
-og_title: 'Crafty Code: Bridging Software and Business'
-twitter_description: Discover Crafty Code by Jeff, a unique mix of EU-focused software
-  development, business strategy, and personal passions like cycling and gaming.
-twitter_title: 'Crafty Code: Software Meets Business'
+og_description: Join Jeff as he bridges the gap between software development and business
+  strategy within the European landscape. Dive into tech trends and management insights.
+og_title: Exploring Software Development in the EU with Crafty Code
+twitter_description: Explore Jeff's insights on software development, business strategy,
+  and tech trends in Europe. Follow his journey on Crafty Code.
+twitter_title: Discover EU Software Trends with Crafty Code
 ---
 
 +++

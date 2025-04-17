@@ -1,40 +1,67 @@
+---
+description: "Entdecke die europ\xE4ische Software- und Business-Landschaft mit Crafty\
+  \ Code. Unter der Leitung von Jeff beleuchtet dieser Blog Softwareentwicklung, Gesch\xE4\
+  ftsstrategien und aktuelle Branchentrends."
+keywords:
+- "Europ\xE4ische Softwareentwicklung"
+- "Gesch\xE4ftsstrategie"
+- Softwarebranche
+- KI in der Content-Erstellung
+- "F\xFChrung von Software-Teams"
+- Gaming-Branche
+- Radfahr-Interessen
+- Technologie und Business
+- KI-generierte Bilder
+- Blogs monetarisieren
+og_description: "Begleite Jeff, wenn er die L\xFCcke zwischen Softwareentwicklung\
+  \ und Gesch\xE4ftsstrategie in der europ\xE4ischen Landschaft schlie\xDFt. Tauche\
+  \ ein in Technologietrends und Management-Insights."
+og_title: Erkundung der Softwareentwicklung in der EU mit Crafty Code
+original_language: en
+translated: true
+translated_to: german
+twitter_description: "Entdecke Jeffs Einblicke in Softwareentwicklung, Gesch\xE4ftsstrategie\
+  \ und Technologietrends in Europa. Begleite seine Reise auf Crafty Code."
+twitter_title: Entdecke EU-Software-Trends mit Crafty Code
+---
+
 +++
 title = 'Über Crafty Code'
 date = 2024-07-09T21:12:53+01:00
 draft = false
 +++
 
-Bei Crafty Code ist das Ziel, die Welt der Softwareentwicklung mit ihrer Rolle in der realen Welt zu verbinden.
+Bei Crafty Code geht es darum, die Welt der Softwareentwicklung mit ihrem Platz in der realen Welt zu verbinden.
 
-Während es bereits eine Fülle von Inhalten gibt, die sich auf die USA konzentrieren, wird sich Crafty Code auf die Softwareentwicklungs- und Geschäftswelt in der EU konzentrieren.
+Während es bereits jede Menge Inhalte mit Fokus auf die USA gibt, richtet sich Crafty Code auf die europäische Softwareentwicklung und die Business-Landschaft.
 
 ## Mein Name ist Jeff
 
-Ich schreibe Code, leite und manage Software-Teams. Ich interessiere mich auch für das Geschäft und seine Rolle in unserer Welt.
+Ich schreibe Code, führe und manage Software-Teams. Außerdem interessiere ich mich für Business und dessen Rolle in unserer Welt.
 
 ### Hintergrund
 
-- MSc. Strategisches Management, UCD Smurfit Business School (2022-2024)
-- Diplom in Leadership, Dorset College (2020)
-- BSc. & MSc. in Software Engineering - Dublin City University (2005-2011)
-- Über 10 Jahre in der Softwarebranche
+- MSc. Strategy Management UCD Smurfit Business School (2022-2024)
+- Dip. Leadership Dorset College (2020)
+- BSc. & MSc. in Software Engineering – Dublin City University (2005-2011)
+- 10+ Jahre in der Softwarebranche
 
 ## Warum mache ich das?
 
-Ich habe ein Masterstudium im Bereich Strategisches Management absolviert. Während meines Studiums habe ich es genossen, über ein Thema zu forschen und zu schreiben.
+Ich habe noch einmal ein Masterstudium in Business Strategy Management begonnen. Während des Studiums hat es mir Spaß gemacht, zu recherchieren und über ein Thema zu schreiben.
 
-Ich habe viele Dinge gelernt, die ich wieder vergessen werde, wenn ich sie nicht regelmäßig anwende. Dieser Blog wird mir helfen, diese Fähigkeiten weiter zu üben und zu entwickeln.
+Ich habe beim Lernen viele Dinge mitgenommen, die ich schnell wieder vergesse, wenn ich sie nicht regelmäßig anwende. Dieser Blog hilft mir, diese Fähigkeiten weiter zu üben und auszubauen.
 
-### Inhalt & Themen
+### Inhalte & Themen
 
-Ich werde hier meinen Interessen folgen. Es wird eine Mischung aus Software und Technologie sein. Besonders interessiere ich mich für Radfahren, Gaming und Musik.
+Ich folge hier meinen Interessen. Es wird eine Mischung aus Software und Technologie. Besonders interessieren mich die Themen Radfahren, Gaming und Musik.
 
-Ich möchte über Führung und Management, Unternehmensstrategie und Softwareentwicklung schreiben. Ich werde mir ansehen, was in den Nachrichten passiert, und das als Grundlage für meine Artikel verwenden.
+Ich möchte über Leadership & Management, Business-Strategie und Softwareentwicklung schreiben. Außerdem schaue ich, was aktuell in den Nachrichten passiert und nehme das als Aufhänger für meine Beiträge.
 
-## Ein kleiner Nebenverdienst
+## Ein kleines Side Hustle
 
-Natürlich möchte ich damit etwas verdienen oder zumindest meine Kosten decken. Ich werde verschiedene Möglichkeiten ausprobieren, um dies zu erreichen. Das Ziel wäre, dies auf die unaufdringlichste Weise zu monetarisieren (keine Pop-ups).
+Natürlich möchte ich damit auch etwas verdienen oder zumindest meine Kosten decken. Ich werde verschiedene Wege ausprobieren, das umzusetzen. Ziel ist es, das Ganze so wenig aufdringlich wie möglich zu monetarisieren (keine Pop-ups).
 
-## Nutzung von KI
+## Einsatz von KI
 
-Ich werde KI nutzen, um mir beim Schreiben und Recherchieren zu helfen. Sie wird ein Werkzeug und ein Assistent sein, kein Generator von schriftlichen Inhalten. KI wird verwendet, um Bilder und Grafiken für die Seite zu erstellen.
+Ich werde KI nutzen, um beim Schreiben und Recherchieren zu unterstützen. Sie ist für mich ein Werkzeug und Assistent, kein Generator für fertige Texte. KI wird außerdem eingesetzt, um Bilder und Grafiken für die Seite zu erstellen.
