@@ -20,7 +20,7 @@ url = "https://www.youtube.com/@craftycodeie"
 
 [services]
   [services.googleAnalytics]
-    id = 'GTM-MPBP6D2T'
+    id = 'G-6H57MYXB4L'
 
 hasCJKLanguage = "false"
 defaultContentLanguage = "en"
