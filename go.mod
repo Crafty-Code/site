@@ -2,4 +2,6 @@ module github.com/Crafty-Code/site
 
 go 1.22.4
 
-require github.com/theNewDynamic/gohugo-theme-ananke v0.0.0-20240503174335-33fbda0e9d3e // indirect
+require (
+	github.com/theNewDynamic/gohugo-theme-ananke/v2 v2.12.0 // indirect
+)

@@ -2,7 +2,13 @@ baseURL = 'https://craftycode.org/'
 languageCode = 'en-GB'
 title = 'Crafty Code'
 content = 'content/'
-theme = ["github.com/theNewDynamic/gohugo-theme-ananke"]
+
+[module]
+[[module.imports]]
+disable = false
+ignoreConfig = false
+ignoreImports = false
+path = 'github.com/theNewDynamic/gohugo-theme-ananke/v2'
 
 [[params.ananke_socials]]
 name = "instagram"
