@@ -15,7 +15,14 @@ SUPPORTED_LANGUAGES = {
     'french': 'fr',
     'german': 'de',
     'italian': 'it',
-    'irish': 'ie'
+    'irish': 'ie',
+    'portugese': 'pt',
+    'dutch': 'nl',
+    'swedish': 'sv',
+    'danish': 'da',
+    'norwegian': 'no',
+    'finnish': 'fi',
+    'catalan': 'ca'
 }
 
 # Maximum number of parallel translations
