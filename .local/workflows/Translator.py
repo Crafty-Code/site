@@ -1,8 +1,10 @@
 import os
 import sys
 import re
-import yaml
+import tomli
+import tomli_w
 import time
+import json
 import concurrent.futures
 from openai import OpenAI
 from dotenv import load_dotenv
@@ -21,9 +23,9 @@ MAX_WORKERS = 3
 
 def extract_front_matter(md_content):
     """
-    Extract the front matter from the markdown content.
+    Extract the TOML front matter from the markdown content.
     """
-    match = re.match(r'---\n(.*?)\n---', md_content, re.DOTALL)
+    match = re.match(r'^\+\+\+\n(.*?)\n\+\+\+', md_content, re.DOTALL)
     if match:
         return match.group(1), md_content[match.end():].strip()
     return None, md_content
@@ -103,7 +105,7 @@ Content to translate:
             # Parse the JSON response
             try:
                 response_text = message.content[0].text.value
-                response_json = yaml.safe_load(response_text)
+                response_json = json.loads(response_text)
                 return response_json.get('translation', response_text)
             except Exception as e:
                 print(f"Error parsing JSON response: {e}")
@@ -120,17 +122,17 @@ def translate_front_matter(front_matter, target_language):
     
     try:
         # Parse the front matter
-        front_matter_dict = yaml.safe_load(front_matter)
+        front_matter_dict = tomli.loads(front_matter)
         
         # Fields to translate
         fields_to_translate = [
             'title',
             'description',
             'keywords',
+            'summary',
+            'tags',
             'og_title',
-            'og_description',
-            'twitter_title',
-            'twitter_description'
+            'og_description'
         ]
         
         # Translate each field
@@ -161,8 +163,8 @@ def translate_front_matter(front_matter, target_language):
         front_matter_dict['original_language'] = 'en'
         front_matter_dict['translated_to'] = target_language
         
-        # Convert back to YAML
-        return yaml.dump(front_matter_dict, default_flow_style=False)
+        # Convert back to TOML using tomli_w
+        return tomli_w.dumps(front_matter_dict)
     
     except Exception as e:
         print(f"Error translating front matter: {e}")
@@ -237,7 +239,7 @@ def translate_markdown_file(md_file, target_language):
     # Write the translated content to the new file
     try:
         with open(translated_file, 'w') as f:
-            f.write(f"---\n{translated_front_matter}---\n\n{translated_body}")
+            f.write(f"+++\n{translated_front_matter}+++\n\n{translated_body}")
     except Exception as e:
         raise IOError(f"Error writing translated file {translated_file}: {e}")
     
@@ -297,4 +299,4 @@ def main():
     print(f"Total languages attempted: {len(target_languages)}")
 
 if __name__ == '__main__':
-    main() 
+    main()
