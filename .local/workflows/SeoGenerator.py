@@ -1,7 +1,9 @@
 import os
 import sys
 import re
-import yaml
+import tomli
+import tomli_w
+import json
 from openai import OpenAI
 from dotenv import load_dotenv
 
@@ -9,7 +11,7 @@ def extract_front_matter(md_content):
     """
     Extract the front matter from the markdown content.
     """
-    match = re.match(r'---\n(.*?)\n---', md_content, re.DOTALL)
+    match = re.match(r'\+\+\+\n(.*?)\n\+\+\+', md_content, re.DOTALL)
     if match:
         return match.group(1), md_content[match.end():].strip()
     return None, md_content
@@ -18,15 +20,22 @@ def generate_seo(content):
     """
     Generate SEO metadata using the existing OpenAI agent.
     """
-    # Load environment variables
-    load_dotenv()
+    # Load environment variables from the script's directory
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    env_path = os.path.join(script_dir, '.env')
+    print(f"Loading environment from: {env_path}")
+    load_dotenv(env_path)
     
     # Get API key and assistant ID from environment
     api_key = os.getenv("OPENAI_API_KEY")
     assistant_id = os.getenv("SEO_ASSISTANT_ID")
     
-    if not api_key or not assistant_id:
-        raise ValueError("OPENAI_API_KEY and SEO_ASSISTANT_ID must be set in .env file")
+    if not api_key:
+        print("Error: OPENAI_API_KEY not found in environment")
+        raise ValueError("OPENAI_API_KEY must be set in .env file")
+    if not assistant_id:
+        print("Error: SEO_ASSISTANT_ID not found in environment")
+        raise ValueError("SEO_ASSISTANT_ID must be set in .env file")
     
     client = OpenAI(api_key=api_key)
     
@@ -39,10 +48,10 @@ def generate_seo(content):
         {
             "description": "SEO meta description",
             "keywords": ["keyword1", "keyword2", ...],
+            "tags": ["tag1", "tag2", ...],
+            "summary": "Use the first paragraph of the content as a summary",
             "og_title": "Open Graph title",
-            "og_description": "Open Graph description",
-            "twitter_title": "Twitter card title",
-            "twitter_description": "Twitter card description"
+            "og_description": "Open Graph description"
         }
 
         Content to analyze:
@@ -72,7 +81,19 @@ def generate_seo(content):
     # Get the assistant's response
     for message in messages.data:
         if message.role == "assistant":
-            return yaml.safe_load(message.content[0].text.value)
+            try:
+                # Parse the JSON response first
+                response_text = message.content[0].text.value
+                print(f"Received response: {response_text}")
+                json_data = json.loads(response_text)
+                return json_data
+            except json.JSONDecodeError as e:
+                print(f"Error parsing JSON response: {e}")
+                print(f"Raw response: {response_text}")
+                raise
+            except Exception as e:
+                print(f"Unexpected error: {e}")
+                raise
     
     raise Exception("No response from assistant found")
 
@@ -83,10 +104,10 @@ def update_front_matter(front_matter, new_data):
     if not front_matter:
         front_matter = {}
     else:
-        front_matter = yaml.safe_load(front_matter)
+        front_matter = tomli.loads(front_matter)
 
     front_matter.update(new_data)
-    return yaml.dump(front_matter, default_flow_style=False)
+    return tomli_w.dumps(front_matter)
 
 def insert_seo_metadata_to_file(md_file, seo_data):
     """
@@ -97,7 +118,7 @@ def insert_seo_metadata_to_file(md_file, seo_data):
 
     front_matter, body = extract_front_matter(md_content)
     updated_front_matter = update_front_matter(front_matter, seo_data)
-    new_md_content = f"---\n{updated_front_matter}---\n\n{body}"
+    new_md_content = f"+++\n{updated_front_matter}+++\n\n{body}"
 
     with open(md_file, 'w') as f:
         f.write(new_md_content)
@@ -107,8 +128,10 @@ def main(md_file):
         print(f"File {md_file} not found.")
         sys.exit(1)
 
-    # Load environment variables from .env file
-    load_dotenv()
+    # Load environment variables from the script's directory
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    env_path = os.path.join(script_dir, '.env')
+    load_dotenv(env_path)
     
     # Check for OpenAI API key
     if not os.getenv("OPENAI_API_KEY"):

@@ -1,26 +1,35 @@
----
-description: Discover the European software and business landscape with Crafty Code. Written by Jeff Finn, this blog explores software development, business strategy, and current industry trends.
-keywords:
-  - European software development
-  - business strategy
-  - software industry
-  - AI in content creation
-  - software teams leadership
-  - gaming industry
-  - cycling interests
-  - technology and business
-  - AI-generated images
-  - monetizing blogs
-og_description: Join Jeff as he bridges the gap between software development and business strategy within the European landscape. Dive into tech trends and management insights.
-og_title: Exploring Software Development in the EU with Crafty Code
-twitter_description: Explore Jeff's insights on software development, business strategy, and tech trends in Europe. Follow his journey on Crafty Code.
-twitter_title: Discover EU Software Trends with Crafty Code
----
-
 +++
-title = 'About Crafty Code'
-date = 2024-07-09T21:12:53+01:00
+title = "About Crafty Code"
+date = 2024-07-09 21:12:53+01:00
 draft = false
+description = "Crafty Code explores the intersection of software development and business in the EU, with a focus on sustainability, leadership, and real-world impact. Written by Jeff, an experienced software engineer and business strategist, the blog covers technology trends, business strategy, and practical insights for startups and entrepreneurs."
+keywords = [
+    "software development",
+    "EU business",
+    "business strategy",
+    "leadership",
+    "sustainability",
+    "technology trends",
+    "startups",
+    "entrepreneurship",
+    "JAMStack",
+    "AI in software",
+]
+tags = [
+    "software development",
+    "business strategy",
+    "leadership",
+    "sustainability",
+    "technology",
+    "EU startups",
+    "AI tools",
+    "JAMStack",
+    "entrepreneurship",
+    "software engineering",
+]
+summary = "At Crafty Code, the aim is to link the world of Software Development to its place in the real world.\n\nWhile there's already a wealth of content focused on the US, Crafty Code will focus on the EU's software development and business landscape."
+og_title = "Crafty Code: Exploring EU Software Development, Business, and Sustainability"
+og_description = "Dive into Crafty Code for insights on software development, business strategy, sustainability, and technology trends in the EU. Led by Jeff, an experienced software engineer and strategist, this blog connects tech with real-world impact."
 +++
 
 At Crafty Code, the aim is to link the world of Software Development to its place in the real world.
@@ -60,4 +69,4 @@ I will use AI to help me write and research. It will be a tool and an assistant,
 
 ### Design & Hosting
 
-Crafty Code is built on a [JAMStack](https://jamstack.org/) with [Hugo](https://gohugo.io/). It is deployed to GitHub Pages. All the source code can be found on the [Crafty Code GitHub](https://github.com/Crafty-Code). 
+Crafty Code is built on a [JAMStack](https://jamstack.org/) with [Hugo](https://gohugo.io/). It is deployed to GitHub Pages. All the source code can be found on the [Crafty Code GitHub](https://github.com/Crafty-Code).

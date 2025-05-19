@@ -22,6 +22,7 @@ The SEO Generator is a Python script that automatically generates SEO metadata f
    ```
    OPENAI_API_KEY=your_openai_api_key
    SEO_ASSISTANT_ID=your_assistant_id
+   TRANSLATOR_ASSISTANT_ID=your_translator_id
    ```
 
 ### Usage
