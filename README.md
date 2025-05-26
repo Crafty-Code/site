@@ -6,14 +6,14 @@ This repository contains the website for CraftyCode, built with Hugo. The site i
 
 The SEO Generator is a Python script that automatically generates SEO metadata for markdown blog posts using OpenAI's GPT-4. It analyzes your content and adds optimized metadata including titles, descriptions, and social media cards.
 
-### Prerequisitesr
+### Prerequisites
 
 - Python 3.8 or higher
 - OpenAI API key
 - OpenAI Assistant ID for SEO generation
 - Required Python packages:
   ```bash
-  pip install openai python-dotenv pyyaml
+  pip install openai python-dotenv tomli tomli_w
   ```
 
 ### Configuration
@@ -44,13 +44,13 @@ python SeoGenerator.py content/en/blog/time_management.md
 - Automatically generates SEO-optimized titles and descriptions
 - Adds Open Graph metadata for better social media sharing
 - Includes Twitter card metadata
-- Preserves existing front matter while adding SEO data
+- Preserves existing TOML front matter while adding SEO data
 - Supports all markdown files in the content directory
 
 ### Notes
 
 - The script requires an active OpenAI API key
-- Make sure your OpenAI Assistant is configured to return YAML-compatible JSON
+- The script uses TOML format for front matter
 - The script will preserve any existing front matter while adding SEO metadata
 - Run the script after creating new blog posts to ensure proper SEO optimization
 
@@ -65,7 +65,7 @@ The Content Translator is a Python script that automatically translates markdown
 - OpenAI Assistant ID for translation
 - Required Python packages:
   ```bash
-  pip install openai python-dotenv pyyaml
+  pip install openai python-dotenv tomli tomli_w
   ```
 
 ### Configuration
@@ -82,23 +82,41 @@ The Content Translator is a Python script that automatically translates markdown
 The script is located at `site/.local/workflows/Translator.py`. To use it:
 
 ```bash
-python Translator.py path/to/your/markdown/file.md target_language
+python Translator.py path/to/your/markdown/file.md
 ```
 
-For example, to translate the about page to Spanish:
-
-```bash
-python Translator.py content/en/about/_index.md spanish
-```
+The script will automatically translate the content to all supported languages in parallel.
 
 ### Supported Languages
 
-- English (en)
 - Spanish (es)
 - French (fr)
 - German (de)
 - Italian (it)
 - Irish (ie)
+- Portuguese (pt)
+- Dutch (nl)
+- Swedish (sv)
+- Danish (da)
+- Norwegian (no)
+- Finnish (fi)
+
+### Features
+
+- Parallel translation to all supported languages
+- Maintains source file structure across translations
+- Preserves markdown formatting and code blocks
+- Uses TOML for front matter
+- Translates front matter fields including title, description, keywords, etc.
+- Adds translation metadata to each file
+- Creates language-specific directories automatically
+
+### Notes
+
+- Files must be in a content/{lang}/ directory structure
+- Maximum of 6 parallel translations at once
+- Technical terms and code blocks are preserved in their original form
+- Translation metadata is added to track the source language and translation status
 
 ### Features
 
