@@ -25,7 +25,7 @@ SUPPORTED_LANGUAGES = {
 }
 
 # Maximum number of parallel translations
-MAX_WORKERS = 3
+MAX_WORKERS = 6
 
 def extract_front_matter(md_content):
     """
@@ -76,30 +76,17 @@ Content to translate:
         assistant_id=translator_assistant_id
     )
     
-    # Wait for the run to complete with progress indicator
-    print(f"Translation to {target_language} in progress...", end="", flush=True)
-    dots = 0
+    # Wait for the run to complete
+    print(f"Translating to {target_language}...")
     while True:
         run_status = client.beta.threads.runs.retrieve(
             thread_id=thread.id,
             run_id=run.id
         )
-        
-        # Show progress indicator
-        if dots < 3:
-            print(".", end="", flush=True)
-            dots += 1
-        else:
-            print("\b\b\b...", end="", flush=True)
-            dots = 0
-        
         if run_status.status == 'completed':
-            print("\nTranslation completed!")
             break
         elif run_status.status in ['failed', 'cancelled', 'expired']:
-            print("\nTranslation failed!")
             raise Exception(f"Run failed with status: {run_status.status}")
-        
         time.sleep(1)  # Wait a second before checking again
     
     # Get the messages after the run is complete
