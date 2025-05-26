@@ -22,7 +22,6 @@ SUPPORTED_LANGUAGES = {
     'danish': 'da',
     'norwegian': 'no',
     'finnish': 'fi',
-    'catalan': 'ca'
 }
 
 # Maximum number of parallel translations
@@ -223,22 +222,14 @@ def translate_markdown_file(md_file, target_language):
         print(f"Translation error for {target_language}: {e}")
         return None
     
-    # Get the relative path components
+    # Get the file path and replace the language code
     file_path = os.path.normpath(md_file)
-    path_parts = file_path.split(os.sep)
+    dirname = os.path.dirname(file_path)
+    basename = os.path.basename(file_path)
     
-    # Find the 'content' directory in the path
-    try:
-        content_index = path_parts.index('content')
-    except ValueError:
-        raise ValueError("File must be in a subdirectory of 'content'")
-    
-    # Remove 'content' and any language code directory (like 'en') from the path
-    relative_path = path_parts[content_index + 2:]  # Skip 'content' and language directory
-    
-    # Create the new path with the target language code
-    new_path_parts = ['content', lang_code] + relative_path
-    translated_file = os.path.join(*new_path_parts)
+    # Replace the language code in the path
+    translated_file = re.sub(r'/content/[a-z]{2}/', f'/content/{lang_code}/', dirname)
+    translated_file = os.path.join(translated_file, basename)
     
     # Create the directory structure if it doesn't exist
     os.makedirs(os.path.dirname(translated_file), exist_ok=True)
