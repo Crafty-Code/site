@@ -1,0 +1,53 @@
+{{ define "main" }}
+  <article class="blog-post">
+    <header>
+      <h1>{{ .Title }}</h1>
+      <div class="blog-post-meta">
+        {{ if .Date }}
+        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+          {{ .Date.Format .Site.Params.date_format }}
+        </time>
+        {{ end }}
+
+        {{ if .Params.categories }}
+        <div class="categories">
+          {{ range .Params.categories }}
+            <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+          {{ end }}
+        </div>
+        {{ end }}
+
+        {{ if .Params.tags }}
+        <div class="tags">
+          {{ range .Params.tags }}
+            <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a>
+          {{ end }}
+        </div>
+        {{ end }}
+
+        {{ if .Site.Params.show_reading_time }}
+        <span class="reading-time">
+          {{ i18n "readingTime" .ReadingTime }}
+        </span>
+        {{ end }}
+      </div>
+    </header>
+
+    <div class="blog-post-content">
+      {{ .Content }}
+    </div>
+
+    <footer class="blog-post-footer">
+      {{ partial "buymeacoffee.html" . }}
+    </footer>
+  </article>
+
+  <nav class="blog-post-nav">
+    {{ with .PrevInSection }}
+      <a class="prev" href="{{ .Permalink }}">← {{ .Title }}</a>
+    {{ end }}
+    {{ with .NextInSection }}
+      <a class="next" href="{{ .Permalink }}">{{ .Title }} →</a>
+    {{ end }}
+  </nav>
+{{ end }}

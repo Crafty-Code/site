@@ -1,3 +1,7 @@
 date_format = "2 January 2006"
 show_reading_time = true
 showLanguageSwitcher = true
+
+[buymeacoffee]
+username = "craftycode" # Replace with your Buy Me a Coffee username
+enabled = true
