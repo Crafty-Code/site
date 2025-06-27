@@ -1,0 +1,8 @@
+- id: readingTime
+  translation: "Am léitheoireachta: {{ .Count }} nóim"
+- id: author
+  translation: "Údar"
+- id: keywords
+  translation: "Eochairfhocail"
+- id: tags
+  translation: "Clibeanna"

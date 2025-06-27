@@ -1,0 +1,8 @@
+- id: readingTime
+  translation: "Lukuaika: {{ .Count }} min"
+- id: author
+  translation: "Kirjoittaja"
+- id: keywords
+  translation: "Avainsanat"
+- id: tags
+  translation: "Tunnisteet"

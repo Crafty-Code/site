@@ -1,0 +1,8 @@
+- id: readingTime
+  translation: "Lästid: {{ .Count }} min"
+- id: author
+  translation: "Författare"
+- id: keywords
+  translation: "Nyckelord"
+- id: tags
+  translation: "Taggar"
