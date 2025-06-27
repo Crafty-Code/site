@@ -1,5 +1,10 @@
+{{ $instagram := .Site.Params.social.instagram }}
+{{ $github := .Site.Params.social.github }}
+{{ $linkedin := .Site.Params.social.linkedin }}
+{{ $youtube := .Site.Params.social.youtube }}
 <ul class="social-links">
-  <li><a href="https://twitter.com/yourhandle">Twitter</a></li>
-  <li><a href="https://github.com/yourhandle">GitHub</a></li>
-  <li><a href="https://linkedin.com/in/yourhandle">LinkedIn</a></li>
+  {{ if $instagram }}<li><a href="https://instagram.com/{{ $instagram }}" title="Instagram"><i class="fab fa-instagram"></i></a></li>{{ end }}
+  {{ if $github }}<li><a href="https://github.com/{{ $github }}" title="GitHub"><i class="fab fa-github"></i></a></li>{{ end }}
+  {{ if $linkedin }}<li><a href="https://linkedin.com/in/{{ $linkedin }}" title="LinkedIn"><i class="fab fa-linkedin"></i></a></li>{{ end }}
+  {{ if $youtube }}<li><a href="https://youtube.com/@{{ $youtube }}" title="YouTube"><i class="fab fa-youtube"></i></a></li>{{ end }}
 </ul>

@@ -16,3 +16,9 @@ theme = 'craftytheme'
 hasCJKLanguage = "false"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = "false"
+
+[params.social]
+instagram = "crafty.code"
+github = "Crafty-Code"
+linkedin = "craftycode"
+youtube = "craftycodeie"
