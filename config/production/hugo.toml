@@ -11,9 +11,9 @@ url = "https://www.instagram.com/crafty.code/"
 [[params.ananke_socials]]
 name = "github"
 url = "https://github.com/Crafty-Code"
-[[params.ananke_socials]]
-name = "youtube"
-url = "https://www.youtube.com/@craftycodeie"
+# [[params.ananke_socials]]
+# name = "youtube"
+# url = "https://www.youtube.com/@craftycodeie"
 # [[params.ananke_socials]]
 # name = "patreon"
 # url = "http://www.patreon.com/craftycode"
