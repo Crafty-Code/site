@@ -40,3 +40,45 @@
     languageDirection = 'ltr'
     languageName = 'Italiano'
     weight = 6
+[nl]
+    contentDir = 'content/nl'
+    disabled = false
+    languageCode = 'nl-NL'
+    languageDirection = 'ltr'
+    languageName = 'Nederlands'
+    weight = 7
+[no]
+    contentDir = 'content/no'
+    disabled = false
+    languageCode = 'no-NO'
+    languageDirection = 'ltr'
+    languageName = 'Norsk'
+    weight = 8
+[pt]
+    contentDir = 'content/pt'
+    disabled = false
+    languageCode = 'pt-PT'
+    languageDirection = 'ltr'
+    languageName = 'Português'
+    weight = 9
+[sv]
+    contentDir = 'content/sv'
+    disabled = false
+    languageCode = 'sv-SE'
+    languageDirection = 'ltr'
+    languageName = 'Svenska'
+    weight = 10
+[da]
+    contentDir = 'content/da'
+    disabled = false
+    languageCode = 'da-DK'
+    languageDirection = 'ltr'
+    languageName = 'Dansk'
+    weight = 11
+[fi]
+    contentDir = 'content/fi'
+    disabled = false
+    languageCode = 'fi-FI'
+    languageDirection = 'ltr'
+    languageName = 'Suomi'
+    weight = 12
