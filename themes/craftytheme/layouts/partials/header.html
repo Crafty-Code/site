@@ -1,6 +1,22 @@
-<header style="position: relative; min-height: 60px;">
-  <div style="position: absolute; top: 10px; right: 20px; z-index: 10;">
+<header>
+  <div class="language-selector-container">
     {{ partial "language-switcher.html" . }}
   </div>
-  <!-- ...existing code for logo, nav, etc. can go here... -->
+  <div class="header-main">
+    <img src="/images/gohugo-default-sample-hero-image.jpg" alt="Site Logo" class="site-logo" />
+    <div class="site-title-banner">
+      <h1 class="site-title">{{ .Site.Title }}</h1>
+      <div class="site-banner">Welcome to {{ .Site.Title }}!</div>
+    </div>
+  </div>
+  <nav class="site-nav">
+    <ul>
+      {{ $currentLang := .Site.Language.Lang }}
+      {{ $menu := index .Site.Menus "main" }}
+      {{ range $menu }}
+        <li><a href="{{ .PageRef | relLangURL }}">{{ .Name }}</a></li>
+      {{ end }}
+    </ul>
+  </nav>
+  <!-- ...existing code for nav, etc. can go here... -->
 </header>
