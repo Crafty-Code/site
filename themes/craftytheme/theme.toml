@@ -1,0 +1,4 @@
+name = "craftytheme"
+description = "A minimal Hugo theme with localization, social links, reading time, and support for blog posts and book reviews."
+author = "Jeff Finn"
+license = "MIT"

@@ -1,0 +1,14 @@
+{{ define "main" }}
+<article>
+  <h2>{{ .Title }}</h2>
+  <p>{{ i18n "author" }}: {{ .Params.author }}</p>
+  {{ partial "reading-time.html" . }}
+  <div>{{ .Content }}</div>
+  {{ if .Params.keywords }}
+    <p>{{ i18n "keywords" }}: {{ delimit .Params.keywords ", " }}</p>
+  {{ end }}
+  {{ if .Params.tags }}
+    <p>{{ i18n "tags" }}: {{ delimit .Params.tags ", " }}</p>
+  {{ end }}
+</article>
+{{ end }}

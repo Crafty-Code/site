@@ -2,27 +2,17 @@ baseURL = 'https://craftycode.org/'
 languageCode = 'en-GB'
 title = 'Crafty Code'
 content = 'content/'
+theme = 'craftytheme'
 
 [module]
-[[module.imports]]
-disable = false
-ignoreConfig = false
-ignoreImports = false
-path = 'github.com/theNewDynamic/gohugo-theme-ananke/v2'
+# Remove or comment out the Ananke theme import if you no longer want to use it
+# [[module.imports]]
+# disable = false
+# ignoreConfig = false
+# ignoreImports = false
+# path = 'github.com/theNewDynamic/gohugo-theme-ananke/v2'
 
-[[params.ananke_socials]]
-name = "instagram"
-url = "https://www.instagram.com/crafty.code/"
-[[params.ananke_socials]]
-name = "github"
-url = "https://github.com/Crafty-Code"
-[[params.ananke_socials]]
-name = "youtube"
-url = "https://www.youtube.com/@craftycodeie"
-# [[params.ananke_socials]]
-# name = "patreon"
-# url = "http://www.patreon.com/craftycode"
-
+[params]
 hasCJKLanguage = "false"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = "false"
