@@ -1,7 +1,17 @@
 {{ define "main" }}
-<ul>
-  {{ range .Pages }}
-    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-  {{ end }}
-</ul>
+  {{ $pages := where .Site.RegularPages "Section" .Section }}
+  {{ $filtered := where $pages "File.BaseFileName" "ne" "_index" }}
+  {{ $recent := first 10 (sort $filtered "Date" "desc") }}
+  <ul class="timeline">
+    {{ range $recent }}
+      <li>
+        <article>
+          <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+          <p>{{ .Summary }}</p>
+          <p><a href="{{ .RelPermalink }}">Read more…</a></p>
+        </article>
+      </li>
+    {{ end }}
+  </ul>
 {{ end }}
