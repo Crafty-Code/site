@@ -8,6 +8,10 @@
       <h1 class="site-title">{{ .Site.Title }}</h1>
       <div class="site-banner">Welcome to {{ .Site.Title }}!</div>
     </div>
+    <div class="header-socials">
+      {{ partial "social-links.html" . }}
+      {{ partial "buymeacoffee.html" . }}
+    </div>
   </div>
   <nav class="site-nav">
     <ul>

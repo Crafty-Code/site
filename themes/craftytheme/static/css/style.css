@@ -5,18 +5,31 @@ header {
   min-height: 60px;
 }
 nav a { margin-right: 1rem; }
-.social-links { list-style: none; padding: 0; display: flex; gap: 1rem; }
-.language-selector-container {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  z-index: 10;
-}
 .header-main {
   display: flex;
   align-items: center;
   gap: 1.5rem;
   margin-top: 2.5rem;
+  justify-content: space-between;
+}
+.header-socials {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+.social-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
+.language-selector-container {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  z-index: 10;
 }
 .site-logo {
   width: 64px;
@@ -62,4 +75,11 @@ nav a { margin-right: 1rem; }
 }
 .site-nav a:hover {
   color: #0077cc;
+}
+.buymeacoffee-btn {
+  margin-top: 0.2rem;
+}
+.buymeacoffee-btn img {
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
