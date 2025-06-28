@@ -4,6 +4,7 @@
     {{ $pages = where .Site.RegularPages "Section" .Section }}
   {{ end }}
   {{ $filtered := where $pages "File.BaseFileName" "ne" "_index" }}
+  {{ $filtered = where $filtered "Type" "ne" "page" }}
   {{ $recent := first 10 (sort $filtered "Date" "desc") }}
   <div class="post-list">
     {{ range $recent }}

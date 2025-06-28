@@ -2,6 +2,7 @@
 title = "About Crafty Code"
 date = 2024-07-09T21:12:53+01:00
 draft = false
+type = "page"
 description = "Crafty Code explores the intersection of software development and business in the EU, with a focus on sustainability, leadership, and real-world impact. Written by Jeff, an experienced software engineer and business strategist, the blog covers technology trends, business strategy, and practical insights for startups and entrepreneurs."
 keywords = [
     "software development",
