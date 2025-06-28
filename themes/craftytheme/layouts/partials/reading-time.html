@@ -1,4 +1,4 @@
 {{ $words := .WordCount }}
 {{ $minutes := div $words 200 }}
 {{ if lt $minutes 1 }}{{ $minutes = 1 }}{{ end }}
-<p>{{ i18n "readingTime" (dict "Count" $minutes) }}</p>
+<p><span class="font-semibold text-blue-700">{{ i18n "readingTimeLabel" | default "Reading time" }}:</span> {{ i18n "readingTime" (dict "Count" $minutes) }}</p>

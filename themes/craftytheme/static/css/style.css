@@ -1,142 +1,148 @@
-body { font-family: sans-serif; margin: 0; padding: 0; }
-header, footer { background: #f5f5f5; padding: 1rem; }
-header {
-  position: relative;
-  min-height: 60px;
-}
-nav a { margin-right: 1rem; }
-.header-main {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin-top: 2.5rem;
-  justify-content: space-between;
-}
-.header-socials {
-  margin-left: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.5rem;
-}
-.social-links {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 1rem;
-}
-.language-selector-container {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  z-index: 10;
-}
-.site-logo {
-  width: 64px;
-  height: 64px;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-.site-title-banner {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.site-title {
-  font-size: 2rem;
-  margin: 0 0 0.25rem 0;
-  color: #222;
-}
-.site-banner {
-  font-size: 1.1rem;
-  color: #666;
-  background: #e0e7ef;
-  padding: 0.5rem 1.2rem;
-  border-radius: 6px;
-  margin-top: 0.2rem;
-}
-.site-nav {
-  margin-top: 1.5rem;
-}
-.site-nav ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 2rem;
-  margin: 0;
-}
-.site-nav a {
-  text-decoration: none;
-  color: #2a2a2a;
-  font-weight: 500;
-  font-size: 1.1rem;
-  transition: color 0.2s;
-}
-.site-nav a:hover {
-  color: #0077cc;
-}
-.buymeacoffee-btn {
-  margin-top: 0.2rem;
-}
-.buymeacoffee-btn img {
-  border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
+/* Tailwind CSS is now used for all styling. Custom CSS below is for any overrides or legacy support. */
+
+/* You can remove or comment out most of the old CSS below as you migrate templates to Tailwind classes. */
+
+/* Example: If you need to keep a custom style, add it here. Otherwise, use Tailwind utility classes in your HTML. */
+
+/* body { font-family: sans-serif; margin: 0; padding: 0; } */
+/* header, footer { background: #f5f5f5; padding: 1rem; } */
+/* header { */
+/*   position: relative; */
+/*   min-height: 60px; */
+/* } */
+/* nav a { margin-right: 1rem; } */
+/* .header-main { */
+/*   display: flex; */
+/*   align-items: center; */
+/*   gap: 1.5rem; */
+/*   margin-top: 2.5rem; */
+/*   justify-content: space-between; */
+/* } */
+/* .header-socials { */
+/*   margin-left: auto; */
+/*   display: flex; */
+/*   flex-direction: column; */
+/*   align-items: flex-end; */
+/*   gap: 0.5rem; */
+/* } */
+/* .social-links { */
+/*   list-style: none; */
+/*   padding: 0; */
+/*   display: flex; */
+/*   gap: 1rem; */
+/* } */
+/* .language-selector-container { */
+/*   position: absolute; */
+/*   top: 10px; */
+/*   right: 20px; */
+/*   z-index: 10; */
+/* } */
+/* .site-logo { */
+/*   width: 64px; */
+/*   height: 64px; */
+/*   object-fit: cover; */
+/*   border-radius: 8px; */
+/*   box-shadow: 0 2px 8px rgba(0,0,0,0.08); */
+/* } */
+/* .site-title-banner { */
+/*   display: flex; */
+/*   flex-direction: column; */
+/*   align-items: flex-start; */
+/* } */
+/* .site-title { */
+/*   font-size: 2rem; */
+/*   margin: 0 0 0.25rem 0; */
+/*   color: #222; */
+/* } */
+/* .site-banner { */
+/*   font-size: 1.1rem; */
+/*   color: #666; */
+/*   background: #e0e7ef; */
+/*   padding: 0.5rem 1.2rem; */
+/*   border-radius: 6px; */
+/*   margin-top: 0.2rem; */
+/* } */
+/* .site-nav { */
+/*   margin-top: 1.5rem; */
+/* } */
+/* .site-nav ul { */
+/*   list-style: none; */
+/*   padding: 0; */
+/*   display: flex; */
+/*   gap: 2rem; */
+/*   margin: 0; */
+/* } */
+/* .site-nav a { */
+/*   text-decoration: none; */
+/*   color: #2a2a2a; */
+/*   font-weight: 500; */
+/*   font-size: 1.1rem; */
+/*   transition: color 0.2s; */
+/* } */
+/* .site-nav a:hover { */
+/*   color: #0077cc; */
+/* } */
+/* .buymeacoffee-btn { */
+/*   margin-top: 0.2rem; */
+/* } */
+/* .buymeacoffee-btn img { */
+/*   border-radius: 6px; */
+/*   box-shadow: 0 2px 8px rgba(0,0,0,0.08); */
+/* } */
 
 /* Post list and box styles */
-.post-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: flex-start;
-  margin: 2rem 0;
-  padding: 0;
-}
+/* .post-list { */
+/*   display: flex; */
+/*   flex-wrap: wrap; */
+/*   gap: 2rem; */
+/*   justify-content: flex-start; */
+/*   margin: 2rem 0; */
+/*   padding: 0; */
+/* } */
 
-.post-box {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-  padding: 1.5rem;
-  width: 320px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  transition: box-shadow 0.2s;
-  position: relative;
-}
-.post-box:hover {
-  box-shadow: 0 4px 24px rgba(0,0,0,0.13);
-}
-.post-image {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  background: #f5f5f5;
-}
-.post-title {
-  font-size: 1.3rem;
-  margin: 0 0 0.5rem 0;
-  color: #222;
-}
-.post-meta {
-  font-size: 0.95rem;
-  color: #888;
-  margin-bottom: 0.7rem;
-}
-.post-summary {
-  font-size: 1.05rem;
-  color: #444;
-  margin-bottom: 1rem;
-}
-.post-box a {
-  color: #0077cc;
-  text-decoration: none;
-  font-weight: 500;
-}
-.post-box a:hover {
-  text-decoration: underline;
-}
+/* .post-box { */
+/*   background: #fff; */
+/*   border-radius: 12px; */
+/*   box-shadow: 0 2px 12px rgba(0,0,0,0.07); */
+/*   padding: 1.5rem; */
+/*   width: 320px; */
+/*   display: flex; */
+/*   flex-direction: column; */
+/*   align-items: flex-start; */
+/*   transition: box-shadow 0.2s; */
+/*   position: relative; */
+/* } */
+/* .post-box:hover { */
+/*   box-shadow: 0 4px 24px rgba(0,0,0,0.13); */
+/* } */
+/* .post-image { */
+/*   width: 100%; */
+/*   height: 180px; */
+/*   object-fit: cover; */
+/*   border-radius: 8px; */
+/*   margin-bottom: 1rem; */
+/*   background: #f5f5f5; */
+/* } */
+/* .post-title { */
+/*   font-size: 1.3rem; */
+/*   margin: 0 0 0.5rem 0; */
+/*   color: #222; */
+/* } */
+/* .post-meta { */
+/*   font-size: 0.95rem; */
+/*   color: #888; */
+/*   margin-bottom: 0.7rem; */
+/* } */
+/* .post-summary { */
+/*   font-size: 1.05rem; */
+/*   color: #444; */
+/*   margin-bottom: 1rem; */
+/* } */
+/* .post-box a { */
+/*   color: #0077cc; */
+/*   text-decoration: none; */
+/*   font-weight: 500; */
+/* } */
+/* .post-box a:hover { */
+/*   text-decoration: underline; */
+/* } */

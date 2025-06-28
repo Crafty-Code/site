@@ -4,13 +4,23 @@ title = 'Crafty Code'
 content = 'content/'
 theme = 'craftytheme'
 
+[build]
+  [build.buildStats]
+    enable = true
+  [[build.cachebusters]]
+    source = 'assets/notwatching/hugo_stats\.json'
+    target = 'css'
+  [[build.cachebusters]]
+    source = '(postcss|tailwind)\.config\.js'
+    target = 'css'
 [module]
-# Remove or comment out the Ananke theme import if you no longer want to use it
-# [[module.imports]]
-# disable = false
-# ignoreConfig = false
-# ignoreImports = false
-# path = 'github.com/theNewDynamic/gohugo-theme-ananke/v2'
+  [[module.mounts]]
+    source = 'assets'
+    target = 'assets'
+  [[module.mounts]]
+    disableWatch = true
+    source = 'hugo_stats.json'
+    target = 'assets/notwatching/hugo_stats.json'
 
 [params]
 hasCJKLanguage = "false"

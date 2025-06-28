@@ -3,14 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <title>{{ block "title" . }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <script>
+    // Set initial theme based on localStorage or system preference
+    (function() {
+      try {
+        if (
+          localStorage.theme === 'dark' ||
+          (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        ) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  {{ with (templates.Defer (dict "key" "global")) }}
+    {{ partial "css.html" . }}
+  {{ end }}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  {{ partial "header.html" . }}
-  <main>
-    {{ block "main" . }}{{ end }}
-  </main>
-  {{ partial "footer.html" . }}
+  <div class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 min-h-screen">
+    {{ partial "header.html" . }}
+    <main class="main-content">
+      {{ block "main" . }}{{ end }}
+    </main>
+    {{ partial "footer.html" . }}
+  </div>
 </body>
 </html>
