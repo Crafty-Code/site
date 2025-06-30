@@ -10,13 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   updateIcon();
   toggle.addEventListener('click', function() {
-    if (document.documentElement.classList.contains('dark')) {
-      localStorage.setItem('theme', 'light');
-      document.documentElement.classList.remove('dark');
-    } else {
-      localStorage.setItem('theme', 'dark');
-      document.documentElement.classList.add('dark');
-    }
+    document.documentElement.classList.toggle('dark');
+    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
     updateIcon();
   });
 });
