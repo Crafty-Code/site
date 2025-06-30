@@ -1,0 +1,6 @@
+@layer base {
+  :root { color-scheme: light dark; }
+  .dark { color-scheme: dark; }
+}
+@import "tailwindcss";
+@source "hugo_stats.json";

@@ -1,12 +1,1 @@
-{
-  "dependencies": {
-    "@tailwindcss/typography": "^0.5.16"
-  },
-  "devDependencies": {
-    "@tailwindcss/cli": "^4.1.11",
-    "tailwindcss": "^4.1.11"
-  },
-  "scripts": {
-    "build": "tailwindcss -i ./assets/css/main.css -o ./public/css/main.css --minify"
-  }
-}
+{}
