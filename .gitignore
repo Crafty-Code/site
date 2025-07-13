@@ -3,3 +3,7 @@ resources/
 .local/workflows/.env
 .hugo_build.lock
 node_modules/
+
+# Tailwind CSS CLI binary
+tailwindcss-linux-x64
+tailwindcss

@@ -1,134 +1,185 @@
 # CraftyCode Website
 
-This repository contains the website for CraftyCode, built with Hugo. The site is available at [https://craftycode.org/](https://craftycode.org/).
+This repository contains the website for CraftyCode, built with Hugo and styled with Tailwind CSS. The site is available at [https://craftycode.org/](https://craftycode.org/).
 
-## SEO Generator
-
-The SEO Generator is a Python script that automatically generates SEO metadata for markdown blog posts using OpenAI's GPT-4. It analyzes your content and adds optimized metadata including titles, descriptions, and social media cards.
+## 🚀 Quick Start
 
 ### Prerequisites
 
+- [Hugo Extended](https://gohugo.io/installation/) (v0.140.0 or higher)
+- [Git](https://git-scm.com/downloads)
+- [Node.js](https://nodejs.org/) (optional, for advanced features)
+
+### Development
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/yourusername/craftycode-site.git
+   cd craftycode-site
+   ```
+
+2. **Start development server:**
+
+   ```bash
+   make dev
+   ```
+
+   This starts both Tailwind CSS watching and Hugo server with live reload.
+
+3. **Alternative development commands:**
+
+   ```bash
+   # Using Make
+   make css-watch  # Watch for CSS changes
+   make server     # Start Hugo server only
+   
+   # Using npm (if you have Node.js)
+   npm run dev     # Start development mode
+   npm run start   # Start Hugo server only
+   ```
+
+4. **Open your browser:** <http://localhost:1313>
+
+### Building for Production
+
+```bash
+# Build everything for production
+make build
+
+# Or step by step
+make css-build  # Build Tailwind CSS
+hugo --gc --minify  # Build Hugo site
+```
+
+## 🎨 Styling with Tailwind CSS
+
+This site uses Tailwind CSS v4 for styling. The build process is fully automated:
+
+### During Development
+
+- Tailwind CSS automatically rebuilds when you modify templates
+- Changes are reflected instantly with Hugo's live reload
+
+### During Deployment
+
+- GitHub Actions automatically builds Tailwind CSS
+- CSS is minified for production
+
+### Manual CSS Building
+
+```bash
+# Build CSS once
+make css-build
+
+# Watch for changes
+make css-watch
+
+# Using the standalone CLI directly
+./tailwindcss-linux-x64 -i ./themes/craftytheme/assets/css/main.css -o ./themes/craftytheme/static/css/main.css --minify
+```
+
+## 📁 Project Structure
+
+```text
+├── archetypes/          # Content templates
+├── assets/              # Raw assets (images, css source)
+├── config/              # Hugo configuration
+├── content/             # Markdown content files
+├── layouts/             # Hugo layout templates
+├── static/              # Static files
+├── themes/craftytheme/  # Custom Hugo theme
+│   ├── assets/css/      # Tailwind CSS source
+│   ├── layouts/         # Theme templates
+│   └── static/css/      # Generated CSS output
+├── .github/workflows/   # GitHub Actions
+├── tailwindcss-linux-x64 # Tailwind CSS CLI binary
+├── tailwind.config.js   # Tailwind configuration
+├── Makefile            # Build commands
+└── package.json        # npm scripts
+```
+
+## 🛠️ Available Commands
+
+Run `make help` to see all available commands:
+
+```bash
+make help          # Show help
+make dev           # Start development mode
+make build         # Build for production
+make css-build     # Build Tailwind CSS
+make css-watch     # Watch CSS changes
+make server        # Start Hugo server
+make clean         # Clean build artifacts
+make install-deps  # Install Tailwind CSS CLI
+```
+
+## 🤖 Content Automation Tools
+
+## 🤖 Content Automation Tools
+
+### SEO Generator
+
+The SEO Generator automatically generates SEO metadata for markdown blog posts using OpenAI's GPT-4.
+
+#### Setup Requirements
+
 - Python 3.8 or higher
-- OpenAI API key
-- OpenAI Assistant ID for SEO generation
-- Required Python packages:
+- OpenAI API key and Assistant ID
+- Required packages:
+
   ```bash
   pip install openai python-dotenv tomli tomli_w
   ```
 
-### Configuration
+#### Configuration
 
-1. Create a `.env` file in the `site/.local/workflows` directory with:
-   ```
-   OPENAI_API_KEY=your_openai_api_key
-   SEO_ASSISTANT_ID=your_assistant_id
-   TRANSLATOR_ASSISTANT_ID=your_translator_id
-   ```
+Create a `.env` file in `site/.local/workflows` directory:
 
-### Usage
-
-The script is located at `site/.local/workflows/SeoGenerator.py`. To use it:
-
-```bash
-python SeoGenerator.py path/to/your/markdown/file.md
+```env
+OPENAI_API_KEY=your_openai_api_key
+SEO_ASSISTANT_ID=your_assistant_id
+TRANSLATOR_ASSISTANT_ID=your_translator_id
 ```
 
-For example, to generate SEO metadata for the time management blog post:
+#### Using the SEO Generator
 
 ```bash
-python SeoGenerator.py content/en/blog/time_management.md
+python .local/workflows/SeoGenerator.py content/en/blog/your-post.md
 ```
 
-### Features
+**What it does:**
 
-- Automatically generates SEO-optimized titles and descriptions
-- Adds Open Graph metadata for better social media sharing
+- Generates SEO-optimized titles and descriptions
+- Adds Open Graph metadata for social media
 - Includes Twitter card metadata
-- Preserves existing TOML front matter while adding SEO data
-- Supports all markdown files in the content directory
+- Preserves existing TOML front matter
 
-### Notes
+### Content Translator
 
-- The script requires an active OpenAI API key
-- The script uses TOML format for front matter
-- The script will preserve any existing front matter while adding SEO metadata
-- Run the script after creating new blog posts to ensure proper SEO optimization
+Automatically translates markdown content to multiple languages while preserving formatting.
 
-## Content Translator
-
-The Content Translator is a Python script that automatically translates markdown content to different languages using an existing OpenAI agent. It maintains the original formatting and structure while providing accurate translations.
-
-### Prerequisites
-
-- Python 3.8 or higher
-- OpenAI API key
-- OpenAI Assistant ID for translation
-- Required Python packages:
-  ```bash
-  pip install openai python-dotenv tomli tomli_w
-  ```
-
-### Configuration
-
-1. Update your `.env` file in the `site/.local/workflows` directory to include:
-   ```
-   OPENAI_API_KEY=your_openai_api_key
-   SEO_ASSISTANT_ID=your_seo_assistant_id
-   TRANSLATOR_ASSISTANT_ID=your_translator_assistant_id
-   ```
-
-### Usage
-
-The script is located at `site/.local/workflows/Translator.py`. To use it:
+#### Using the Translator
 
 ```bash
-python Translator.py path/to/your/markdown/file.md
+python .local/workflows/Translator.py content/en/blog/your-post.md
 ```
 
-The script will automatically translate the content to all supported languages in parallel.
+**Supported Languages:**
 
-### Supported Languages
+Spanish, French, German, Italian, Irish, Portuguese, Dutch, Swedish, Danish, Norwegian, Finnish
 
-- Spanish (es)
-- French (fr)
-- German (de)
-- Italian (it)
-- Irish (ie)
-- Portuguese (pt)
-- Dutch (nl)
-- Swedish (sv)
-- Danish (da)
-- Norwegian (no)
-- Finnish (fi)
-
-### Features
+**Translation Features:**
 
 - Parallel translation to all supported languages
-- Maintains source file structure across translations
-- Preserves markdown formatting and code blocks
-- Uses TOML for front matter
-- Translates front matter fields including title, description, keywords, etc.
-- Adds translation metadata to each file
+- Maintains markdown formatting and code blocks
+- Preserves technical terms
 - Creates language-specific directories automatically
+- Adds translation metadata
 
-### Notes
+#### Automation Notes
 
-- Files must be in a content/{lang}/ directory structure
-- Maximum of 6 parallel translations at once
-- Technical terms and code blocks are preserved in their original form
-- Translation metadata is added to track the source language and translation status
-
-### Features
-
-- Translates content while preserving markdown formatting
-- Maintains the original structure of the document
-- Adds translation metadata to the front matter
-- Creates translated files in the appropriate language directory
-- Preserves technical terms that shouldn't be translated
-
-### Notes
-
-- The script requires an active OpenAI API key and a configured translator assistant
-- Translations are generated using your custom OpenAI assistant
-- The script will create the necessary language directories if they don't exist
-- Run the script after creating new content to ensure proper translation
+- Both tools require active OpenAI API keys
+- Scripts use TOML format for front matter
+- Run after creating new content for SEO and translation
+- Files are created in appropriate language directories
