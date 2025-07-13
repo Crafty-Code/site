@@ -1,14 +1,73 @@
 {{ define "main" }}
-<article>
-  <h2>{{ .Title }}</h2>
-  <p>{{ i18n "author" }}: {{ .Params.author }}</p>
-  {{ partial "reading-time.html" . }}
-  <div>{{ .Content }}</div>
-  {{ if .Params.keywords }}
-    <p>{{ i18n "keywords" }}: {{ delimit .Params.keywords ", " }}</p>
-  {{ end }}
-  {{ if .Params.tags }}
-    <p>{{ i18n "tags" }}: {{ delimit .Params.tags ", " }}</p>
-  {{ end }}
+<article class="max-w-4xl mx-auto">
+  <!-- Hero Header Section -->
+  <header class="bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-700 dark:to-blue-900 rounded-2xl p-8 mb-8 text-white shadow-xl">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">{{ .Title }}</h1>
+    
+    <!-- Article Meta -->
+    <div class="flex flex-wrap gap-6 items-center text-blue-100 mb-4">
+      {{ if .Params.author }}
+        <div class="flex items-center gap-2">
+          <i class="fas fa-user"></i>
+          <span class="font-medium">{{ .Params.author }}</span>
+        </div>
+      {{ end }}
+      
+      <div class="flex items-center gap-2">
+        <i class="fas fa-calendar"></i>
+        <time datetime="{{ .Date.Format "2006-01-02" }}" class="font-medium">
+          {{ .Date.Format "January 2, 2006" }}
+        </time>
+      </div>
+      
+      {{ partial "reading-time.html" . }}
+    </div>
+
+    <!-- Keywords/Tags -->
+    {{ if or .Params.keywords .Params.tags }}
+      <div class="flex flex-wrap gap-2 mt-4">
+        {{ range .Params.keywords }}
+          <span class="bg-white/20 text-white px-3 py-1 rounded-full text-sm font-medium">
+            {{ . }}
+          </span>
+        {{ end }}
+        {{ range .Params.tags }}
+          <span class="bg-blue-500/30 text-white px-3 py-1 rounded-full text-sm font-medium">
+            #{{ . }}
+          </span>
+        {{ end }}
+      </div>
+    {{ end }}
+  </header>
+
+  <!-- Main Content -->
+  <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 prose prose-lg dark:prose-invert max-w-none">
+    {{ if .Params.image }}
+      <div class="not-prose mb-8">
+        <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-64 md:h-80 object-cover rounded-xl shadow-md" />
+      </div>
+    {{ end }}
+    
+    {{ .Content }}
+  </div>
+
+  <!-- Article Footer -->
+  <footer class="mt-8 p-6 bg-gray-50 dark:bg-gray-700 rounded-2xl">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      <div class="text-gray-600 dark:text-gray-300">
+        <p class="text-sm">Published on {{ .Date.Format "January 2, 2006" }}</p>
+        {{ if .Lastmod }}
+          <p class="text-sm">Last updated: {{ .Lastmod.Format "January 2, 2006" }}</p>
+        {{ end }}
+      </div>
+      
+      <!-- Share buttons could go here -->
+      <div class="flex gap-3">
+        <a href="/" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors font-medium">
+          ← Back to Blog
+        </a>
+      </div>
+    </div>
+  </footer>
 </article>
 {{ end }}

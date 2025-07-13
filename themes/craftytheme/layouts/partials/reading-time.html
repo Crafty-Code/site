@@ -1,4 +1,7 @@
 {{ $words := .WordCount }}
 {{ $minutes := div $words 200 }}
 {{ if lt $minutes 1 }}{{ $minutes = 1 }}{{ end }}
-<p><span class="font-semibold text-blue-700">{{ i18n "readingTimeLabel" | default "Reading time" }}:</span> {{ i18n "readingTime" (dict "Count" $minutes) }}</p>
+<div class="flex items-center gap-2">
+  <i class="fas fa-clock"></i>
+  <span class="font-medium">{{ $minutes }} min read</span>
+</div>
