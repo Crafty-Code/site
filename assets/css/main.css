@@ -1,0 +1,10 @@
+@layer base {
+  :root { color-scheme: light dark; }
+  .dark { color-scheme: dark; }
+}
+@import "tailwindcss";
+@layer components {
+  .bg-anthracite {
+    background-color: #23272b;
+  }
+}

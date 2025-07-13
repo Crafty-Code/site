@@ -4,3 +4,8 @@
 }
 @import "tailwindcss";
 @source "hugo_stats.json";
+@layer components {
+  .bg-anthracite {
+    background-color: #23272b;
+  }
+}

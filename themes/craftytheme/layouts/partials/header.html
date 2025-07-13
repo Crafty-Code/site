@@ -1,4 +1,4 @@
-<header class="bg-gray-100 dark:bg-gray-900 py-4">
+<header class="bg-gray-800 dark:bg-gray-900 py-6 shadow-lg border-b-2 border-gray-600">
   <div class="flex justify-between items-center max-w-5xl mx-auto px-4">
     <div class="language-selector-container absolute top-2 right-5 z-10 flex items-center">
       {{ partial "language-switcher.html" . }}
@@ -9,8 +9,8 @@
         <img src="/images/gohugo-default-sample-hero-image.jpg" alt="Site Logo" class="w-16 h-16 object-cover rounded-lg shadow-md" />
       </a>
       <div class="flex flex-col items-start">
-        <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100 m-0 mb-1">{{ .Site.Title }}</h1>
-        <div class="text-base text-gray-600 dark:text-gray-300 bg-blue-100 dark:bg-blue-900 px-3 py-1 rounded mb-0.5">Welcome to {{ .Site.Title }}!</div>
+        <h1 class="text-3xl font-bold text-white dark:text-gray-100 m-0 mb-1">{{ .Site.Title }}</h1>
+        <div class="text-base text-gray-200 dark:text-gray-300 bg-blue-800 dark:bg-blue-900 px-3 py-1 rounded mb-0.5">Welcome to {{ .Site.Title }}!</div>
       </div>
     </div>
     <div class="flex flex-col items-end gap-2 ml-auto">
@@ -20,11 +20,11 @@
   </div>
   <nav class="mt-6">
     <ul class="flex gap-8 justify-center list-none p-0 m-0">
-      <li><a href="/" class="text-gray-800 dark:text-gray-100 font-medium text-lg hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Home</a></li>
+      <li><a href="/" class="text-gray-200 dark:text-gray-100 font-medium text-lg hover:text-blue-400 dark:hover:text-blue-400 transition-colors">Home</a></li>
       {{ $currentLang := .Site.Language.Lang }}
       {{ $menu := index .Site.Menus "main" }}
       {{ range $menu }}
-        <li><a href="{{ .PageRef | relLangURL }}" class="text-gray-800 dark:text-gray-100 font-medium text-lg hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{{ .Name }}</a></li>
+        <li><a href="{{ .PageRef | relLangURL }}" class="text-gray-100 dark:text-gray-100 font-medium text-lg hover:text-blue-400 dark:hover:text-blue-400 transition-colors">{{ .Name }}</a></li>
       {{ end }}
     </ul>
   </nav>
