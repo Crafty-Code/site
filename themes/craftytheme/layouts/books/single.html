@@ -1,15 +1,142 @@
 {{ define "main" }}
-<article>
-  <h2>{{ .Title }}</h2>
-  <p>{{ i18n "author" }}: {{ .Params.author }}</p>
-  <p>Book Author: {{ .Params.book_author }}</p>
-  {{ partial "reading-time.html" . }}
-  <div>{{ .Content }}</div>
-  {{ if .Params.keywords }}
-    <p>{{ i18n "keywords" }}: {{ delimit .Params.keywords ", " }}</p>
+<article class="max-w-4xl mx-auto">
+  <!-- Hero Header Section -->
+  <header class="bg-gradient-to-r from-green-600 to-green-800 dark:from-green-700 dark:to-green-900 rounded-2xl p-8 mb-8 text-white shadow-xl">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">{{ .Title }}</h1>
+    
+    <!-- Book Meta -->
+    <div class="flex flex-wrap gap-6 items-center text-green-100 mb-6">
+      {{ if .Params.author }}
+        <div class="flex items-center gap-2">
+          <i class="fas fa-user"></i>
+          <span class="font-medium">Reviewed by {{ .Params.author }}</span>
+        </div>
+      {{ end }}
+      
+      {{ if .Params.book_author }}
+        <div class="flex items-center gap-2">
+          <i class="fas fa-pen"></i>
+          <span class="font-medium">By {{ .Params.book_author }}</span>
+        </div>
+      {{ end }}
+      
+      <div class="flex items-center gap-2">
+        <i class="fas fa-calendar"></i>
+        <time datetime="{{ .Date.Format "2006-01-02" }}" class="font-medium">
+          {{ .Date.Format "January 2, 2006" }}
+        </time>
+      </div>
+      
+      {{ partial "reading-time.html" . }}
+    </div>
+
+    <!-- Book Details -->
+    {{ if or .Params.rating .Params.pages .Params.publisher .Params.price }}
+      <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 mb-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+          {{ if .Params.rating }}
+            <div>
+              <div class="text-sm text-green-200 mb-1">Rating</div>
+              <div class="flex justify-center text-yellow-300">
+                {{ range seq (int .Params.rating) }}
+                  <i class="fas fa-star"></i>
+                {{ end }}
+                {{ range seq (sub 5 (int .Params.rating)) }}
+                  <i class="far fa-star"></i>
+                {{ end }}
+              </div>
+            </div>
+          {{ end }}
+          
+          {{ if .Params.pages }}
+            <div>
+              <div class="text-sm text-green-200 mb-1">Pages</div>
+              <div class="font-bold text-lg">{{ .Params.pages }}</div>
+            </div>
+          {{ end }}
+          
+          {{ if .Params.publisher }}
+            <div>
+              <div class="text-sm text-green-200 mb-1">Publisher</div>
+              <div class="font-medium text-sm">{{ .Params.publisher }}</div>
+            </div>
+          {{ end }}
+          
+          {{ if .Params.price }}
+            <div>
+              <div class="text-sm text-green-200 mb-1">Price</div>
+              <div class="font-bold text-lg">{{ .Params.price }}</div>
+            </div>
+          {{ end }}
+        </div>
+        
+        {{ if .Params.isbn }}
+          <div class="text-center mt-4 pt-4 border-t border-white/20">
+            <span class="text-sm text-green-200">ISBN: </span>
+            <span class="font-mono text-sm">{{ .Params.isbn }}</span>
+          </div>
+        {{ end }}
+      </div>
+    {{ end }}
+
+    <!-- Keywords/Tags -->
+    {{ if or .Params.keywords .Params.tags }}
+      <div class="flex flex-wrap gap-2">
+        {{ range .Params.keywords }}
+          <span class="bg-white/20 text-white px-3 py-1 rounded-full text-sm font-medium">
+            {{ . }}
+          </span>
+        {{ end }}
+        {{ range .Params.tags }}
+          <span class="bg-green-500/30 text-white px-3 py-1 rounded-full text-sm font-medium">
+            #{{ . }}
+          </span>
+        {{ end }}
+      </div>
+    {{ end }}
+  </header>
+
+  <!-- Main Content -->
+  <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 prose prose-lg dark:prose-invert max-w-none">
+    {{ if .Params.image }}
+      <div class="not-prose mb-8 flex justify-center">
+        <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-64 h-96 object-cover rounded-xl shadow-lg" />
+      </div>
+    {{ end }}
+    
+    {{ .Content }}
+  </div>
+
+  <!-- Call to Action -->
+  {{ if .Params.affiliate_link }}
+    <div class="mt-8 p-6 bg-gradient-to-r from-green-50 to-blue-50 dark:from-gray-700 dark:to-gray-800 rounded-2xl border border-green-200 dark:border-gray-600">
+      <div class="text-center">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Ready to dive deeper?</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">Get your copy and start improving your code today.</p>
+        <a href="{{ .Params.affiliate_link }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg transition-colors font-medium">
+          <i class="fas fa-external-link-alt"></i>
+          Buy on Amazon
+        </a>
+      </div>
+    </div>
   {{ end }}
-  {{ if .Params.tags }}
-    <p>{{ i18n "tags" }}: {{ delimit .Params.tags ", " }}</p>
-  {{ end }}
+
+  <!-- Article Footer -->
+  <footer class="mt-8 p-6 bg-gray-50 dark:bg-gray-700 rounded-2xl">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      <div class="text-gray-600 dark:text-gray-300">
+        <p class="text-sm">Published on {{ .Date.Format "January 2, 2006" }}</p>
+        {{ if .Lastmod }}
+          <p class="text-sm">Last updated: {{ .Lastmod.Format "January 2, 2006" }}</p>
+        {{ end }}
+      </div>
+      
+      <div class="flex gap-3">
+        <a href="/books/" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors font-medium">
+          ← Back to Books
+        </a>
+      </div>
+    </div>
+  </footer>
 </article>
 {{ end }}
