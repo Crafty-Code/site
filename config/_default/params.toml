@@ -1,3 +1,95 @@
 date_format = "2 January 2006"
 show_reading_time = true
 showLanguageSwitcher = true
+
+# Theme Configuration
+[theme]
+  # Dark mode settings
+  enable_dark_mode = true
+  default_mode = "auto"  # auto, light, dark
+  
+  # Color scheme configuration
+  [theme.colors]
+    # Primary brand colors
+    primary = "blue"      # blue, green, purple, red, yellow, indigo, pink, teal
+    accent = "blue"       # accent color for highlights and CTAs
+    
+    # Header colors
+    [theme.colors.header]
+      light_bg = "gray-800"
+      dark_bg = "gray-900"
+      light_text = "white"
+      dark_text = "gray-100"
+      light_nav_text = "gray-200"
+      dark_nav_text = "gray-100"
+      light_nav_hover = "blue-400"
+      dark_nav_hover = "blue-400"
+      light_border = "gray-600"
+      dark_border = "gray-600"
+    
+    # Footer colors
+    [theme.colors.footer]
+      light_bg = "gray-800"
+      dark_bg = "gray-900"
+      light_text = "gray-300"
+      dark_text = "gray-300"
+      light_heading = "white"
+      dark_heading = "gray-100"
+      light_border = "gray-600"
+      dark_border = "gray-700"
+      light_link_hover = "blue-400"
+      dark_link_hover = "blue-400"
+    
+    # Content area colors
+    [theme.colors.content]
+      light_bg = "white"
+      dark_bg = "gray-800"
+      light_text = "gray-900"
+      dark_text = "gray-100"
+      light_heading = "gray-900"
+      dark_heading = "white"
+      light_muted = "gray-600"
+      dark_muted = "gray-400"
+    
+    # Card and component colors
+    [theme.colors.card]
+      light_bg = "white"
+      dark_bg = "gray-900"
+      light_border = "gray-200"
+      dark_border = "gray-700"
+      light_shadow = "gray-100"
+      dark_shadow = "gray-900"
+    
+    # Button colors
+    [theme.colors.button]
+      primary_light_bg = "blue-600"
+      primary_dark_bg = "blue-700"
+      primary_light_text = "white"
+      primary_dark_text = "white"
+      primary_light_hover = "blue-700"
+      primary_dark_hover = "blue-600"
+      
+      secondary_light_bg = "gray-200"
+      secondary_dark_bg = "gray-700"
+      secondary_light_text = "gray-900"
+      secondary_dark_text = "gray-100"
+      secondary_light_hover = "gray-300"
+      secondary_dark_hover = "gray-600"
+    
+    # Form colors
+    [theme.colors.form]
+      light_input_bg = "white"
+      dark_input_bg = "gray-800"
+      light_input_border = "gray-300"
+      dark_input_border = "gray-600"
+      light_input_focus = "blue-500"
+      dark_input_focus = "blue-400"
+      light_input_text = "gray-900"
+      dark_input_text = "gray-100"
+    
+    # Syntax highlighting colors (for code blocks)
+    [theme.colors.syntax]
+      light_bg = "gray-50"
+      dark_bg = "gray-900"
+      light_border = "gray-200"
+      dark_border = "gray-700"

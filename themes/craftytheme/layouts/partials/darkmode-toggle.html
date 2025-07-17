@@ -1,18 +1,44 @@
-<button id="darkmode-toggle" class="ml-2 p-2 rounded focus:outline-none border border-gray-300 bg-white dark:bg-gray-800 dark:border-gray-600" title="Toggle dark mode">
+{{ if .Site.Params.theme.enable_dark_mode | default true }}
+<button id="darkmode-toggle" class="ml-2 p-2 rounded focus:outline-none border {{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "border") }} {{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "bg") }}" title="Toggle dark mode">
   <span id="darkmode-icon" class="text-lg">🌙</span>
 </button>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const toggle = document.getElementById('darkmode-toggle');
   const icon = document.getElementById('darkmode-icon');
+  const defaultMode = '{{ .Site.Params.theme.default_mode | default "auto" }}';
+  
   function updateIcon() {
     icon.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
   }
-  updateIcon();
-  toggle.addEventListener('click', function() {
-    document.documentElement.classList.toggle('dark');
-    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+  
+  function setTheme(theme) {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    localStorage.setItem('theme', theme);
     updateIcon();
+  }
+  
+  updateIcon();
+  
+  toggle.addEventListener('click', function() {
+    const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
   });
+  
+  // Auto-detect system theme changes if default is auto
+  if (defaultMode === 'auto') {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    mediaQuery.addEventListener('change', function(e) {
+      if (!localStorage.theme) {
+        setTheme(e.matches ? 'dark' : 'light');
+      }
+    });
+  }
 });
 </script>
+{{ end }}

@@ -1,0 +1,97 @@
+{{/* Theme Helper Functions - Provides color class helpers for templates */}}
+{{/* 
+  Usage in templates:
+  class="{{ partial "theme-classes.html" (dict "context" . "type" "header" "variant" "bg") }}"
+  
+  Available types: header, footer, content, card, button, form, syntax
+  Available variants: bg, text, border, hover, etc.
+*/}}
+
+{{ $colors := .context.Site.Params.theme.colors }}
+{{ $type := .type }}
+{{ $variant := .variant }}
+{{ $element := .element | default "" }}
+
+{{/* Header classes */}}
+{{ if eq $type "header" }}
+  {{ if eq $variant "bg" }}
+    bg-{{ $colors.header.light_bg | default "gray-800" }} dark:bg-{{ $colors.header.dark_bg | default "gray-900" }}
+  {{ else if eq $variant "text" }}
+    text-{{ $colors.header.light_text | default "white" }} dark:text-{{ $colors.header.dark_text | default "gray-100" }}
+  {{ else if eq $variant "nav" }}
+    text-{{ $colors.header.light_nav_text | default "gray-200" }} dark:text-{{ $colors.header.dark_nav_text | default "gray-100" }}
+  {{ else if eq $variant "nav-hover" }}
+    hover:text-{{ $colors.header.light_nav_hover | default "blue-400" }} dark:hover:text-{{ $colors.header.dark_nav_hover | default "blue-400" }}
+  {{ else if eq $variant "border" }}
+    border-{{ $colors.header.light_border | default "gray-600" }} dark:border-{{ $colors.header.dark_border | default "gray-600" }}
+  {{ end }}
+
+{{/* Footer classes */}}
+{{ else if eq $type "footer" }}
+  {{ if eq $variant "bg" }}
+    bg-{{ $colors.footer.light_bg | default "gray-800" }} dark:bg-{{ $colors.footer.dark_bg | default "gray-900" }}
+  {{ else if eq $variant "text" }}
+    text-{{ $colors.footer.light_text | default "gray-300" }} dark:text-{{ $colors.footer.dark_text | default "gray-300" }}
+  {{ else if eq $variant "heading" }}
+    text-{{ $colors.footer.light_heading | default "white" }} dark:text-{{ $colors.footer.dark_heading | default "gray-100" }}
+  {{ else if eq $variant "border" }}
+    border-{{ $colors.footer.light_border | default "gray-600" }} dark:border-{{ $colors.footer.dark_border | default "gray-700" }}
+  {{ else if eq $variant "link-hover" }}
+    hover:text-{{ $colors.footer.light_link_hover | default "blue-400" }} dark:hover:text-{{ $colors.footer.dark_link_hover | default "blue-400" }}
+  {{ end }}
+
+{{/* Content classes */}}
+{{ else if eq $type "content" }}
+  {{ if eq $variant "bg" }}
+    bg-{{ $colors.content.light_bg | default "white" }} dark:bg-{{ $colors.content.dark_bg | default "gray-800" }}
+  {{ else if eq $variant "text" }}
+    text-{{ $colors.content.light_text | default "gray-900" }} dark:text-{{ $colors.content.dark_text | default "gray-100" }}
+  {{ else if eq $variant "heading" }}
+    text-{{ $colors.content.light_heading | default "gray-900" }} dark:text-{{ $colors.content.dark_heading | default "white" }}
+  {{ else if eq $variant "muted" }}
+    text-{{ $colors.content.light_muted | default "gray-600" }} dark:text-{{ $colors.content.dark_muted | default "gray-400" }}
+  {{ end }}
+
+{{/* Card classes */}}
+{{ else if eq $type "card" }}
+  {{ if eq $variant "bg" }}
+    bg-{{ $colors.card.light_bg | default "white" }} dark:bg-{{ $colors.card.dark_bg | default "gray-900" }}
+  {{ else if eq $variant "border" }}
+    border-{{ $colors.card.light_border | default "gray-200" }} dark:border-{{ $colors.card.dark_border | default "gray-700" }}
+  {{ end }}
+
+{{/* Button classes */}}
+{{ else if eq $type "button" }}
+  {{ if eq $element "primary" }}
+    bg-{{ $colors.button.primary_light_bg | default "blue-600" }} dark:bg-{{ $colors.button.primary_dark_bg | default "blue-700" }} text-{{ $colors.button.primary_light_text | default "white" }} dark:text-{{ $colors.button.primary_dark_text | default "white" }} hover:bg-{{ $colors.button.primary_light_hover | default "blue-700" }} dark:hover:bg-{{ $colors.button.primary_dark_hover | default "blue-600" }}
+  {{ else if eq $element "secondary" }}
+    bg-{{ $colors.button.secondary_light_bg | default "gray-200" }} dark:bg-{{ $colors.button.secondary_dark_bg | default "gray-700" }} text-{{ $colors.button.secondary_light_text | default "gray-900" }} dark:text-{{ $colors.button.secondary_dark_text | default "gray-100" }} hover:bg-{{ $colors.button.secondary_light_hover | default "gray-300" }} dark:hover:bg-{{ $colors.button.secondary_dark_hover | default "gray-600" }}
+  {{ end }}
+
+{{/* Form classes */}}
+{{ else if eq $type "form" }}
+  {{ if eq $variant "input" }}
+    bg-{{ $colors.form.light_input_bg | default "white" }} dark:bg-{{ $colors.form.dark_input_bg | default "gray-800" }} border-{{ $colors.form.light_input_border | default "gray-300" }} dark:border-{{ $colors.form.dark_input_border | default "gray-600" }} text-{{ $colors.form.light_input_text | default "gray-900" }} dark:text-{{ $colors.form.dark_input_text | default "gray-100" }} focus:border-{{ $colors.form.light_input_focus | default "blue-500" }} dark:focus:border-{{ $colors.form.dark_input_focus | default "blue-400" }}
+  {{ end }}
+
+{{/* Syntax/Code classes */}}
+{{ else if eq $type "syntax" }}
+  {{ if eq $variant "bg" }}
+    bg-{{ $colors.syntax.light_bg | default "gray-50" }} dark:bg-{{ $colors.syntax.dark_bg | default "gray-900" }} border-{{ $colors.syntax.light_border | default "gray-200" }} dark:border-{{ $colors.syntax.dark_border | default "gray-700" }}
+  {{ end }}
+
+{{/* Primary and accent color helpers */}}
+{{ else if eq $type "primary" }}
+  {{ if eq $variant "text" }}
+    text-{{ $colors.primary | default "blue" }}-600 dark:text-{{ $colors.primary | default "blue" }}-400
+  {{ else if eq $variant "bg" }}
+    bg-{{ $colors.primary | default "blue" }}-600 dark:bg-{{ $colors.primary | default "blue" }}-700
+  {{ end }}
+
+{{ else if eq $type "accent" }}
+  {{ if eq $variant "text" }}
+    text-{{ $colors.accent | default "blue" }}-600 dark:text-{{ $colors.accent | default "blue" }}-400
+  {{ else if eq $variant "bg" }}
+    bg-{{ $colors.accent | default "blue" }}-600 dark:bg-{{ $colors.accent | default "blue" }}-700
+  {{ end }}
+{{ end }}

@@ -54,12 +54,52 @@ hugo --gc --minify  # Build Hugo site
 
 ## 🎨 Styling with Tailwind CSS
 
-This site uses Tailwind CSS v4 for styling. The build process is fully automated:
+This site uses Tailwind CSS v4 for styling with a **configurable theme system** that supports light/dark modes and flexible color schemes.
+
+### Theme Configuration
+
+The theme is fully configurable through `config/_default/params.toml`. You can customize:
+
+- **Dark/Light mode behavior**: Auto-detect, default to light, or default to dark
+- **Color schemes**: Choose from any Tailwind color palette
+- **Component colors**: Header, footer, content, cards, buttons, forms
+- **Per-mode customization**: Different colors for light and dark modes
+
+**Quick theme setup:**
+
+```toml
+[theme]
+  enable_dark_mode = true
+  default_mode = "auto"  # auto, light, dark
+  
+  [theme.colors]
+    primary = "blue"      # Main brand color
+    accent = "blue"       # Accent color for highlights
+```
+
+**Example color schemes:**
+
+```bash
+# Blue (default)
+primary = "blue" 
+
+# Green nature theme
+primary = "green"
+
+# Purple tech theme  
+primary = "purple"
+
+# Minimal monochrome
+primary = "gray"
+```
+
+See `THEME_CONFIG.md` for complete configuration options and examples.
 
 ### During Development
 
 - Tailwind CSS automatically rebuilds when you modify templates
-- Changes are reflected instantly with Hugo's live reload
+- Theme changes are reflected instantly with Hugo's live reload
+- Dark mode toggle respects your configuration settings
 
 ### During Deployment
 
@@ -299,8 +339,6 @@ make server        # Start Hugo server
 make clean         # Clean build artifacts
 make install-deps  # Install Tailwind CSS CLI
 ```
-
-## 🤖 Content Automation Tools
 
 ## 🤖 Content Automation Tools
 

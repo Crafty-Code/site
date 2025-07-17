@@ -1,7 +1,7 @@
 {{ define "main" }}
 <article class="max-w-4xl mx-auto">
   <!-- Hero Header Section -->
-  <header class="bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-700 dark:to-blue-900 rounded-2xl p-8 mb-8 text-white shadow-xl">
+  <header class="bg-gradient-to-r from-{{ .Site.Params.theme.colors.primary | default "blue" }}-600 to-{{ .Site.Params.theme.colors.primary | default "blue" }}-800 dark:from-{{ .Site.Params.theme.colors.primary | default "blue" }}-700 dark:to-{{ .Site.Params.theme.colors.primary | default "blue" }}-900 rounded-2xl p-8 mb-8 text-white shadow-xl">
     <!-- Category Badge -->
     {{ if .Params.category }}
       <div class="mb-4">
@@ -16,11 +16,11 @@
     
     <!-- Article Subtitle/Description -->
     {{ if .Params.description }}
-      <p class="text-xl text-blue-100 mb-6 leading-relaxed">{{ .Params.description }}</p>
+      <p class="text-xl text-{{ .Site.Params.theme.colors.primary | default "blue" }}-100 mb-6 leading-relaxed">{{ .Params.description }}</p>
     {{ end }}
     
     <!-- Article Meta -->
-    <div class="flex flex-wrap gap-6 items-center text-blue-100 mb-6">
+    <div class="flex flex-wrap gap-6 items-center text-{{ .Site.Params.theme.colors.primary | default "blue" }}-100 mb-6">
       {{ if .Params.author }}
         <div class="flex items-center gap-2">
           <i class="fas fa-user"></i>
@@ -50,19 +50,19 @@
       <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 mb-6">
         <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-center">
           <div>
-            <div class="text-sm text-blue-200 mb-1">Words</div>
+            <div class="text-sm text-{{ .Site.Params.theme.colors.primary | default "blue" }}-200 mb-1">Words</div>
             <div class="font-bold text-lg">{{ .WordCount }}</div>
           </div>
           
           {{ if .Params.views }}
             <div>
-              <div class="text-sm text-blue-200 mb-1">Views</div>
+              <div class="text-sm text-{{ .Site.Params.theme.colors.primary | default "blue" }}-200 mb-1">Views</div>
               <div class="font-bold text-lg">{{ .Params.views }}</div>
             </div>
           {{ end }}
           
           <div>
-            <div class="text-sm text-blue-200 mb-1">Updated</div>
+            <div class="text-sm text-{{ .Site.Params.theme.colors.primary | default "blue" }}-200 mb-1">Updated</div>
             <div class="font-medium text-sm">{{ .Lastmod.Format "Jan 2006" }}</div>
           </div>
         </div>
@@ -78,7 +78,7 @@
           </span>
         {{ end }}
         {{ range .Params.tags }}
-          <span class="bg-blue-500/30 text-white px-3 py-1 rounded-full text-sm font-medium">
+          <span class="bg-{{ $.Site.Params.theme.colors.accent | default "blue" }}-500/30 text-white px-3 py-1 rounded-full text-sm font-medium">
             #{{ . }}
           </span>
         {{ end }}
@@ -87,7 +87,7 @@
   </header>
 
   <!-- Main Content -->
-  <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden">
+  <div class="{{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "bg") }} rounded-2xl shadow-lg overflow-hidden">
     {{ if .Params.image }}
       <div class="not-prose">
         <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-64 md:h-80 object-cover" />
@@ -97,7 +97,7 @@
     <div class="p-8 prose prose-lg dark:prose-invert max-w-none">
       <!-- Table of Contents (if enabled) -->
       {{ if and .Params.toc (gt .WordCount 500) }}
-        <details class="not-prose mb-8 p-4 bg-gray-50 dark:bg-gray-700 rounded-xl border border-gray-200 dark:border-gray-600">
+        <details class="not-prose mb-8 p-4 {{ partial "theme-classes.html" (dict "context" . "type" "syntax" "variant" "bg") }} rounded-xl border {{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "border") }}">
           <summary class="cursor-pointer font-semibold text-gray-800 dark:text-gray-200 mb-2">
             <i class="fas fa-list mr-2"></i>Table of Contents
           </summary>

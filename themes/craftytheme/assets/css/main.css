@@ -1,11 +1,52 @@
 @layer base {
   :root { color-scheme: light dark; }
   .dark { color-scheme: dark; }
+  
+  /* Ensure smooth transitions for theme changes */
+  * {
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
 }
+
 @import "tailwindcss";
 @source "hugo_stats.json";
+
 @layer components {
   .bg-anthracite {
     background-color: #23272b;
+  }
+  
+  /* Theme-aware prose styling */
+  .prose {
+    @apply max-w-none;
+  }
+  
+  .prose :where(code):not(:where([class~="not-prose"] *)) {
+    @apply bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-sm;
+  }
+  
+  .prose :where(pre):not(:where([class~="not-prose"] *)) {
+    @apply bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg;
+  }
+  
+  .prose :where(blockquote):not(:where([class~="not-prose"] *)) {
+    @apply border-l-4 border-blue-500 dark:border-blue-400 bg-blue-50 dark:bg-blue-900/10 pl-4 py-2 my-4;
+  }
+  
+  /* Dark mode prose adjustments */
+  .prose.dark\:prose-invert {
+    @apply text-gray-100;
+  }
+  
+  .prose.dark\:prose-invert :where(h1, h2, h3, h4, h5, h6):not(:where([class~="not-prose"] *)) {
+    @apply text-white;
+  }
+  
+  .prose.dark\:prose-invert :where(strong):not(:where([class~="not-prose"] *)) {
+    @apply text-white;
+  }
+  
+  .prose.dark\:prose-invert :where(a):not(:where([class~="not-prose"] *)) {
+    @apply text-blue-400 hover:text-blue-300;
   }
 }

@@ -1,0 +1,98 @@
+{{/* Theme Variables Partial - Generates CSS custom properties from config */}}
+{{ $colors := .Site.Params.theme.colors }}
+{{ $primary := $colors.primary | default "blue" }}
+{{ $accent := $colors.accent | default "blue" }}
+
+<style>
+  :root {
+    /* Primary Theme Colors */
+    --color-primary: {{ $primary }};
+    --color-accent: {{ $accent }};
+    
+    /* Header Colors - Light Mode */
+    --header-bg-light: {{ $colors.header.light_bg | default "gray-800" }};
+    --header-text-light: {{ $colors.header.light_text | default "white" }};
+    --header-nav-text-light: {{ $colors.header.light_nav_text | default "gray-200" }};
+    --header-nav-hover-light: {{ $colors.header.light_nav_hover | default "blue-400" }};
+    --header-border-light: {{ $colors.header.light_border | default "gray-600" }};
+    
+    /* Header Colors - Dark Mode */
+    --header-bg-dark: {{ $colors.header.dark_bg | default "gray-900" }};
+    --header-text-dark: {{ $colors.header.dark_text | default "gray-100" }};
+    --header-nav-text-dark: {{ $colors.header.dark_nav_text | default "gray-100" }};
+    --header-nav-hover-dark: {{ $colors.header.dark_nav_hover | default "blue-400" }};
+    --header-border-dark: {{ $colors.header.dark_border | default "gray-600" }};
+    
+    /* Footer Colors - Light Mode */
+    --footer-bg-light: {{ $colors.footer.light_bg | default "gray-800" }};
+    --footer-text-light: {{ $colors.footer.light_text | default "gray-300" }};
+    --footer-heading-light: {{ $colors.footer.light_heading | default "white" }};
+    --footer-border-light: {{ $colors.footer.light_border | default "gray-600" }};
+    --footer-link-hover-light: {{ $colors.footer.light_link_hover | default "blue-400" }};
+    
+    /* Footer Colors - Dark Mode */
+    --footer-bg-dark: {{ $colors.footer.dark_bg | default "gray-900" }};
+    --footer-text-dark: {{ $colors.footer.dark_text | default "gray-300" }};
+    --footer-heading-dark: {{ $colors.footer.dark_heading | default "gray-100" }};
+    --footer-border-dark: {{ $colors.footer.dark_border | default "gray-700" }};
+    --footer-link-hover-dark: {{ $colors.footer.dark_link_hover | default "blue-400" }};
+    
+    /* Content Colors - Light Mode */
+    --content-bg-light: {{ $colors.content.light_bg | default "white" }};
+    --content-text-light: {{ $colors.content.light_text | default "gray-900" }};
+    --content-heading-light: {{ $colors.content.light_heading | default "gray-900" }};
+    --content-muted-light: {{ $colors.content.light_muted | default "gray-600" }};
+    
+    /* Content Colors - Dark Mode */
+    --content-bg-dark: {{ $colors.content.dark_bg | default "gray-800" }};
+    --content-text-dark: {{ $colors.content.dark_text | default "gray-100" }};
+    --content-heading-dark: {{ $colors.content.dark_heading | default "white" }};
+    --content-muted-dark: {{ $colors.content.dark_muted | default "gray-400" }};
+    
+    /* Card Colors - Light Mode */
+    --card-bg-light: {{ $colors.card.light_bg | default "white" }};
+    --card-border-light: {{ $colors.card.light_border | default "gray-200" }};
+    --card-shadow-light: {{ $colors.card.light_shadow | default "gray-100" }};
+    
+    /* Card Colors - Dark Mode */
+    --card-bg-dark: {{ $colors.card.dark_bg | default "gray-900" }};
+    --card-border-dark: {{ $colors.card.dark_border | default "gray-700" }};
+    --card-shadow-dark: {{ $colors.card.dark_shadow | default "gray-900" }};
+    
+    /* Button Colors - Light Mode */
+    --btn-primary-bg-light: {{ $colors.button.primary_light_bg | default "blue-600" }};
+    --btn-primary-text-light: {{ $colors.button.primary_light_text | default "white" }};
+    --btn-primary-hover-light: {{ $colors.button.primary_light_hover | default "blue-700" }};
+    --btn-secondary-bg-light: {{ $colors.button.secondary_light_bg | default "gray-200" }};
+    --btn-secondary-text-light: {{ $colors.button.secondary_light_text | default "gray-900" }};
+    --btn-secondary-hover-light: {{ $colors.button.secondary_light_hover | default "gray-300" }};
+    
+    /* Button Colors - Dark Mode */
+    --btn-primary-bg-dark: {{ $colors.button.primary_dark_bg | default "blue-700" }};
+    --btn-primary-text-dark: {{ $colors.button.primary_dark_text | default "white" }};
+    --btn-primary-hover-dark: {{ $colors.button.primary_dark_hover | default "blue-600" }};
+    --btn-secondary-bg-dark: {{ $colors.button.secondary_dark_bg | default "gray-700" }};
+    --btn-secondary-text-dark: {{ $colors.button.secondary_dark_text | default "gray-100" }};
+    --btn-secondary-hover-dark: {{ $colors.button.secondary_dark_hover | default "gray-600" }};
+    
+    /* Form Colors - Light Mode */
+    --form-input-bg-light: {{ $colors.form.light_input_bg | default "white" }};
+    --form-input-border-light: {{ $colors.form.light_input_border | default "gray-300" }};
+    --form-input-focus-light: {{ $colors.form.light_input_focus | default "blue-500" }};
+    --form-input-text-light: {{ $colors.form.light_input_text | default "gray-900" }};
+    
+    /* Form Colors - Dark Mode */
+    --form-input-bg-dark: {{ $colors.form.dark_input_bg | default "gray-800" }};
+    --form-input-border-dark: {{ $colors.form.dark_input_border | default "gray-600" }};
+    --form-input-focus-dark: {{ $colors.form.dark_input_focus | default "blue-400" }};
+    --form-input-text-dark: {{ $colors.form.dark_input_text | default "gray-100" }};
+    
+    /* Syntax Highlighting Colors - Light Mode */
+    --syntax-bg-light: {{ $colors.syntax.light_bg | default "gray-50" }};
+    --syntax-border-light: {{ $colors.syntax.light_border | default "gray-200" }};
+    
+    /* Syntax Highlighting Colors - Dark Mode */
+    --syntax-bg-dark: {{ $colors.syntax.dark_bg | default "gray-900" }};
+    --syntax-border-dark: {{ $colors.syntax.dark_border | default "gray-700" }};
+  }
+</style>
