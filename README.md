@@ -407,3 +407,80 @@ Spanish, French, German, Italian, Irish, Portuguese, Dutch, Swedish, Danish, Nor
 - Scripts use TOML format for front matter
 - Run after creating new content for SEO and translation
 - Files are created in appropriate language directories
+
+## 📊 Analytics Support
+
+The theme includes comprehensive analytics support with privacy features:
+
+### Supported Analytics Services
+- **Google Analytics 4** - Industry standard web analytics
+- **Google Tag Manager** - Advanced tracking and marketing tools
+- **Plausible Analytics** - Privacy-focused, cookie-free analytics
+- **Fathom Analytics** - Simple, privacy-focused analytics
+
+### Quick Analytics Setup
+
+1. **Add your analytics ID to `config/_default/params.toml`:**
+
+```toml
+[analytics]
+  google_analytics_id = "G-XXXXXXXXXX"  # Your GA4 measurement ID
+  respect_do_not_track = true
+  anonymize_ip = true
+  cookie_consent = false  # Set to true to show consent banner
+```
+
+2. **For multiple services:**
+
+```toml
+[analytics]
+  google_analytics_id = "G-XXXXXXXXXX"
+  plausible_domain = "yourdomain.com"
+  fathom_site_id = "ABCDEFGH"
+```
+
+### Privacy Features
+- **Do Not Track** respect
+- **IP anonymization**
+- **Cookie consent banner**
+- **GDPR compliance**
+
+📋 **Full Analytics Guide:** See [`ANALYTICS_CONFIG.md`](ANALYTICS_CONFIG.md) for complete setup instructions.
+
+## 🎨 Theme Customization
+
+The theme includes a comprehensive color configuration system for easy customization:
+
+### Quick Theme Setup
+
+1. **Choose your color scheme in `config/_default/params.toml`:**
+
+```toml
+[theme]
+  enable_dark_mode = true
+  default_mode = "auto"  # Options: auto, light, dark
+  
+  [theme.colors]
+    primary = "blue"      # Main brand color
+    accent = "blue"       # Accent color for highlights
+```
+
+2. **For custom colors:**
+
+```toml
+[theme.colors.header]
+  light_bg = "blue-800"
+  dark_bg = "blue-900"
+  
+[theme.colors.footer]
+  light_bg = "gray-800"
+  dark_bg = "gray-900"
+```
+
+### Available Color Schemes
+- **Blue** (default) - Professional and clean
+- **Green** - Natural and calming
+- **Purple** - Creative and modern
+- **Gray** - Minimal and elegant
+
+🎨 **Full Theme Guide:** See [`THEME_CONFIG.md`](THEME_CONFIG.md) for complete customization options.

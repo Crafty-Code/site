@@ -1,0 +1,326 @@
+{{/* Analytics Partial - Supports multiple analytics services */}}
+{{ $analytics := .Site.Params.analytics }}
+{{ $respectDNT := $analytics.respect_do_not_track | default true }}
+{{ $anonymizeIP := $analytics.anonymize_ip | default true }}
+
+{{ if $analytics }}
+  {{/* Google Analytics 4 - Check Hugo's native config first, then custom config */}}
+  {{ $gaId := "" }}
+  {{ if .Site.Config.Services.GoogleAnalytics.ID }}
+    {{ $gaId = .Site.Config.Services.GoogleAnalytics.ID }}
+  {{ else if $analytics.google_analytics_id }}
+    {{ $gaId = $analytics.google_analytics_id }}
+  {{ end }}
+  
+  {{ if $gaId }}
+    {{/* Check Do Not Track header */}}
+    {{ if not $respectDNT }}
+      <!-- Google Analytics 4 -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id={{ $gaId }}"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{ $gaId }}'{{ if $anonymizeIP }}, {
+          anonymize_ip: true
+        }{{ end }});
+      </script>
+    {{ else }}
+      <!-- Google Analytics 4 with DNT respect -->
+      <script>
+        if (navigator.doNotTrack !== "1" && window.doNotTrack !== "1") {
+          (function() {
+            var script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id={{ $gaId }}';
+            document.head.appendChild(script);
+          })();
+          
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '{{ $gaId }}'{{ if $anonymizeIP }}, {
+            anonymize_ip: true
+          }{{ end }});
+        }
+      </script>
+    {{ end }}
+  {{ end }}
+
+  {{/* Google Tag Manager */}}
+  {{ if $analytics.google_tag_manager_id }}
+    {{ if not $respectDNT }}
+      <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','{{ $analytics.google_tag_manager_id }}');</script>
+    {{ else }}
+      <!-- Google Tag Manager with DNT respect -->
+      <script>
+        if (navigator.doNotTrack !== "1" && window.doNotTrack !== "1") {
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','{{ $analytics.google_tag_manager_id }}');
+        }
+      </script>
+    {{ end }}
+  {{ end }}
+
+  {{/* Plausible Analytics */}}
+  {{ if $analytics.plausible_domain }}
+    {{ if not $respectDNT }}
+      <!-- Plausible Analytics -->
+      <script defer data-domain="{{ $analytics.plausible_domain }}" src="https://plausible.io/js/script.js"></script>
+    {{ else }}
+      <!-- Plausible Analytics with DNT respect -->
+      <script>
+        if (navigator.doNotTrack !== "1" && window.doNotTrack !== "1") {
+          var script = document.createElement('script');
+          script.defer = true;
+          script.setAttribute('data-domain', '{{ $analytics.plausible_domain }}');
+          script.src = 'https://plausible.io/js/script.js';
+          document.head.appendChild(script);
+        }
+      </script>
+    {{ end }}
+  {{ end }}
+
+  {{/* Fathom Analytics */}}
+  {{ if $analytics.fathom_site_id }}
+    {{ if not $respectDNT }}
+      <!-- Fathom Analytics -->
+      <script src="https://cdn.usefathom.com/script.js" data-site="{{ $analytics.fathom_site_id }}" defer></script>
+    {{ else }}
+      <!-- Fathom Analytics with DNT respect -->
+      <script>
+        if (navigator.doNotTrack !== "1" && window.doNotTrack !== "1") {
+          var script = document.createElement('script');
+          script.src = 'https://cdn.usefathom.com/script.js';
+          script.setAttribute('data-site', '{{ $analytics.fathom_site_id }}');
+          script.defer = true;
+          document.head.appendChild(script);
+        }
+      </script>
+    {{ end }}
+  {{ end }}
+
+  {{/* Cookie Consent Banner */}}
+  {{ if $analytics.cookie_consent }}
+    <div id="cookie-consent" class="fixed bottom-0 left-0 right-0 {{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "bg") }} {{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "border") }} border-t p-4 shadow-lg z-50 transform translate-y-full transition-transform duration-300" style="display: none;">
+      <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex-1">
+          <p class="{{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }} text-sm">
+            We use cookies to enhance your experience and analyze site traffic. By continuing to use this site, you consent to our use of cookies.
+            <a href="/privacy/" class="{{ partial "theme-classes.html" (dict "context" . "type" "primary" "variant" "text") }} hover:underline">Privacy Policy</a>
+          </p>
+        </div>
+        <div class="flex gap-2">
+          <button id="cookie-accept" class="{{ partial "theme-classes.html" (dict "context" . "type" "button" "element" "primary") }} px-4 py-2 rounded text-sm font-medium">
+            Accept
+          </button>
+          <button id="cookie-decline" class="{{ partial "theme-classes.html" (dict "context" . "type" "button" "element" "secondary") }} px-4 py-2 rounded text-sm font-medium">
+            Decline
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      (function() {
+        const cookieConsent = document.getElementById('cookie-consent');
+        const acceptBtn = document.getElementById('cookie-accept');
+        const declineBtn = document.getElementById('cookie-decline');
+        
+        // Check if user has already made a choice
+        const consentStatus = localStorage.getItem('cookie-consent');
+        
+        if (!consentStatus) {
+          // Show banner after a short delay
+          setTimeout(() => {
+            cookieConsent.style.display = 'block';
+            cookieConsent.classList.remove('translate-y-full');
+          }, 1000);
+        }
+        
+        acceptBtn.addEventListener('click', function() {
+          localStorage.setItem('cookie-consent', 'accepted');
+          cookieConsent.classList.add('translate-y-full');
+          setTimeout(() => {
+            cookieConsent.style.display = 'none';
+          }, 300);
+          
+          // Enable analytics if they were disabled
+          if (typeof gtag !== 'undefined') {
+            gtag('consent', 'update', {
+              'analytics_storage': 'granted'
+            });
+          }
+        });
+        
+        declineBtn.addEventListener('click', function() {
+          localStorage.setItem('cookie-consent', 'declined');
+          cookieConsent.classList.add('translate-y-full');
+          setTimeout(() => {
+            cookieConsent.style.display = 'none';
+          }, 300);
+          
+          // Disable analytics
+          if (typeof gtag !== 'undefined') {
+            gtag('consent', 'update', {
+              'analytics_storage': 'denied'
+            });
+          }
+        });
+      })();
+    </script>
+  {{ end }}
+{{ else }}
+  {{/* Fallback to Hugo's native Google Analytics if no analytics config */}}
+  {{ if .Site.Config.Services.GoogleAnalytics.ID }}
+    <!-- Google Analytics 4 (Hugo native) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Config.Services.GoogleAnalytics.ID }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{{ .Site.Config.Services.GoogleAnalytics.ID }}');
+    </script>
+  {{ end }}
+{{ end }}
+
+  {{/* Google Tag Manager */}}
+  {{ if $analytics.google_tag_manager_id }}
+    {{ if not $respectDNT }}
+      <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','{{ $analytics.google_tag_manager_id }}');</script>
+    {{ else }}
+      <!-- Google Tag Manager with DNT respect -->
+      <script>
+        if (navigator.doNotTrack !== "1" && window.doNotTrack !== "1") {
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','{{ $analytics.google_tag_manager_id }}');
+        }
+      </script>
+    {{ end }}
+  {{ end }}
+
+  {{/* Plausible Analytics */}}
+  {{ if $analytics.plausible_domain }}
+    {{ if not $respectDNT }}
+      <!-- Plausible Analytics -->
+      <script defer data-domain="{{ $analytics.plausible_domain }}" src="https://plausible.io/js/script.js"></script>
+    {{ else }}
+      <!-- Plausible Analytics with DNT respect -->
+      <script>
+        if (navigator.doNotTrack !== "1" && window.doNotTrack !== "1") {
+          var script = document.createElement('script');
+          script.defer = true;
+          script.setAttribute('data-domain', '{{ $analytics.plausible_domain }}');
+          script.src = 'https://plausible.io/js/script.js';
+          document.head.appendChild(script);
+        }
+      </script>
+    {{ end }}
+  {{ end }}
+
+  {{/* Fathom Analytics */}}
+  {{ if $analytics.fathom_site_id }}
+    {{ if not $respectDNT }}
+      <!-- Fathom Analytics -->
+      <script src="https://cdn.usefathom.com/script.js" data-site="{{ $analytics.fathom_site_id }}" defer></script>
+    {{ else }}
+      <!-- Fathom Analytics with DNT respect -->
+      <script>
+        if (navigator.doNotTrack !== "1" && window.doNotTrack !== "1") {
+          var script = document.createElement('script');
+          script.src = 'https://cdn.usefathom.com/script.js';
+          script.setAttribute('data-site', '{{ $analytics.fathom_site_id }}');
+          script.defer = true;
+          document.head.appendChild(script);
+        }
+      </script>
+    {{ end }}
+  {{ end }}
+
+  {{/* Cookie Consent Banner */}}
+  {{ if $analytics.cookie_consent }}
+    <div id="cookie-consent" class="fixed bottom-0 left-0 right-0 {{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "bg") }} {{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "border") }} border-t p-4 shadow-lg z-50 transform translate-y-full transition-transform duration-300" style="display: none;">
+      <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex-1">
+          <p class="{{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }} text-sm">
+            We use cookies to enhance your experience and analyze site traffic. By continuing to use this site, you consent to our use of cookies.
+            <a href="/privacy/" class="{{ partial "theme-classes.html" (dict "context" . "type" "primary" "variant" "text") }} hover:underline">Privacy Policy</a>
+          </p>
+        </div>
+        <div class="flex gap-2">
+          <button id="cookie-accept" class="{{ partial "theme-classes.html" (dict "context" . "type" "button" "element" "primary") }} px-4 py-2 rounded text-sm font-medium">
+            Accept
+          </button>
+          <button id="cookie-decline" class="{{ partial "theme-classes.html" (dict "context" . "type" "button" "element" "secondary") }} px-4 py-2 rounded text-sm font-medium">
+            Decline
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      (function() {
+        const cookieConsent = document.getElementById('cookie-consent');
+        const acceptBtn = document.getElementById('cookie-accept');
+        const declineBtn = document.getElementById('cookie-decline');
+        
+        // Check if user has already made a choice
+        const consentStatus = localStorage.getItem('cookie-consent');
+        
+        if (!consentStatus) {
+          // Show banner after a short delay
+          setTimeout(() => {
+            cookieConsent.style.display = 'block';
+            cookieConsent.classList.remove('translate-y-full');
+          }, 1000);
+        }
+        
+        acceptBtn.addEventListener('click', function() {
+          localStorage.setItem('cookie-consent', 'accepted');
+          cookieConsent.classList.add('translate-y-full');
+          setTimeout(() => {
+            cookieConsent.style.display = 'none';
+          }, 300);
+          
+          // Enable analytics if they were disabled
+          if (typeof gtag !== 'undefined') {
+            gtag('consent', 'update', {
+              'analytics_storage': 'granted'
+            });
+          }
+        });
+        
+        declineBtn.addEventListener('click', function() {
+          localStorage.setItem('cookie-consent', 'declined');
+          cookieConsent.classList.add('translate-y-full');
+          setTimeout(() => {
+            cookieConsent.style.display = 'none';
+          }, 300);
+          
+          // Disable analytics
+          if (typeof gtag !== 'undefined') {
+            gtag('consent', 'update', {
+              'analytics_storage': 'denied'
+            });
+          }
+        });
+      })();
+    </script>
+  {{ end }}
+{{ end }}

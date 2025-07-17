@@ -2,6 +2,21 @@ date_format = "2 January 2006"
 show_reading_time = true
 showLanguageSwitcher = true
 
+# Analytics Configuration
+[analytics]
+  # Google Analytics
+  google_analytics_id = ""  # Add your GA4 measurement ID (G-XXXXXXXXXX)
+  google_tag_manager_id = ""  # Add your GTM container ID (GTM-XXXXXXX)
+  
+  # Other analytics services
+  plausible_domain = ""  # Add your domain for Plausible analytics
+  fathom_site_id = ""    # Add your Fathom site ID
+  
+  # Privacy settings
+  respect_do_not_track = true
+  anonymize_ip = true
+  cookie_consent = false  # Enable cookie consent banner
+
 # Theme Configuration
 [theme]
   # Dark mode settings
