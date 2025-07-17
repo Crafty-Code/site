@@ -1,5 +1,5 @@
 module.exports = {
-  darkMode: 'class',
+  darkMode: 'media',
   content: [
     './layouts/**/*.html',
     './themes/craftytheme/layouts/**/*.html',

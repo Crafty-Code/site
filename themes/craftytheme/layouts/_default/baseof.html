@@ -3,32 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>{{ block "title" . }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
-<script>
-  (function() {
-    try {
-      const defaultMode = '{{ .Site.Params.theme.default_mode | default "auto" }}';
-      
-      if (localStorage.theme === 'dark' || (defaultMode === 'dark' && !localStorage.theme)) {
-        document.documentElement.classList.add('dark');
-      } else if (localStorage.theme === 'light' || (defaultMode === 'light' && !localStorage.theme)) {
-        document.documentElement.classList.remove('dark');
-      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-    } catch (e) {}
-  })();
-</script>
   {{ partial "theme-variables.html" . }}
   {{ with (templates.Defer (dict "key" "global")) }}
     {{ partial "css.html" . }}
   {{ end }}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    :root { color-scheme: light dark; }
-    .dark { color-scheme: dark; }
-  </style>
   {{ partial "analytics.html" . }}
 </head>
 <body class="{{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }}">
