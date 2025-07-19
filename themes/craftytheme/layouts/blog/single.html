@@ -1,35 +1,35 @@
 {{ define "main" }}
 <article class="max-w-4xl mx-auto">
-  <!-- Hero Header Section -->
-  <header class="bg-gradient-to-r from-{{ .Site.Params.theme.colors.primary | default "blue" }}-600 to-{{ .Site.Params.theme.colors.primary | default "blue" }}-800 dark:from-{{ .Site.Params.theme.colors.primary | default "blue" }}-700 dark:to-{{ .Site.Params.theme.colors.primary | default "blue" }}-900 rounded-2xl p-8 mb-8 text-white shadow-xl">
+  <!-- Header Section -->
+  <header class="{{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "bg") }} rounded-lg p-6 mb-8 border {{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "border") }} shadow-sm">
     <!-- Category Badge -->
     {{ if .Params.category }}
       <div class="mb-4">
-        <span class="inline-flex items-center gap-1 bg-white/20 text-white px-3 py-1 rounded-full text-sm font-medium">
+        <span class="inline-flex items-center gap-1 {{ partial "theme-classes.html" (dict "context" . "type" "primary" "variant" "bg") }} text-white px-3 py-1 rounded-full text-sm font-medium">
           <i class="fas fa-folder"></i>
           {{ .Params.category }}
         </span>
       </div>
     {{ end }}
 
-    <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">{{ .Title }}</h1>
+    <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "heading") }}">{{ .Title }}</h1>
     
     <!-- Article Subtitle/Description -->
     {{ if .Params.description }}
-      <p class="text-xl text-{{ .Site.Params.theme.colors.primary | default "blue" }}-100 mb-6 leading-relaxed">{{ .Params.description }}</p>
+      <p class="text-lg {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }} mb-4 leading-relaxed">{{ .Params.description }}</p>
     {{ end }}
     
     <!-- Article Meta -->
-    <div class="flex flex-wrap gap-6 items-center text-{{ .Site.Params.theme.colors.primary | default "blue" }}-100 mb-6">
+    <div class="flex flex-wrap gap-6 items-center {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }} mb-4">
       {{ if .Params.author }}
         <div class="flex items-center gap-2">
-          <i class="fas fa-user"></i>
+          <i class="fas fa-user text-sm"></i>
           <span class="font-medium">{{ .Params.author }}</span>
         </div>
       {{ end }}
       
       <div class="flex items-center gap-2">
-        <i class="fas fa-calendar"></i>
+        <i class="fas fa-calendar text-sm"></i>
         <time datetime="{{ .Date.Format "2006-01-02" }}" class="font-medium">
           {{ .Date.Format "January 2, 2006" }}
         </time>
@@ -39,7 +39,7 @@
 
       {{ if .Params.difficulty }}
         <div class="flex items-center gap-2">
-          <i class="fas fa-signal"></i>
+          <i class="fas fa-signal text-sm"></i>
           <span class="font-medium capitalize">{{ .Params.difficulty }}</span>
         </div>
       {{ end }}
@@ -47,23 +47,23 @@
 
     <!-- Article Stats -->
     {{ if or .Params.word_count .WordCount .Params.views }}
-      <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 mb-6">
+      <div class="{{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "bg") }} border {{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "border") }} rounded-lg p-4 mb-4">
         <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-center">
           <div>
-            <div class="text-sm text-{{ .Site.Params.theme.colors.primary | default "blue" }}-200 mb-1">Words</div>
-            <div class="font-bold text-lg">{{ .WordCount }}</div>
+            <div class="text-sm {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }} mb-1">Words</div>
+            <div class="font-bold text-lg {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }}">{{ .WordCount }}</div>
           </div>
           
           {{ if .Params.views }}
             <div>
-              <div class="text-sm text-{{ .Site.Params.theme.colors.primary | default "blue" }}-200 mb-1">Views</div>
-              <div class="font-bold text-lg">{{ .Params.views }}</div>
+              <div class="text-sm {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }} mb-1">Views</div>
+              <div class="font-bold text-lg {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }}">{{ .Params.views }}</div>
             </div>
           {{ end }}
           
           <div>
-            <div class="text-sm text-{{ .Site.Params.theme.colors.primary | default "blue" }}-200 mb-1">Updated</div>
-            <div class="font-medium text-sm">{{ .Lastmod.Format "Jan 2006" }}</div>
+            <div class="text-sm {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }} mb-1">Updated</div>
+            <div class="font-medium text-sm {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }}">{{ .Lastmod.Format "Jan 2006" }}</div>
           </div>
         </div>
       </div>
@@ -73,12 +73,12 @@
     {{ if or .Params.keywords .Params.tags }}
       <div class="flex flex-wrap gap-2">
         {{ range .Params.keywords }}
-          <span class="bg-white/20 text-white px-3 py-1 rounded-full text-sm font-medium">
+          <span class="{{ partial "theme-classes.html" (dict "context" $ "type" "primary" "variant" "bg") }} text-white px-3 py-1 rounded-full text-sm font-medium">
             <i class="fas fa-tag text-xs mr-1"></i>{{ . }}
           </span>
         {{ end }}
         {{ range .Params.tags }}
-          <span class="bg-{{ $.Site.Params.theme.colors.accent | default "blue" }}-500/30 text-white px-3 py-1 rounded-full text-sm font-medium">
+          <span class="bg-gray-600 dark:bg-gray-500 text-white px-3 py-1 rounded-full text-sm font-medium">
             #{{ . }}
           </span>
         {{ end }}
