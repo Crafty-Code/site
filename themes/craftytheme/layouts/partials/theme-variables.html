@@ -3,11 +3,27 @@
 {{ $primary := $colors.primary | default "blue" }}
 {{ $accent := $colors.accent | default "blue" }}
 
+{{ $primaryColors := dict 
+  "blue" "#3b82f6"
+  "green" "#10b981"
+  "purple" "#8b5cf6"
+  "red" "#ef4444"
+  "yellow" "#f59e0b"
+  "indigo" "#6366f1"
+  "pink" "#ec4899"
+  "teal" "#14b8a6"
+}}
+
+{{ $primaryHex := index $primaryColors $primary | default "#3b82f6" }}
+{{ $accentHex := index $primaryColors $accent | default "#3b82f6" }}
+
 <style>
   :root {
     /* Primary Theme Colors */
-    --color-primary: {{ $primary }};
-    --color-accent: {{ $accent }};
+    --color-primary: {{ $primaryHex }};
+    --color-accent: {{ $accentHex }};
+    --color-primary-name: {{ $primary }};
+    --color-accent-name: {{ $accent }};
     
     /* Header Colors - Light Mode */
     --header-bg-light: {{ $colors.header.light_bg | default "gray-800" }};

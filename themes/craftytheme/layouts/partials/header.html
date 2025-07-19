@@ -1,6 +1,7 @@
 <header class="{{ partial "theme-classes.html" (dict "context" . "type" "header" "variant" "bg") }} py-6 shadow-lg border-b-2 {{ partial "theme-classes.html" (dict "context" . "type" "header" "variant" "border") }}">
   <div class="flex justify-between items-center max-w-5xl mx-auto px-4">
-    <div class="language-selector-container absolute top-2 right-5 z-10 flex items-center">
+    <div class="language-selector-container absolute top-2 right-5 z-10 flex items-center gap-2">
+      {{ partial "dark-mode-toggle.html" . }}
       {{ partial "language-switcher.html" . }}
     </div>
     <div class="flex items-center gap-6 mt-4">

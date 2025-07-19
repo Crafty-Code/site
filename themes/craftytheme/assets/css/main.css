@@ -22,31 +22,55 @@
   }
   
   .prose :where(code):not(:where([class~="not-prose"] *)) {
-    @apply bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-sm;
+    background-color: var(--syntax-bg-light);
+    border-color: var(--syntax-border-light);
+    @apply px-1 py-0.5 rounded text-sm;
+  }
+  
+  .dark .prose :where(code):not(:where([class~="not-prose"] *)) {
+    background-color: var(--syntax-bg-dark);
+    border-color: var(--syntax-border-dark);
   }
   
   .prose :where(pre):not(:where([class~="not-prose"] *)) {
-    @apply bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg;
+    background-color: var(--syntax-bg-light);
+    border-color: var(--syntax-border-light);
+    @apply border rounded-lg;
+  }
+  
+  .dark .prose :where(pre):not(:where([class~="not-prose"] *)) {
+    background-color: var(--syntax-bg-dark);
+    border-color: var(--syntax-border-dark);
   }
   
   .prose :where(blockquote):not(:where([class~="not-prose"] *)) {
-    @apply border-l-4 border-blue-500 dark:border-blue-400 bg-blue-50 dark:bg-blue-900/10 pl-4 py-2 my-4;
+    border-left-color: var(--color-primary);
+    background-color: var(--syntax-bg-light);
+    @apply border-l-4 pl-4 py-2 my-4;
+  }
+  
+  .dark .prose :where(blockquote):not(:where([class~="not-prose"] *)) {
+    background-color: var(--syntax-bg-dark);
   }
   
   /* Dark mode prose adjustments */
   .prose.dark\:prose-invert {
-    @apply text-gray-100;
+    color: var(--content-text-dark);
   }
   
   .prose.dark\:prose-invert :where(h1, h2, h3, h4, h5, h6):not(:where([class~="not-prose"] *)) {
-    @apply text-white;
+    color: var(--content-heading-dark);
   }
   
   .prose.dark\:prose-invert :where(strong):not(:where([class~="not-prose"] *)) {
-    @apply text-white;
+    color: var(--content-heading-dark);
   }
   
   .prose.dark\:prose-invert :where(a):not(:where([class~="not-prose"] *)) {
-    @apply text-blue-400 hover:text-blue-300;
+    color: var(--color-primary);
+  }
+  
+  .prose.dark\:prose-invert :where(a):not(:where([class~="not-prose"] *)):hover {
+    opacity: 0.8;
   }
 }

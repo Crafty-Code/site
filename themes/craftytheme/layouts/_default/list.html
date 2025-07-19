@@ -8,16 +8,16 @@
   {{ $recent := first 10 (sort $filtered "Date" "desc") }}
   <div class="flex flex-wrap gap-8 justify-start my-8 ml-24">
     {{ range $recent }}
-      <div class="bg-gray-50 dark:bg-gray-700 rounded-2xl shadow-xl border-2 border-gray-300 dark:border-gray-600 p-8 w-96 flex flex-col items-start transition-all hover:shadow-2xl hover:scale-105 hover:border-blue-400 dark:hover:border-blue-500">
+      <div class="{{ partial "theme-classes.html" (dict "context" $ "type" "card" "variant" "bg") }} rounded-2xl shadow-xl border-2 {{ partial "theme-classes.html" (dict "context" $ "type" "card" "variant" "border") }} p-8 w-96 flex flex-col items-start transition-all hover:shadow-2xl hover:scale-105 hover:border-{{ $.Site.Params.theme.colors.primary | default "blue" }}-400 dark:hover:border-{{ $.Site.Params.theme.colors.primary | default "blue" }}-500">
         {{ with .Params.image }}
-          <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-44 object-cover rounded-lg mb-4 bg-gray-200 dark:bg-gray-800 shadow-md" />
+          <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-44 object-cover rounded-lg mb-4 {{ partial "theme-classes.html" (dict "context" $ "type" "card" "variant" "bg") }} shadow-md" />
         {{ end }}
         <div class="flex-1 w-full">
-          <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100"><a href="{{ .RelPermalink }}" class="hover:text-blue-600 dark:hover:text-blue-400">{{ .Title }}</a></h2>
-          <div class="text-lg text-gray-600 dark:text-gray-300 mb-4">
-            <span class="font-semibold text-blue-700 dark:text-blue-300">Reading time:</span> <span>{{ .ReadingTime }} min read</span>
+          <h2 class="text-2xl font-bold mb-4 {{ partial "theme-classes.html" (dict "context" $ "type" "content" "variant" "heading") }}"><a href="{{ .RelPermalink }}" class="hover:{{ partial "theme-classes.html" (dict "context" $ "type" "primary" "variant" "text") }}">{{ .Title }}</a></h2>
+          <div class="text-lg {{ partial "theme-classes.html" (dict "context" $ "type" "content" "variant" "muted") }} mb-4">
+            <span class="font-semibold {{ partial "theme-classes.html" (dict "context" $ "type" "primary" "variant" "text") }}">Reading time:</span> <span>{{ .ReadingTime }} min read</span>
           </div>
-          <p><a href="{{ .RelPermalink }}" class="text-blue-600 dark:text-blue-400 hover:underline font-medium text-xl">Read more…</a></p>
+          <p><a href="{{ .RelPermalink }}" class="{{ partial "theme-classes.html" (dict "context" $ "type" "primary" "variant" "text") }} hover:underline font-medium text-xl">Read more…</a></p>
         </div>
       </div>
     {{ end }}

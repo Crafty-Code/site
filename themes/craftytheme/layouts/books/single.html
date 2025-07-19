@@ -93,7 +93,7 @@
           </span>
         {{ end }}
         {{ range .Params.tags }}
-          <span class="bg-gray-600 dark:bg-gray-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+          <span class="{{ partial "theme-classes.html" (dict "context" $ "type" "card" "variant" "bg") }} border {{ partial "theme-classes.html" (dict "context" $ "type" "card" "variant" "border") }} {{ partial "theme-classes.html" (dict "context" $ "type" "content" "variant" "text") }} px-3 py-1 rounded-full text-sm font-medium">
             #{{ . }}
           </span>
         {{ end }}
@@ -116,12 +116,12 @@
 
   <!-- Call to Action for Affiliate Link -->
   {{ if .Params.affiliate_link }}
-    <div class="mt-8 p-8 bg-gradient-to-r from-green-50 to-blue-50 dark:from-gray-700 dark:to-gray-800 rounded-2xl border border-green-200 dark:border-gray-600">
+    <div class="mt-8 p-8 {{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "bg") }} rounded-2xl border {{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "border") }}">
       <div class="text-center">
-        <i class="fas fa-book text-3xl text-green-600 dark:text-green-400 mb-4"></i>
-        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">Ready to dive deeper?</h3>
-        <p class="text-gray-600 dark:text-gray-300 mb-6">Get your copy and start improving your code today.</p>
-        <a href="{{ .Params.affiliate_link }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg transition-colors font-medium">
+        <i class="fas fa-book text-3xl {{ partial "theme-classes.html" (dict "context" . "type" "primary" "variant" "text") }} mb-4"></i>
+        <h3 class="text-2xl font-bold {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "heading") }} mb-2">Ready to dive deeper?</h3>
+        <p class="{{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "muted") }} mb-6">Get your copy and start improving your code today.</p>
+        <a href="{{ .Params.affiliate_link }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 {{ partial "theme-classes.html" (dict "context" . "type" "button" "element" "primary") }} px-6 py-3 rounded-lg transition-colors font-medium">
           <i class="fas fa-external-link-alt"></i>
           Buy on Amazon
         </a>
@@ -134,23 +134,23 @@
     {{ $related := .Site.RegularPages.Related . | first 3 }}
     {{ if $related }}
       <section class="mt-8">
-        <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-6">Related Books</h2>
+        <h2 class="text-2xl font-bold {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "heading") }} mb-6">Related Books</h2>
         <div class="grid md:grid-cols-3 gap-6">
           {{ range $related }}
-            <article class="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-200 dark:border-gray-600 overflow-hidden">
+            <article class="{{ partial "theme-classes.html" (dict "context" $ "type" "card" "variant" "bg") }} rounded-xl shadow-md hover:shadow-lg transition-shadow border {{ partial "theme-classes.html" (dict "context" $ "type" "card" "variant" "border") }} overflow-hidden">
               {{ if .Params.image }}
                 <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-32 object-cover" />
               {{ end }}
               <div class="p-4">
-                <h3 class="font-semibold text-gray-800 dark:text-white mb-2 line-clamp-2">
-                  <a href="{{ .Permalink }}" class="hover:text-green-600 dark:hover:text-green-400 transition-colors">
+                <h3 class="font-semibold {{ partial "theme-classes.html" (dict "context" $ "type" "content" "variant" "heading") }} mb-2 line-clamp-2">
+                  <a href="{{ .Permalink }}" class="hover:{{ partial "theme-classes.html" (dict "context" $ "type" "primary" "variant" "text") }} transition-colors">
                     {{ .Title }}
                   </a>
                 </h3>
-                <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                <p class="text-sm {{ partial "theme-classes.html" (dict "context" $ "type" "content" "variant" "muted") }} mb-3">
                   {{ .Date.Format "Jan 2, 2006" }} • {{ .ReadingTime }} min read
                 </p>
-                <a href="{{ .Permalink }}" class="text-green-600 dark:text-green-400 hover:underline text-sm font-medium">
+                <a href="{{ .Permalink }}" class="{{ partial "theme-classes.html" (dict "context" $ "type" "primary" "variant" "text") }} hover:underline text-sm font-medium">
                   Read more →
                 </a>
               </div>
@@ -162,20 +162,20 @@
   {{ end }}
 
   <!-- Article Footer -->
-  <footer class="mt-8 bg-gray-50 dark:bg-gray-700 rounded-2xl overflow-hidden">
+  <footer class="mt-8 {{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "bg") }} rounded-2xl overflow-hidden">
     <!-- Social Sharing -->
-    <div class="p-6 border-b border-gray-200 dark:border-gray-600">
-      <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-4">Share this book review</h3>
+    <div class="p-6 border-b {{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "border") }}">
+      <h3 class="text-lg font-semibold {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "heading") }} mb-4">Share this book review</h3>
       <div class="flex flex-wrap gap-3">
-        <a href="https://twitter.com/intent/tweet?url={{ .Permalink | absURL }}&text={{ .Title }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+        <a href="https://twitter.com/intent/tweet?url={{ .Permalink | absURL }}&text={{ .Title }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 {{ partial "theme-classes.html" (dict "context" . "type" "button" "element" "primary") }} px-4 py-2 rounded-lg transition-colors text-sm font-medium">
           <i class="fab fa-twitter"></i>
           Twitter
         </a>
-        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | absURL }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | absURL }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 {{ partial "theme-classes.html" (dict "context" . "type" "button" "element" "secondary") }} px-4 py-2 rounded-lg transition-colors text-sm font-medium">
           <i class="fab fa-linkedin"></i>
           LinkedIn
         </a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | absURL }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | absURL }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 {{ partial "theme-classes.html" (dict "context" . "type" "button" "element" "secondary") }} px-4 py-2 rounded-lg transition-colors text-sm font-medium">
           <i class="fab fa-facebook"></i>
           Facebook
         </a>
