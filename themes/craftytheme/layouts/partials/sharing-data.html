@@ -1,0 +1,62 @@
+{{/*
+  Social Sharing Data Preparation
+  Centralizes data preparation and validation for sharing components
+  
+  Usage: {{ $sharingData := partial "sharing-data.html" (dict "context" . "type" "blog") }}
+*/}}
+
+{{ $context := .context }}
+{{ $type := .type | default "page" }}
+{{ $sharing := $context.Site.Params.sharing }}
+
+{{/* Validate sharing configuration */}}
+{{ if not $sharing }}
+  {{ errorf "Social sharing configuration not found in site params" }}
+{{ end }}
+
+{{/* Determine if sharing is enabled for this content type */}}
+{{ $enableSharing := false }}
+{{ if eq $type "blog" }}
+  {{ $enableSharing = $sharing.enable_blog_sharing }}
+{{ else if eq $type "book" }}
+  {{ $enableSharing = $sharing.enable_book_sharing }}
+{{ else }}
+  {{ $enableSharing = $sharing.enable_page_sharing }}
+{{ end }}
+
+{{/* Prepare base sharing data */}}
+{{ $url := $context.Permalink | absURL }}
+{{ $title := $context.Title }}
+{{ $description := $context.Params.description | default $context.Summary | default $title }}
+{{ $emailSubjectPrefix := $sharing.messages.email_subject_prefix | default "" }}
+
+{{/* Prepare analytics-safe data */}}
+{{ $safeTitleForJS := $title | replaceRE "'" "\\'" | replaceRE "\"" "\\\"" }}
+{{ $safeUrlForJS := $url | replaceRE "'" "\\'" | replaceRE "\"" "\\\"" }}
+{{ $jsSafeData := dict "title" $safeTitleForJS "url" $safeUrlForJS }}
+
+{{/* Get section title */}}
+{{ $sectionTitle := "" }}
+{{ if eq $type "blog" }}
+  {{ $sectionTitle = $sharing.display.blog_section_title | default "Share this article" }}
+{{ else if eq $type "book" }}
+  {{ $sectionTitle = $sharing.display.book_section_title | default "Share this book review" }}
+{{ else }}
+  {{ $sectionTitle = $sharing.display.page_section_title | default "Share this page" }}
+{{ end }}
+
+{{/* Return data structure */}}
+{{ return (dict
+  "enabled" $enableSharing
+  "url" $url
+  "title" $title
+  "description" $description
+  "emailSubjectPrefix" $emailSubjectPrefix
+  "jsSafeData" $jsSafeData
+  "sectionTitle" $sectionTitle
+  "showSectionTitle" $sharing.display.show_section_title
+  "enabledPlatforms" $sharing.platforms
+  "analyticsEnabled" $sharing.analytics.enable_tracking
+  "type" $type
+  "context" $context
+) }}

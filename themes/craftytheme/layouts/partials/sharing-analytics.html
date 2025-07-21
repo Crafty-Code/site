@@ -1,0 +1,37 @@
+{{/*
+  Social Sharing Analytics Configuration
+  This partial configures the analytics tracking module and loads the JavaScript
+*/}}
+
+{{ $context := .context }}
+{{ $analytics := $context.Site.Params.analytics }}
+{{ $sharing := $context.Site.Params.sharing }}
+
+{{ if $sharing.analytics.enable_tracking }}
+  {{/* Configure analytics tracking */}}
+  <script>
+    window.socialSharingConfig = {
+      // Platform tracking flags
+      trackGA4: {{ if and $analytics.google_analytics_id $sharing.analytics.track_google_analytics }}true{{ else }}false{{ end }},
+      trackGTM: {{ if and $analytics.google_tag_manager_id $sharing.analytics.track_gtm }}true{{ else }}false{{ end }},
+      
+      // Event names configuration
+      eventNames: {
+        googleAnalytics: '{{ $sharing.analytics.event_names.google_analytics | default "share" }}',
+        gtm: '{{ $sharing.analytics.event_names.gtm | default "social_share" }}'
+      },
+      
+      // Data inclusion flags
+      includeContentType: {{ if $sharing.analytics.properties.include_content_type }}true{{ else }}false{{ end }},
+      includeContentTitle: {{ if $sharing.analytics.properties.include_content_title }}true{{ else }}false{{ end }},
+      includeContentUrl: {{ if $sharing.analytics.properties.include_content_url }}true{{ else }}false{{ end }},
+      includePlatform: {{ if $sharing.analytics.properties.include_platform }}true{{ else }}false{{ end }},
+      
+      // Debug mode (can be enabled via localStorage.setItem('sharing_debug', 'true'))
+      debug: false
+    };
+  </script>
+  
+  {{/* Load the analytics tracking module */}}
+  <script src="{{ "js/sharing-analytics.js" | relURL }}" defer></script>
+{{ end }}

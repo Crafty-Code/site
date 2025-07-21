@@ -162,62 +162,6 @@
   {{ end }}
 
   <!-- Article Footer -->
-  <footer class="mt-8 {{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "bg") }} rounded-2xl overflow-hidden">
-    <!-- Social Sharing -->
-    <div class="p-6 border-b {{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "border") }}">
-      <h3 class="text-lg font-semibold {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "heading") }} mb-4">Share this book review</h3>
-      <div class="flex flex-wrap gap-3">
-        <a href="https://twitter.com/intent/tweet?url={{ .Permalink | absURL }}&text={{ .Title }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 {{ partial "theme-classes.html" (dict "context" . "type" "button" "element" "primary") }} px-4 py-2 rounded-lg transition-colors text-sm font-medium">
-          <i class="fab fa-twitter"></i>
-          Twitter
-        </a>
-        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | absURL }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 {{ partial "theme-classes.html" (dict "context" . "type" "button" "element" "secondary") }} px-4 py-2 rounded-lg transition-colors text-sm font-medium">
-          <i class="fab fa-linkedin"></i>
-          LinkedIn
-        </a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | absURL }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 {{ partial "theme-classes.html" (dict "context" . "type" "button" "element" "secondary") }} px-4 py-2 rounded-lg transition-colors text-sm font-medium">
-          <i class="fab fa-facebook"></i>
-          Facebook
-        </a>
-        <button onclick="navigator.clipboard.writeText('{{ .Permalink | absURL }}'); this.innerHTML='<i class=\'fas fa-check\'></i> Copied!'" class="inline-flex items-center gap-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium">
-          <i class="fas fa-link"></i>
-          Copy Link
-        </button>
-      </div>
-    </div>
-
-    <!-- Article Meta & Navigation -->
-    <div class="p-6">
-      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-        <div class="text-gray-600 dark:text-gray-300">
-          <p class="text-sm flex items-center gap-2">
-            <i class="fas fa-calendar"></i>
-            Published on {{ .Date.Format "January 2, 2006" }}
-          </p>
-          {{ if .Lastmod }}
-            <p class="text-sm flex items-center gap-2 mt-1">
-              <i class="fas fa-edit"></i>
-              Last updated: {{ .Lastmod.Format "January 2, 2006" }}
-            </p>
-          {{ end }}
-          
-        </div>
-        
-        <!-- Navigation buttons -->
-        <div class="flex flex-wrap gap-3">
-          <a href="/books/" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors font-medium text-sm">
-            <i class="fas fa-arrow-left"></i>
-            Back to Books
-          </a>
-          {{ if .NextInSection }}
-            <a href="{{ .NextInSection.Permalink }}" class="inline-flex items-center gap-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors font-medium text-sm">
-              Next Review
-              <i class="fas fa-arrow-right"></i>
-            </a>
-          {{ end }}
-        </div>
-      </div>
-    </div>
-  </footer>
+  {{ partial "article-footer.html" (dict "context" . "type" "book" "backUrl" "/books/" "backText" "Back to Books") }}
 </article>
 {{ end }}

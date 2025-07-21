@@ -161,67 +161,6 @@
   {{ end }}
 
   <!-- Article Footer -->
-  <footer class="mt-8 bg-gray-50 dark:bg-gray-700 rounded-2xl overflow-hidden">
-    <!-- Social Sharing -->
-    <div class="p-6 border-b border-gray-200 dark:border-gray-600">
-      <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-4">Share this article</h3>
-      <div class="flex flex-wrap gap-3">
-        <a href="https://twitter.com/intent/tweet?url={{ .Permalink | absURL }}&text={{ .Title }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium">
-          <i class="fab fa-twitter"></i>
-          Twitter
-        </a>
-        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | absURL }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium">
-          <i class="fab fa-linkedin"></i>
-          LinkedIn
-        </a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | absURL }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium">
-          <i class="fab fa-facebook"></i>
-          Facebook
-        </a>
-        <button onclick="navigator.clipboard.writeText('{{ .Permalink | absURL }}'); this.innerHTML='<i class=\'fas fa-check\'></i> Copied!'" class="inline-flex items-center gap-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium">
-          <i class="fas fa-link"></i>
-          Copy Link
-        </button>
-      </div>
-    </div>
-
-    <!-- Article Meta & Navigation -->
-    <div class="p-6">
-      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-        <div class="text-gray-600 dark:text-gray-300">
-          <p class="text-sm flex items-center gap-2">
-            <i class="fas fa-calendar"></i>
-            Published on {{ .Date.Format "January 2, 2006" }}
-          </p>
-          {{ if .Lastmod }}
-            <p class="text-sm flex items-center gap-2 mt-1">
-              <i class="fas fa-edit"></i>
-              Last updated: {{ .Lastmod.Format "January 2, 2006" }}
-            </p>
-          {{ end }}
-          {{ if .Params.author }}
-            <p class="text-sm flex items-center gap-2 mt-1">
-              <i class="fas fa-user"></i>
-              By {{ .Params.author }}
-            </p>
-          {{ end }}
-        </div>
-        
-        <!-- Navigation buttons -->
-        <div class="flex flex-wrap gap-3">
-          <a href="/blog/" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors font-medium text-sm">
-            <i class="fas fa-arrow-left"></i>
-            Back to Blog
-          </a>
-          {{ if .NextInSection }}
-            <a href="{{ .NextInSection.Permalink }}" class="inline-flex items-center gap-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors font-medium text-sm">
-              Next Article
-              <i class="fas fa-arrow-right"></i>
-            </a>
-          {{ end }}
-        </div>
-      </div>
-    </div>
-  </footer>
+  {{ partial "article-footer.html" (dict "context" . "type" "blog" "backUrl" "/blog/" "backText" "Back to Blog") }}
 </article>
 {{ end }}

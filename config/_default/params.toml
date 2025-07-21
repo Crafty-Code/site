@@ -2,6 +2,18 @@ date_format = "2 January 2006"
 show_reading_time = true
 showLanguageSwitcher = true
 
+# Site Information for SEO and Social Sharing
+description = "Welcome to our site - sharing insights, tutorials, and knowledge"
+author = "CraftyCode"
+default_image = "/images/default-social-image.jpg"  # Create this image (1200x630px recommended)
+favicon = "/favicon.ico"
+
+# Social Media Handles (Optional - only needed for attribution in meta tags)
+[social]
+  # twitter = ""  # Your Twitter handle without @ (optional - for twitter:creator meta tag)
+  # linkedin = ""  # Your LinkedIn profile (optional)
+  # github = ""   # Your GitHub username (optional)
+
 # Analytics Configuration
 [analytics]
   # Google Analytics
@@ -110,3 +122,51 @@ showLanguageSwitcher = true
       dark_bg = "gray-900"               # Code block background in dark mode
       light_border = "gray-200"          # Code block border in light mode
       dark_border = "gray-700"           # Code block border in dark mode
+
+# Social Sharing Configuration
+[sharing]
+  # Enable sharing for different content types
+  enable_blog_sharing = true
+  enable_book_sharing = true
+  enable_page_sharing = false  # For other page types
+  
+  # Available sharing platforms
+  [sharing.platforms]
+    linkedin = true
+    reddit = true
+    whatsapp = true
+    signal = true
+    bluesky = true
+    mastodon = true       # Mastodon/Fediverse
+    threads = true
+    email = true
+    copy_link = true
+    
+  # Custom sharing messages
+  [sharing.messages]
+    email_subject_prefix = "Interesting read:"  # Email subject prefix
+    
+  # Sharing section customization
+  [sharing.display]
+    show_section_title = true
+    blog_section_title = "Share this article"
+    book_section_title = "Share this book review"
+    page_section_title = "Share this page"
+    
+  # Analytics Configuration
+  [sharing.analytics]
+    enable_tracking = true
+    track_google_analytics = true     # Track share events in Google Analytics
+    track_gtm = false                 # Enable if you use Google Tag Manager
+    
+    # Custom event names for analytics platforms
+    [sharing.analytics.event_names]
+      google_analytics = "share"      # GA4 event name
+      gtm = "social_share"           # GTM event name (if enabled)
+      
+    # Additional tracking data
+    [sharing.analytics.properties]
+      include_content_type = true     # Include blog/book/page in tracking
+      include_content_title = true    # Include page title in tracking
+      include_content_url = true      # Include page URL in tracking
+      include_platform = true         # Include sharing platform in tracking

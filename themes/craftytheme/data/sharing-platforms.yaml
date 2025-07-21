@@ -1,0 +1,84 @@
+# Social Sharing Platform Definitions
+# This file defines the available sharing platforms, their configurations,
+# and UI properties according to Hugo best practices for data separation
+
+platforms:
+  linkedin:
+    name: "LinkedIn" 
+    icon: "fab fa-linkedin"
+    colors:
+      bg: "bg-blue-700"
+      hover: "hover:bg-blue-800"
+    url_template: "https://www.linkedin.com/feed/?shareActive=true&text={combined}"
+    combine_title_url: true
+    
+  reddit:
+    name: "Reddit"
+    icon: "fab fa-reddit" 
+    colors:
+      bg: "bg-orange-600"
+      hover: "hover:bg-orange-700"
+    url_template: "https://reddit.com/submit?url={url}&title={title}"
+    separate_params: true
+    
+  whatsapp:
+    name: "WhatsApp"
+    icon: "fab fa-whatsapp"
+    colors:
+      bg: "bg-green-600" 
+      hover: "hover:bg-green-700"
+    url_template: "https://wa.me/?text={combined}"
+    combine_title_url: true
+    
+  signal:
+    name: "Signal"
+    icon: "fas fa-comment"
+    colors:
+      bg: "bg-blue-500"
+      hover: "hover:bg-blue-600"
+    url_template: "https://signal.me/share/?url={url}&text={title}"
+    separate_params: true
+    
+  bluesky:
+    name: "Bluesky"
+    icon: "fas fa-cloud"
+    colors:
+      bg: "bg-blue-500"
+      hover: "hover:bg-blue-600"
+    url_template: "https://bsky.app/intent/compose?text={combined}"
+    combine_title_url: true
+    
+  mastodon:
+    name: "Mastodon"
+    icon: "fab fa-mastodon"
+    colors:
+      bg: "bg-purple-600"
+      hover: "hover:bg-purple-700"
+    url_template: "https://mastodon.social/share?text={combined}"
+    combine_title_url: true
+    
+  threads:
+    name: "Threads"
+    icon: "fas fa-at"
+    colors:
+      bg: "bg-gray-800"
+      hover: "hover:bg-gray-900"
+    url_template: "https://threads.net/intent/post?text={combined}"
+    combine_title_url: true
+    
+  email:
+    name: "Email"
+    icon: "fas fa-envelope"
+    colors:
+      bg: "bg-gray-600"
+      hover: "hover:bg-gray-700"
+    url_template: "mailto:?subject={email_subject}&body={email_body}"
+    is_email: true
+    
+  copy_link:
+    name: "Copy Link"
+    icon: "fas fa-link"
+    colors:
+      bg: "bg-gray-600"
+      hover: "hover:bg-gray-700"
+    is_copy_button: true

@@ -1,0 +1,53 @@
+{{/*
+  Social Sharing Button Component
+  Renders a single sharing button for a platform
+*/}}
+
+{{ $platform := .platform }}
+{{ $key := .key }}
+{{ $title := .title }}
+{{ $url := .url }}
+{{ $description := .description }}
+{{ $type := .type }}
+{{ $jsSafeData := .jsSafeData }}
+{{ $emailSubjectPrefix := .emailSubjectPrefix | default "" }}
+
+{{/* Build sharing URL for this platform */}}
+{{ $shareUrl := "" }}
+{{ if $platform.is_email }}
+  {{ $emailSubject := printf "%s %s" $emailSubjectPrefix $title | urlquery }}
+  {{ $emailBody := printf "I thought you might be interested in this: %s\n\n%s\n\n%s" $title $description $url | urlquery }}
+  {{ $shareUrl = $platform.url_template | replaceRE "\\{email_subject\\}" $emailSubject | replaceRE "\\{email_body\\}" $emailBody }}
+{{ else if $platform.combine_title_url }}
+  {{ $combined := printf "%s %s" $title $url | urlquery }}
+  {{ $shareUrl = $platform.url_template | replaceRE "\\{combined\\}" $combined }}
+{{ else if $platform.separate_params }}
+  {{ $encodedUrl := $url | urlquery }}
+  {{ $encodedTitle := $title | urlquery }}
+  {{ $shareUrl = $platform.url_template | replaceRE "\\{url\\}" $encodedUrl | replaceRE "\\{title\\}" $encodedTitle }}
+{{ end }}
+
+{{/* Generate button classes */}}
+{{ $baseClasses := "inline-flex items-center gap-2 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium" }}
+{{ $colorClasses := printf "%s %s" $platform.colors.bg $platform.colors.hover }}
+{{ $buttonClasses := printf "%s %s" $baseClasses $colorClasses }}
+
+{{ if $platform.is_copy_button }}
+  {{/* Copy Link Button */}}
+  <button onclick="copyToClipboardWithTracking('{{ $url }}', this, '{{ $key }}', '{{ $type }}', '{{ $jsSafeData.title }}', '{{ $jsSafeData.url }}')" 
+          class="{{ $buttonClasses }}"
+          title="Copy link to clipboard">
+    <i class="{{ $platform.icon }}"></i>
+    {{ $platform.name }}
+  </button>
+{{ else }}
+  {{/* External Platform Link */}}
+  <a href="{{ $shareUrl }}" 
+     {{ if not $platform.is_email }}target="_blank" rel="noopener noreferrer"{{ end }}
+     onclick="trackExternalShare('{{ $key }}', '{{ $type }}', '{{ $jsSafeData.title }}', '{{ $jsSafeData.url }}')"
+     class="{{ $buttonClasses }}"
+     title="Share on {{ $platform.name }}">
+    <i class="{{ $platform.icon }}"></i>
+    {{ $platform.name }}
+  </a>
+{{ end }}
