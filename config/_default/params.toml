@@ -5,6 +5,8 @@ showLanguageSwitcher = true
 # Site Information for SEO and Social Sharing
 description = "Welcome to our site - sharing insights, tutorials, and knowledge"
 author = "CraftyCode"
+title_image = "/images/title.png"  # Title image displayed next to site title
+logo = "/images/logo.png"  # Site logo for meta tags and social sharing (add your logo file)
 default_image = "/images/default-social-image.jpg"  # Create this image (1200x630px recommended)
 favicon = "/favicon.ico"
 
@@ -20,14 +22,10 @@ favicon = "/favicon.ico"
   google_analytics_id = ""  # Add your GA4 measurement ID (G-XXXXXXXXXX)
   google_tag_manager_id = ""  # Add your GTM container ID (GTM-XXXXXXX)
   
-  # Other analytics services
-  plausible_domain = ""  # Add your domain for Plausible analytics
-  fathom_site_id = ""    # Add your Fathom site ID
-  
   # Privacy settings
   respect_do_not_track = true
   anonymize_ip = true
-  cookie_consent = false  # Enable cookie consent banner
+  cookie_consent = true  # Enable cookie consent banner
 
 # Theme Configuration
 [theme]

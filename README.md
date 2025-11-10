@@ -6,7 +6,7 @@ This repository contains the website for CraftyCode, built with Hugo and styled 
 
 ### Prerequisites
 
-- [Hugo Extended](https://gohugo.io/installation/) (v0.140.0 or higher)
+- [Hugo Extended](https://gohugo.io/installation/) (v0.142.0 or higher)
 - [Git](https://git-scm.com/downloads)
 - [Node.js](https://nodejs.org/) (optional, for advanced features)
 
@@ -15,8 +15,8 @@ This repository contains the website for CraftyCode, built with Hugo and styled 
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/craftycode-site.git
-   cd craftycode-site
+   git clone https://github.com/Crafty-Code/site.git
+   cd site
    ```
 
 2. **Start development server:**
@@ -35,7 +35,7 @@ This repository contains the website for CraftyCode, built with Hugo and styled 
    make server     # Start Hugo server only
    
    # Using npm (if you have Node.js)
-   npm run dev     # Start development mode
+   npm run dev     # Start development mode (requires concurrently package)
    npm run start   # Start Hugo server only
    ```
 
@@ -99,7 +99,6 @@ See `THEME_CONFIG.md` for complete configuration options and examples.
 
 - Tailwind CSS automatically rebuilds when you modify templates
 - Theme changes are reflected instantly with Hugo's live reload
-- Dark mode toggle respects your configuration settings
 
 ### During Deployment
 
@@ -446,6 +445,63 @@ The theme includes comprehensive analytics support with privacy features:
 - **GDPR compliance**
 
 📋 **Full Analytics Guide:** See [`ANALYTICS_CONFIG.md`](ANALYTICS_CONFIG.md) for complete setup instructions.
+
+## 🔗 Social Sharing System
+
+The theme includes a comprehensive social sharing system that allows readers to easily share content across multiple platforms.
+
+### Supported Platforms
+- **LinkedIn** - Professional networking
+- **Reddit** - Community discussions  
+- **WhatsApp** - Mobile messaging
+- **Signal** - Secure messaging
+- **Bluesky** - Decentralized social media
+- **Mastodon** - Federated social network
+- **Threads** - Meta's social platform
+- **Email** - Direct email sharing
+- **Copy Link** - Clipboard functionality with visual feedback
+
+### Quick Sharing Setup
+
+1. **Enable sharing in `config/_default/params.toml`:**
+
+```toml
+[sharing]
+  enable_blog_sharing = true
+  enable_book_sharing = true
+  enable_page_sharing = false
+  
+  [sharing.platforms]
+    linkedin = true
+    reddit = true
+    whatsapp = true
+    signal = true
+    bluesky = true
+    mastodon = true
+    threads = true
+    email = true
+    copy_link = true
+```
+
+2. **Configure analytics tracking:**
+
+```toml
+[sharing.analytics]
+  enable_tracking = true
+  track_google_analytics = true
+  
+  [sharing.analytics.event_names]
+    google_analytics = "share"
+```
+
+### Sharing Features
+- **Platform-specific URLs** - Optimized for each platform's sharing format
+- **Analytics tracking** - Google Analytics integration for share events
+- **Visual feedback** - Success notifications for copy operations
+- **Responsive design** - Works on desktop and mobile devices
+- **Accessibility** - ARIA labels and keyboard navigation support
+
+🔗 **Full Sharing Guide:** See [`SOCIAL_SHARING_CONFIG.md`](SOCIAL_SHARING_CONFIG.md) for detailed configuration options.
 
 ## 🎨 Theme Customization
 

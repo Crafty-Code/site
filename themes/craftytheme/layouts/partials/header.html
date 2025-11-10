@@ -1,20 +1,38 @@
 <header class="{{ partial "theme-classes.html" (dict "context" . "type" "header" "variant" "bg") }} py-6 shadow-lg border-b-2 {{ partial "theme-classes.html" (dict "context" . "type" "header" "variant" "border") }}">
   <div class="flex justify-between items-center max-w-5xl mx-auto px-4">
-    <div class="language-selector-container absolute top-2 right-5 z-10 flex items-center gap-2">
+    <div class="language-selector-container absolute top-2 right-5 z-10 flex flex-col items-end gap-2">
       {{ partial "language-switcher.html" . }}
-    </div>
-    <div class="flex items-center gap-6 mt-4">
-      <a href="/">
-        <img src="/images/gohugo-default-sample-hero-image.jpg" alt="Site Logo" class="w-16 h-16 object-cover rounded-lg shadow-md" />
-      </a>
-      <div class="flex flex-col items-start">
-        <h1 class="text-3xl font-bold {{ partial "theme-classes.html" (dict "context" . "type" "header" "variant" "text") }} m-0 mb-1">{{ .Site.Title }}</h1>
-        <div class="text-base {{ partial "theme-classes.html" (dict "context" . "type" "header" "variant" "nav") }} mb-0.5">Welcome to {{ .Site.Title }}!</div>
+      <div class="flex items-center gap-1">
+        {{ partial "social-links.html" . }}
+      </div>
+      <div class="flex justify-end">
+        {{ partial "buymeacoffee.html" . }}
       </div>
     </div>
-    <div class="flex flex-col items-end gap-2 ml-auto">
-      {{ partial "social-links.html" . }}
-      {{ partial "buymeacoffee.html" . }}
+    
+    <!-- Left: Logo -->
+    <div class="flex items-center">
+      {{ if .Site.Params.logo }}
+        <a href="/">
+          <img src="{{ .Site.Params.logo }}" alt="Site Logo" class="w-12 h-12 object-contain rounded shadow-md" />
+        </a>
+      {{ else }}
+        <a href="/" class="text-2xl font-bold {{ partial "theme-classes.html" (dict "context" . "type" "header" "variant" "text") }}">
+          {{ .Site.Title }}
+        </a>
+      {{ end }}
+    </div>
+
+    <!-- Center: Title Banner -->
+    <div class="flex flex-col items-center text-center mx-auto">
+      {{ if .Site.Params.title_image }}
+        <a href="/">
+          <img src="{{ .Site.Params.title_image }}" alt="Site Title Banner" class="max-w-full h-auto max-h-24 object-contain rounded-lg shadow-md" style="aspect-ratio: 16/5;" />
+        </a>
+      {{ else }}
+        <h1 class="text-3xl font-bold {{ partial "theme-classes.html" (dict "context" . "type" "header" "variant" "text") }} m-0 mb-1">{{ .Site.Title }}</h1>
+        <div class="text-base {{ partial "theme-classes.html" (dict "context" . "type" "header" "variant" "nav") }}">Welcome to {{ .Site.Title }}!</div>
+      {{ end }}
     </div>
   </div>
   <nav class="mt-6">
