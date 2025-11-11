@@ -14,7 +14,7 @@
     <div class="flex items-center">
       {{ if .Site.Params.logo }}
         <a href="/">
-          <img src="{{ .Site.Params.logo }}" alt="Site Logo" class="w-12 h-12 object-contain rounded shadow-md" />
+          <img src="{{ .Site.Params.logo }}" alt="Site Logo" class="h-32 w-auto object-contain rounded shadow-md" />
         </a>
       {{ else }}
         <a href="/" class="text-2xl font-bold {{ partial "theme-classes.html" (dict "context" . "type" "header" "variant" "text") }}">
@@ -24,10 +24,10 @@
     </div>
 
     <!-- Center: Title Banner -->
-    <div class="flex flex-col items-center text-center mx-auto">
+    <div class="flex flex-col items-center justify-center flex-1 mx-4 min-w-0">
       {{ if .Site.Params.title_image }}
-        <a href="/">
-          <img src="{{ .Site.Params.title_image }}" alt="Site Title Banner" class="max-w-full h-auto max-h-24 object-contain rounded-lg shadow-md" style="aspect-ratio: 16/5;" />
+        <a href="/" class="w-full">
+          <img src="{{ .Site.Params.title_image }}" alt="Site Title Banner" class="h-32 w-full max-w-full object-contain rounded-lg shadow-md" />
         </a>
       {{ else }}
         <h1 class="text-3xl font-bold {{ partial "theme-classes.html" (dict "context" . "type" "header" "variant" "text") }} m-0 mb-1">{{ .Site.Title }}</h1>
