@@ -21,9 +21,13 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', '{{ $gaId }}'{{ if $anonymizeIP }}, {
+        {{ if $anonymizeIP }}
+        gtag('config', '{{ $gaId }}', {
           anonymize_ip: true
-        }{{ end }});
+        });
+        {{ else }}
+        gtag('config', '{{ $gaId }}');
+        {{ end }}
       </script>
     {{ else }}
       <!-- Google Analytics 4 with DNT respect -->
@@ -39,9 +43,13 @@
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '{{ $gaId }}'{{ if $anonymizeIP }}, {
+          {{ if $anonymizeIP }}
+          gtag('config', '{{ $gaId }}', {
             anonymize_ip: true
-          }{{ end }});
+          });
+          {{ else }}
+          gtag('config', '{{ $gaId }}');
+          {{ end }}
         }
       </script>
     {{ end }}
