@@ -1,0 +1,30 @@
+{{ $bmcUsername := .Site.Params.buymeacoffee.username | default "" }}
+{{ if $bmcUsername }}
+<div class="bmc-wrapper">
+  <a href="https://www.buymeacoffee.com/{{ $bmcUsername }}" target="_blank" rel="noopener noreferrer" class="bmc-button">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee">
+  </a>
+</div>
+
+<style>
+.bmc-wrapper {
+  text-align: center;
+  margin: 2rem auto;
+}
+
+.bmc-button {
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.bmc-button:hover {
+  transform: scale(1.05);
+}
+
+.bmc-button img {
+  height: 45px;
+  width: auto;
+}
+</style>
+{{ end }}
