@@ -1,0 +1,60 @@
+{{/*
+  Social Sharing Partial
+  Usage: {{ partial "social-sharing.html" (dict "context" . "type" "blog") }}
+  
+  Parameters:
+  - context: The page context (.)
+  - type: Content type for customization (blog, book, page)
+  
+  This partial follows clean code principles:
+  - Single Responsibility: Only handles UI rendering
+  - Data separation: Platform definitions in data files
+  - Component composition: Uses smaller, focused partials
+  - DRY: Eliminates code duplication through helper functions
+*/}}
+
+{{/* Load and prepare sharing data */}}
+{{ $sharingData := partial "sharing-data.html" (dict "context" .context "type" .type) }}
+
+{{ if $sharingData.enabled }}
+  {{/* Load platform definitions from data */}}
+  {{ $platforms := index .context.Site.Data "sharing-platforms" | default dict }}
+  {{ if not $platforms.platforms }}
+    {{ errorf "Platform definitions not found. Please check themes/craftytheme/data/sharing-platforms.yaml" }}
+  {{ end }}
+
+  {{/* Main sharing container */}}
+  <div class="p-6 border-b {{ partial "theme-classes.html" (dict "context" $sharingData.context "type" "card" "variant" "border") }}">
+    
+    {{/* Section title */}}
+    {{ if $sharingData.showSectionTitle }}
+      <h3 class="text-lg font-semibold {{ partial "theme-classes.html" (dict "context" $sharingData.context "type" "content" "variant" "heading") }} mb-4">
+        {{ $sharingData.sectionTitle }}
+      </h3>
+    {{ end }}
+    
+    {{/* Sharing buttons container */}}
+    <div class="flex flex-wrap gap-3">
+      {{ range $key, $platform := $platforms.platforms }}
+        {{ $enabled := index $sharingData.enabledPlatforms $key }}
+        {{ if $enabled }}
+          {{ partial "sharing-button.html" (dict
+            "platform" $platform
+            "key" $key
+            "title" $sharingData.title
+            "url" $sharingData.url
+            "description" $sharingData.description
+            "type" $sharingData.type
+            "jsSafeData" $sharingData.jsSafeData
+            "emailSubjectPrefix" $sharingData.emailSubjectPrefix
+          ) }}
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
+
+  {{/* Include analytics tracking script */}}
+  {{ if $sharingData.analyticsEnabled }}
+    {{ partial "sharing-analytics.html" (dict "context" $sharingData.context) }}
+  {{ end }}
+{{ end }}

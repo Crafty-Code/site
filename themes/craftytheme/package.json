@@ -1,0 +1,11 @@
+{
+  "name": "craftytheme-tailwind-build",
+  "version": "1.0.0",
+  "scripts": {
+    "build:css": "npx tailwindcss -i ./themes/craftytheme/assets/css/main.css -o ./themes/craftytheme/static/css/main.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.1.11",
+    "@tailwindcss/typography": "^0.5.9"
+  }
+}

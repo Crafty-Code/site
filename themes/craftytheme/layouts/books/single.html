@@ -1,0 +1,167 @@
+{{ define "main" }}
+<article class="max-w-4xl mx-auto">
+  <!-- Header Section -->
+  <header class="{{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "bg") }} rounded-lg p-6 mb-8 border {{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "border") }} shadow-sm">
+    <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "heading") }}">{{ .Title }}</h1>
+    
+    <!-- Book Description -->
+    {{ if .Params.description }}
+      <p class="text-lg {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }} mb-4 leading-relaxed">{{ .Params.description }}</p>
+    {{ end }}
+    
+    <!-- Book Meta -->
+    <div class="flex flex-wrap gap-6 items-center {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }} mb-4">
+      {{ if .Params.author }}
+        <div class="flex items-center gap-2">
+          <i class="fas fa-user text-sm"></i>
+          <span class="font-medium">Reviewed by {{ .Params.author }}</span>
+        </div>
+      {{ end }}
+      
+      {{ if .Params.book_author }}
+        <div class="flex items-center gap-2">
+          <i class="fas fa-pen text-sm"></i>
+          <span class="font-medium">By {{ .Params.book_author }}</span>
+        </div>
+      {{ end }}
+      
+      <div class="flex items-center gap-2">
+        <i class="fas fa-calendar text-sm"></i>
+        <time datetime="{{ .Date.Format "2006-01-02" }}" class="font-medium">
+          {{ .Date.Format "January 2, 2006" }}
+        </time>
+      </div>
+      
+      {{ partial "reading-time.html" . }}
+    </div>
+
+    <!-- Book Details -->
+    {{ if or .Params.rating .Params.pages .Params.publisher .Params.price }}
+      <div class="{{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "bg") }} border {{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "border") }} rounded-lg p-4 mb-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+          {{ if .Params.rating }}
+            <div>
+              <div class="text-sm {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }} mb-1">Rating</div>
+              <div class="flex justify-center text-yellow-500">
+                {{ range seq (int .Params.rating) }}
+                  <i class="fas fa-star"></i>
+                {{ end }}
+                {{ range seq (sub 5 (int .Params.rating)) }}
+                  <i class="far fa-star"></i>
+                {{ end }}
+              </div>
+            </div>
+          {{ end }}
+          
+          {{ if .Params.pages }}
+            <div>
+              <div class="text-sm {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }} mb-1">Pages</div>
+              <div class="font-bold text-lg {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }}">{{ .Params.pages }}</div>
+            </div>
+          {{ end }}
+          
+          {{ if .Params.publisher }}
+            <div>
+              <div class="text-sm {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }} mb-1">Publisher</div>
+              <div class="font-medium text-sm {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }}">{{ .Params.publisher }}</div>
+            </div>
+          {{ end }}
+          
+          {{ if .Params.price }}
+            <div>
+              <div class="text-sm {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }} mb-1">Price</div>
+              <div class="font-bold text-lg {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }}">{{ .Params.price }}</div>
+            </div>
+          {{ end }}
+        </div>
+        
+        {{ if .Params.isbn }}
+          <div class="text-center mt-4 pt-4 border-t {{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "border") }}">
+            <span class="text-sm {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }}">ISBN: </span>
+            <span class="font-mono text-sm {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }}">{{ .Params.isbn }}</span>
+          </div>
+        {{ end }}
+      </div>
+    {{ end }}
+
+    <!-- Keywords/Tags -->
+    {{ if or .Params.keywords .Params.tags }}
+      <div class="flex flex-wrap gap-2">
+        {{ range .Params.keywords }}
+          <span class="{{ partial "theme-classes.html" (dict "context" $ "type" "primary" "variant" "bg") }} text-white px-3 py-1 rounded-full text-sm font-medium">
+            <i class="fas fa-tag text-xs mr-1"></i>{{ . }}
+          </span>
+        {{ end }}
+        {{ range .Params.tags }}
+          <span class="{{ partial "theme-classes.html" (dict "context" $ "type" "card" "variant" "bg") }} border {{ partial "theme-classes.html" (dict "context" $ "type" "card" "variant" "border") }} {{ partial "theme-classes.html" (dict "context" $ "type" "content" "variant" "text") }} px-3 py-1 rounded-full text-sm font-medium">
+            #{{ . }}
+          </span>
+        {{ end }}
+      </div>
+    {{ end }}
+  </header>
+
+  <!-- Main Content -->
+  <div class="{{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "bg") }} rounded-2xl shadow-lg overflow-hidden">
+    {{ if .Params.image }}
+      <div class="not-prose p-8 flex justify-center">
+        <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-64 h-96 object-cover rounded-xl shadow-lg" />
+      </div>
+    {{ end }}
+    
+    <div class="p-8 prose prose-lg dark:prose-invert max-w-none">
+      {{ .Content }}
+    </div>
+  </div>
+
+  <!-- Call to Action for Affiliate Link -->
+  {{ if .Params.affiliate_link }}
+    <div class="mt-8 p-8 {{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "bg") }} rounded-2xl border {{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "border") }}">
+      <div class="text-center">
+        <i class="fas fa-book text-3xl {{ partial "theme-classes.html" (dict "context" . "type" "primary" "variant" "text") }} mb-4"></i>
+        <h3 class="text-2xl font-bold {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "heading") }} mb-2">Ready to dive deeper?</h3>
+        <p class="{{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "muted") }} mb-6">Get your copy and start improving your code today.</p>
+        <a href="{{ .Params.affiliate_link }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 {{ partial "theme-classes.html" (dict "context" . "type" "button" "element" "primary") }} px-6 py-3 rounded-lg transition-colors font-medium">
+          <i class="fas fa-external-link-alt"></i>
+          Buy on Amazon
+        </a>
+      </div>
+    </div>
+  {{ end }}
+
+  <!-- Related Posts -->
+  {{ if .Site.Params.related_posts }}
+    {{ $related := .Site.RegularPages.Related . | first 3 }}
+    {{ if $related }}
+      <section class="mt-8">
+        <h2 class="text-2xl font-bold {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "heading") }} mb-6">Related Books</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          {{ range $related }}
+            <article class="{{ partial "theme-classes.html" (dict "context" $ "type" "card" "variant" "bg") }} rounded-xl shadow-md hover:shadow-lg transition-shadow border {{ partial "theme-classes.html" (dict "context" $ "type" "card" "variant" "border") }} overflow-hidden">
+              {{ if .Params.image }}
+                <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-32 object-cover" />
+              {{ end }}
+              <div class="p-4">
+                <h3 class="font-semibold {{ partial "theme-classes.html" (dict "context" $ "type" "content" "variant" "heading") }} mb-2 line-clamp-2">
+                  <a href="{{ .Permalink }}" class="hover:{{ partial "theme-classes.html" (dict "context" $ "type" "primary" "variant" "text") }} transition-colors">
+                    {{ .Title }}
+                  </a>
+                </h3>
+                <p class="text-sm {{ partial "theme-classes.html" (dict "context" $ "type" "content" "variant" "muted") }} mb-3">
+                  {{ .Date.Format "Jan 2, 2006" }} • {{ .ReadingTime }} min read
+                </p>
+                <a href="{{ .Permalink }}" class="{{ partial "theme-classes.html" (dict "context" $ "type" "primary" "variant" "text") }} hover:underline text-sm font-medium">
+                  Read more →
+                </a>
+              </div>
+            </article>
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
+  {{ end }}
+
+  <!-- Article Footer -->
+  {{ partial "article-footer.html" (dict "context" . "type" "book" "backUrl" "/books/" "backText" "Back to Books") }}
+</article>
+{{ end }}

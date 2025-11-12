@@ -1,0 +1,25 @@
+{{ define "main" }}
+  {{ $pages := .Site.RegularPages }}
+  {{ if not .IsHome }}
+    {{ $pages = where .Site.RegularPages "Section" .Section }}
+  {{ end }}
+  {{ $filtered := where $pages "File.BaseFileName" "ne" "_index" }}
+  {{ $filtered = where $filtered "Type" "ne" "page" }}
+  {{ $recent := first 10 (sort $filtered "Date" "desc") }}
+  <div class="flex flex-wrap gap-8 justify-start my-8 ml-24">
+    {{ range $recent }}
+      <div class="{{ partial "theme-classes.html" (dict "context" $ "type" "card" "variant" "bg") }} rounded-2xl shadow-xl border-2 {{ partial "theme-classes.html" (dict "context" $ "type" "card" "variant" "border") }} p-8 w-96 flex flex-col items-start transition-all hover:shadow-2xl hover:scale-105 hover:border-{{ $.Site.Params.theme.colors.primary | default "blue" }}-400 dark:hover:border-{{ $.Site.Params.theme.colors.primary | default "blue" }}-500">
+        {{ with .Params.image }}
+          <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-44 object-cover rounded-lg mb-4 {{ partial "theme-classes.html" (dict "context" $ "type" "card" "variant" "bg") }} shadow-md" />
+        {{ end }}
+        <div class="flex-1 w-full">
+          <h2 class="text-2xl font-bold mb-4 {{ partial "theme-classes.html" (dict "context" $ "type" "content" "variant" "heading") }}"><a href="{{ .RelPermalink }}" class="hover:{{ partial "theme-classes.html" (dict "context" $ "type" "primary" "variant" "text") }}">{{ .Title }}</a></h2>
+          <div class="text-lg {{ partial "theme-classes.html" (dict "context" $ "type" "content" "variant" "muted") }} mb-4">
+            <span class="font-semibold {{ partial "theme-classes.html" (dict "context" $ "type" "primary" "variant" "text") }}">Reading time:</span> <span>{{ .ReadingTime }} min read</span>
+          </div>
+          <p><a href="{{ .RelPermalink }}" class="{{ partial "theme-classes.html" (dict "context" $ "type" "primary" "variant" "text") }} hover:underline font-medium text-xl">Read more…</a></p>
+        </div>
+      </div>
+    {{ end }}
+  </div>
+{{ end }}

@@ -1,0 +1,8 @@
+{{ $buymeacoffee := .Site.Params.social.buymeacoffee }}
+{{ if $buymeacoffee }}
+<div class="buymeacoffee-btn">
+  <a href="https://www.buymeacoffee.com/{{ $buymeacoffee }}" target="_blank" rel="noopener" title="Buy me a coffee">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px; width: 145px;" />
+  </a>
+</div>
+{{ end }}

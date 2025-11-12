@@ -2,27 +2,34 @@ baseURL = 'https://craftycode.org/'
 languageCode = 'en-GB'
 title = 'Crafty Code'
 content = 'content/'
+theme = 'craftytheme'
 
+[build]
+  [build.buildStats]
+    enable = true
+  [[build.cachebusters]]
+    source = 'assets/notwatching/hugo_stats\.json'
+    target = 'css'
+  [[build.cachebusters]]
+    source = '(postcss|tailwind)\.config\.js'
+    target = 'css'
 [module]
-[[module.imports]]
-disable = false
-ignoreConfig = false
-ignoreImports = false
-path = 'github.com/theNewDynamic/gohugo-theme-ananke/v2'
+  [[module.mounts]]
+    source = 'assets'
+    target = 'assets'
+  [[module.mounts]]
+    disableWatch = true
+    source = 'hugo_stats.json'
+    target = 'assets/notwatching/hugo_stats.json'
 
-[[params.ananke_socials]]
-name = "instagram"
-url = "https://www.instagram.com/crafty.code/"
-[[params.ananke_socials]]
-name = "github"
-url = "https://github.com/Crafty-Code"
-[[params.ananke_socials]]
-name = "youtube"
-url = "https://www.youtube.com/@craftycodeie"
-# [[params.ananke_socials]]
-# name = "patreon"
-# url = "http://www.patreon.com/craftycode"
-
+[params]
 hasCJKLanguage = "false"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = "false"
+
+[params.social]
+instagram = "crafty.code"
+github = "Crafty-Code"
+linkedin = "craftycode"
+youtube = "craftycodeie"
+buymeacoffee = "yourusername"

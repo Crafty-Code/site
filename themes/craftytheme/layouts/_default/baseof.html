@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+<head>
+  <meta charset="UTF-8">
+  {{ partial "meta-tags.html" . }}
+  <title>{{ block "title" . }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+<script>
+  (function() {
+    try {
+      const defaultMode = '{{ .Site.Params.theme.default_mode | default "auto" }}';
+      
+      if (localStorage.theme === 'dark' || (defaultMode === 'dark' && !localStorage.theme)) {
+        document.documentElement.classList.add('dark');
+      } else if (localStorage.theme === 'light' || (defaultMode === 'light' && !localStorage.theme)) {
+        document.documentElement.classList.remove('dark');
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    } catch (e) {}
+  })();
+</script>
+  {{ partial "theme-variables.html" . }}
+  {{ with (templates.Defer (dict "key" "global")) }}
+    {{ partial "css.html" . }}
+  {{ end }}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root { color-scheme: light dark; }
+    .dark { color-scheme: dark; }
+  </style>
+  {{ partial "analytics.html" . }}
+</head>
+<body class="{{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }}">
+  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  
+  <div class="min-h-screen flex flex-col">
+    {{ partial "header.html" . }}
+    <main class="flex-1 {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "bg") }} py-8">
+      <div class="max-w-5xl mx-auto px-4">
+        {{ block "main" . }}{{ end }}
+      </div>
+    </main>
+    {{ partial "footer.html" . }}
+    <!-- Tailwind dark mode safelist: ensures these classes are included in the build -->
+    <div class="hidden dark:bg-gray-900 dark:text-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:bg-black dark:text-gray-300"></div>
+  </div>
+  
+  {{/* Google Tag Manager (noscript) */}}
+  {{ if .Site.Params.analytics.google_tag_manager_id }}
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ .Site.Params.analytics.google_tag_manager_id }}"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  {{ end }}
+</body>
+</html>

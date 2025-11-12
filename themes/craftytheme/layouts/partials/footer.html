@@ -1,0 +1,12 @@
+<footer class="{{ partial "theme-classes.html" (dict "context" . "type" "footer" "variant" "bg") }} py-8 border-t-2 {{ partial "theme-classes.html" (dict "context" . "type" "footer" "variant" "border") }} shadow-lg">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="border-t {{ partial "theme-classes.html" (dict "context" . "type" "footer" "variant" "border") }} pt-4 flex flex-col md:flex-row justify-between items-center text-sm {{ partial "theme-classes.html" (dict "context" . "type" "footer" "variant" "text") }}">
+      <p class="mb-2 md:mb-0">&copy; 2024 Crafty Code. All rights reserved.</p>
+      <p>
+        <a href="/about/" class="hover:underline {{ partial "theme-classes.html" (dict "context" . "type" "footer" "variant" "link-hover") }}">About</a> |
+        <a href="/contact/" class="hover:underline {{ partial "theme-classes.html" (dict "context" . "type" "footer" "variant" "link-hover") }}">Contact</a> |
+        <a href="/privacy/" class="hover:underline {{ partial "theme-classes.html" (dict "context" . "type" "footer" "variant" "link-hover") }}">Privacy Policy</a>
+      </p>
+    </div>
+  </div>
+</footer>

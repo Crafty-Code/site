@@ -1,0 +1,166 @@
+{{ define "main" }}
+<article class="max-w-4xl mx-auto">
+  <!-- Header Section -->
+  <header class="{{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "bg") }} rounded-lg p-6 mb-8 border {{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "border") }} shadow-sm">
+    <!-- Category Badge -->
+    {{ if .Params.category }}
+      <div class="mb-4">
+        <span class="inline-flex items-center gap-1 {{ partial "theme-classes.html" (dict "context" . "type" "primary" "variant" "bg") }} text-white px-3 py-1 rounded-full text-sm font-medium">
+          <i class="fas fa-folder"></i>
+          {{ .Params.category }}
+        </span>
+      </div>
+    {{ end }}
+
+    <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "heading") }}">{{ .Title }}</h1>
+    
+    <!-- Article Subtitle/Description -->
+    {{ if .Params.description }}
+      <p class="text-lg {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }} mb-4 leading-relaxed">{{ .Params.description }}</p>
+    {{ end }}
+    
+    <!-- Article Meta -->
+    <div class="flex flex-wrap gap-6 items-center {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }} mb-4">
+      {{ if .Params.author }}
+        <div class="flex items-center gap-2">
+          <i class="fas fa-user text-sm"></i>
+          <span class="font-medium">{{ .Params.author }}</span>
+        </div>
+      {{ end }}
+      
+      <div class="flex items-center gap-2">
+        <i class="fas fa-calendar text-sm"></i>
+        <time datetime="{{ .Date.Format "2006-01-02" }}" class="font-medium">
+          {{ .Date.Format "January 2, 2006" }}
+        </time>
+      </div>
+      
+      {{ partial "reading-time.html" . }}
+
+      {{ if .Params.difficulty }}
+        <div class="flex items-center gap-2">
+          <i class="fas fa-signal text-sm"></i>
+          <span class="font-medium capitalize">{{ .Params.difficulty }}</span>
+        </div>
+      {{ end }}
+    </div>
+
+    <!-- Article Stats -->
+    {{ if or .Params.word_count .WordCount .Params.views }}
+      <div class="{{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "bg") }} border {{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "border") }} rounded-lg p-4 mb-4">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-center">
+          <div>
+            <div class="text-sm {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }} mb-1">Words</div>
+            <div class="font-bold text-lg {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }}">{{ .WordCount }}</div>
+          </div>
+          
+          {{ if .Params.views }}
+            <div>
+              <div class="text-sm {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }} mb-1">Views</div>
+              <div class="font-bold text-lg {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }}">{{ .Params.views }}</div>
+            </div>
+          {{ end }}
+          
+          <div>
+            <div class="text-sm {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }} mb-1">Updated</div>
+            <div class="font-medium text-sm {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }}">{{ .Lastmod.Format "Jan 2006" }}</div>
+          </div>
+        </div>
+      </div>
+    {{ end }}
+
+    <!-- Keywords/Tags -->
+    {{ if or .Params.keywords .Params.tags }}
+      <div class="flex flex-wrap gap-2">
+        {{ range .Params.keywords }}
+          <span class="{{ partial "theme-classes.html" (dict "context" $ "type" "primary" "variant" "bg") }} text-white px-3 py-1 rounded-full text-sm font-medium">
+            <i class="fas fa-tag text-xs mr-1"></i>{{ . }}
+          </span>
+        {{ end }}
+        {{ range .Params.tags }}
+          <span class="bg-gray-600 dark:bg-gray-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+            #{{ . }}
+          </span>
+        {{ end }}
+      </div>
+    {{ end }}
+  </header>
+
+  <!-- Main Content -->
+  <div class="{{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "bg") }} rounded-2xl shadow-lg overflow-hidden">
+    {{ if .Params.image }}
+      <div class="not-prose">
+        <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-64 md:h-80 object-cover" />
+      </div>
+    {{ end }}
+    
+    <div class="p-8 prose prose-lg dark:prose-invert max-w-none">
+      <!-- Table of Contents (if enabled) -->
+      {{ if and .Params.toc (gt .WordCount 500) }}
+        <details class="not-prose mb-8 p-4 {{ partial "theme-classes.html" (dict "context" . "type" "syntax" "variant" "bg") }} rounded-xl border {{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "border") }}">
+          <summary class="cursor-pointer font-semibold text-gray-800 dark:text-gray-200 mb-2">
+            <i class="fas fa-list mr-2"></i>Table of Contents
+          </summary>
+          <div class="mt-3 text-sm">
+            {{ .TableOfContents }}
+          </div>
+        </details>
+      {{ end }}
+
+      {{ .Content }}
+    </div>
+  </div>
+
+  <!-- Related Posts -->
+  {{ if .Site.Params.related_posts }}
+    {{ $related := .Site.RegularPages.Related . | first 3 }}
+    {{ if $related }}
+      <section class="mt-8">
+        <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-6">Related Articles</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          {{ range $related }}
+            <article class="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-200 dark:border-gray-600 overflow-hidden">
+              {{ if .Params.image }}
+                <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-32 object-cover" />
+              {{ end }}
+              <div class="p-4">
+                <h3 class="font-semibold text-gray-800 dark:text-white mb-2 line-clamp-2">
+                  <a href="{{ .Permalink }}" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    {{ .Title }}
+                  </a>
+                </h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                  {{ .Date.Format "Jan 2, 2006" }} • {{ .ReadingTime }} min read
+                </p>
+                <a href="{{ .Permalink }}" class="text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium">
+                  Read more →
+                </a>
+              </div>
+            </article>
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
+  {{ end }}
+
+  <!-- Newsletter Signup (if enabled) -->
+  {{ if .Site.Params.newsletter }}
+    <div class="mt-8 p-8 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-700 dark:to-gray-800 rounded-2xl border border-blue-200 dark:border-gray-600">
+      <div class="text-center">
+        <i class="fas fa-envelope text-3xl text-blue-600 dark:text-blue-400 mb-4"></i>
+        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">Stay Updated</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-6">Get the latest articles and insights delivered straight to your inbox.</p>
+        <div class="max-w-md mx-auto flex gap-3">
+          <input type="email" placeholder="your@email.com" class="flex-1 px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+          <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors font-medium">
+            Subscribe
+          </button>
+        </div>
+      </div>
+    </div>
+  {{ end }}
+
+  <!-- Article Footer -->
+  {{ partial "article-footer.html" (dict "context" . "type" "blog" "backUrl" "/blog/" "backText" "Back to Blog") }}
+</article>
+{{ end }}

@@ -1,0 +1,16 @@
+{{ define "main" }}
+<article class="{{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "bg") }} rounded-xl shadow-lg border {{ partial "theme-classes.html" (dict "context" . "type" "card" "variant" "border") }} p-8 max-w-3xl mx-auto mt-10">
+  <h2 class="text-3xl font-bold mb-4 {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "heading") }}">{{ .Title }}</h2>
+  {{ if .Params.author }}
+    <p class="{{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "muted") }} mb-2">{{ i18n "author" }}: {{ .Params.author }}</p>
+  {{ end }}
+  <div class="mb-4">{{ partial "reading-time.html" . }}</div>
+  <div class="prose max-w-none dark:prose-invert {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }}">{{ .Content }}</div>
+  {{ if .Params.keywords }}
+    <p class="mt-6 text-sm {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "muted") }}"><span class="font-semibold {{ partial "theme-classes.html" (dict "context" . "type" "primary" "variant" "text") }}">{{ i18n "keywords" }}:</span> {{ delimit .Params.keywords ", " }}</p>
+  {{ end }}
+  {{ if .Params.tags }}
+    <p class="text-sm {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "muted") }}"><span class="font-semibold {{ partial "theme-classes.html" (dict "context" . "type" "primary" "variant" "text") }}">{{ i18n "tags" }}:</span> {{ delimit .Params.tags ", " }}</p>
+  {{ end }}
+</article>
+{{ end }}

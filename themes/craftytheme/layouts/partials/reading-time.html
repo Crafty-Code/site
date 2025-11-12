@@ -1,0 +1,7 @@
+{{ $words := .WordCount }}
+{{ $minutes := div $words 200 }}
+{{ if lt $minutes 1 }}{{ $minutes = 1 }}{{ end }}
+<div class="flex items-center gap-2 {{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "muted") }}">
+  <i class="fas fa-clock text-sm"></i>
+  <span class="font-medium">{{ $minutes }} min read</span>
+</div>

@@ -1,0 +1,114 @@
+# Example alternative theme configurations
+# Copy any of these sections to your config/_default/params.toml to try different themes
+
+# Green Nature Theme
+[theme]
+  enable_dark_mode = true
+  default_mode = "auto"
+  
+  [theme.colors]
+    primary = "green"
+    accent = "emerald"
+    
+    [theme.colors.header]
+      light_bg = "green-800"
+      dark_bg = "green-900"
+      light_nav_hover = "green-400"
+      dark_nav_hover = "green-400"
+    
+    [theme.colors.footer]
+      light_bg = "green-800"
+      dark_bg = "green-900"
+      light_link_hover = "green-400"
+      dark_link_hover = "green-400"
+    
+    [theme.colors.button]
+      primary_light_bg = "green-600"
+      primary_dark_bg = "green-700"
+      primary_light_hover = "green-700"
+      primary_dark_hover = "green-600"
+
+# Purple Tech Theme
+[theme]
+  enable_dark_mode = true
+  default_mode = "dark"  # Default to dark mode
+  
+  [theme.colors]
+    primary = "purple"
+    accent = "violet"
+    
+    [theme.colors.header]
+      light_bg = "purple-800"
+      dark_bg = "purple-900"
+      light_nav_hover = "purple-400"
+      dark_nav_hover = "purple-400"
+    
+    [theme.colors.footer]
+      light_bg = "purple-800"
+      dark_bg = "purple-900"
+      light_link_hover = "purple-400"
+      dark_link_hover = "purple-400"
+    
+    [theme.colors.button]
+      primary_light_bg = "purple-600"
+      primary_dark_bg = "purple-700"
+      primary_light_hover = "purple-700"
+      primary_dark_hover = "purple-600"
+
+# Minimal Monochrome Theme
+[theme]
+  enable_dark_mode = true
+  default_mode = "auto"
+  
+  [theme.colors]
+    primary = "gray"
+    accent = "slate"
+    
+    [theme.colors.header]
+      light_bg = "slate-800"
+      dark_bg = "slate-900"
+      light_nav_hover = "slate-400"
+      dark_nav_hover = "slate-400"
+    
+    [theme.colors.footer]
+      light_bg = "slate-800"
+      dark_bg = "slate-900"
+      light_link_hover = "slate-400"
+      dark_link_hover = "slate-400"
+    
+    [theme.colors.content]
+      light_bg = "slate-50"
+      dark_bg = "slate-800"
+    
+    [theme.colors.card]
+      light_bg = "white"
+      dark_bg = "slate-900"
+      light_border = "slate-200"
+      dark_border = "slate-700"
+
+# Warm Orange Theme
+[theme]
+  enable_dark_mode = true
+  default_mode = "auto"
+  
+  [theme.colors]
+    primary = "orange"
+    accent = "red"
+    
+    [theme.colors.header]
+      light_bg = "orange-800"
+      dark_bg = "orange-900"
+      light_nav_hover = "orange-400"
+      dark_nav_hover = "orange-400"
+    
+    [theme.colors.footer]
+      light_bg = "orange-800"
+      dark_bg = "orange-900"
+      light_link_hover = "orange-400"
+      dark_link_hover = "orange-400"
+    
+    [theme.colors.button]
+      primary_light_bg = "orange-600"
+      primary_dark_bg = "orange-700"
+      primary_light_hover = "orange-700"
+      primary_dark_hover = "orange-600"

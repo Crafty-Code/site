@@ -1,0 +1,19 @@
+[[main]]
+name = "Etusivu"
+pageRef = "/"
+weight = 1
+
+[[main]]
+name = "Blogi"
+pageRef = "/blog/"
+weight = 2
+
+[[main]]
+name = "Kirjat"
+pageRef = "/books/"
+weight = 3
+
+[[main]]
+name = "Tietoa"
+pageRef = "/about/"
+weight = 4

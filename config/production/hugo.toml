@@ -22,6 +22,6 @@ url = "https://github.com/Crafty-Code"
   [services.googleAnalytics]
     id = 'G-6H57MYXB4L'
 
-hasCJKLanguage = "false"
+hasCJKLanguage = false
 defaultContentLanguage = "en"
-defaultContentLanguageInSubdir = "false"
+defaultContentLanguageInSubdir = false

@@ -1,0 +1,76 @@
+@layer base {
+  :root { color-scheme: light dark; }
+  .dark { color-scheme: dark; }
+  
+  /* Ensure smooth transitions for theme changes */
+  * {
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+}
+
+@import "tailwindcss";
+@source "hugo_stats.json";
+
+@layer components {
+  .bg-anthracite {
+    background-color: #23272b;
+  }
+  
+  /* Theme-aware prose styling */
+  .prose {
+    @apply max-w-none;
+  }
+  
+  .prose :where(code):not(:where([class~="not-prose"] *)) {
+    background-color: var(--syntax-bg-light);
+    border-color: var(--syntax-border-light);
+    @apply px-1 py-0.5 rounded text-sm;
+  }
+  
+  .dark .prose :where(code):not(:where([class~="not-prose"] *)) {
+    background-color: var(--syntax-bg-dark);
+    border-color: var(--syntax-border-dark);
+  }
+  
+  .prose :where(pre):not(:where([class~="not-prose"] *)) {
+    background-color: var(--syntax-bg-light);
+    border-color: var(--syntax-border-light);
+    @apply border rounded-lg;
+  }
+  
+  .dark .prose :where(pre):not(:where([class~="not-prose"] *)) {
+    background-color: var(--syntax-bg-dark);
+    border-color: var(--syntax-border-dark);
+  }
+  
+  .prose :where(blockquote):not(:where([class~="not-prose"] *)) {
+    border-left-color: var(--color-primary);
+    background-color: var(--syntax-bg-light);
+    @apply border-l-4 pl-4 py-2 my-4;
+  }
+  
+  .dark .prose :where(blockquote):not(:where([class~="not-prose"] *)) {
+    background-color: var(--syntax-bg-dark);
+  }
+  
+  /* Dark mode prose adjustments */
+  .prose.dark\:prose-invert {
+    color: var(--content-text-dark);
+  }
+  
+  .prose.dark\:prose-invert :where(h1, h2, h3, h4, h5, h6):not(:where([class~="not-prose"] *)) {
+    color: var(--content-heading-dark);
+  }
+  
+  .prose.dark\:prose-invert :where(strong):not(:where([class~="not-prose"] *)) {
+    color: var(--content-heading-dark);
+  }
+  
+  .prose.dark\:prose-invert :where(a):not(:where([class~="not-prose"] *)) {
+    color: var(--color-primary);
+  }
+  
+  .prose.dark\:prose-invert :where(a):not(:where([class~="not-prose"] *)):hover {
+    opacity: 0.8;
+  }
+}

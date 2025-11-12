@@ -7,6 +7,6 @@
   pageRef = '/books'
   weight = 20
 [[main]]
-  name = 'Maidir'
+  name = 'Fúinn'
   pageRef = '/about'
   weight = 30

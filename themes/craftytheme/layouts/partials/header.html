@@ -1,0 +1,48 @@
+<header class="{{ partial "theme-classes.html" (dict "context" . "type" "header" "variant" "bg") }} py-6 shadow-lg border-b-2 {{ partial "theme-classes.html" (dict "context" . "type" "header" "variant" "border") }}">
+  <div class="flex justify-between items-center max-w-5xl mx-auto px-4">
+    <div class="language-selector-container absolute top-2 right-5 z-10 flex flex-col items-end gap-2">
+      {{ partial "language-switcher.html" . }}
+      <div class="flex items-center gap-1">
+        {{ partial "social-links.html" . }}
+      </div>
+      <div class="flex justify-end">
+        {{ partial "buymeacoffee.html" . }}
+      </div>
+    </div>
+    
+    <!-- Left: Logo -->
+    <div class="flex items-center">
+      {{ if .Site.Params.logo }}
+        <a href="/">
+          <img src="{{ .Site.Params.logo }}" alt="Site Logo" class="h-32 w-auto object-contain rounded shadow-md" />
+        </a>
+      {{ else }}
+        <a href="/" class="text-2xl font-bold {{ partial "theme-classes.html" (dict "context" . "type" "header" "variant" "text") }}">
+          {{ .Site.Title }}
+        </a>
+      {{ end }}
+    </div>
+
+    <!-- Center: Title Banner -->
+    <div class="flex flex-col items-center justify-center flex-1 mx-4 min-w-0">
+      {{ if .Site.Params.title_image }}
+        <a href="/" class="w-full">
+          <img src="{{ .Site.Params.title_image }}" alt="Site Title Banner" class="h-32 w-full max-w-full object-contain rounded-lg shadow-md" />
+        </a>
+      {{ else }}
+        <h1 class="text-3xl font-bold {{ partial "theme-classes.html" (dict "context" . "type" "header" "variant" "text") }} m-0 mb-1">{{ .Site.Title }}</h1>
+        <div class="text-base {{ partial "theme-classes.html" (dict "context" . "type" "header" "variant" "nav") }}">Welcome to {{ .Site.Title }}!</div>
+      {{ end }}
+    </div>
+  </div>
+  <nav class="mt-6">
+    <ul class="flex gap-8 justify-center list-none p-0 m-0">
+      <li><a href="/" class="{{ partial "theme-classes.html" (dict "context" . "type" "header" "variant" "nav") }} font-medium text-lg {{ partial "theme-classes.html" (dict "context" . "type" "header" "variant" "nav-hover") }} transition-colors">Home</a></li>
+      {{ $currentLang := .Site.Language.Lang }}
+      {{ $menu := index .Site.Menus "main" }}
+      {{ range $menu }}
+        <li><a href="{{ .PageRef | relLangURL }}" class="{{ partial "theme-classes.html" (dict "context" $ "type" "header" "variant" "text") }} font-medium text-lg {{ partial "theme-classes.html" (dict "context" $ "type" "header" "variant" "nav-hover") }} transition-colors">{{ .Name }}</a></li>
+      {{ end }}
+    </ul>
+  </nav>
+</header>

@@ -1,0 +1,75 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build Tailwind CSS",
+      "type": "shell",
+      "command": "./tailwindcss-linux-x64",
+      "args": [
+        "-i", "./themes/craftytheme/assets/css/main.css",
+        "-o", "./themes/craftytheme/static/css/main.css",
+        "--minify"
+      ],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Watch Tailwind CSS",
+      "type": "shell",
+      "command": "./tailwindcss-linux-x64",
+      "args": [
+        "-i", "./themes/craftytheme/assets/css/main.css",
+        "-o", "./themes/craftytheme/static/css/main.css",
+        "--watch"
+      ],
+      "group": "build",
+      "isBackground": true,
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Hugo Server",
+      "type": "shell",
+      "command": "hugo",
+      "args": ["server", "--disableFastRender"],
+      "group": "build",
+      "isBackground": true,
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Development Mode",
+      "dependsOrder": "parallel",
+      "dependsOn": [
+        "Watch Tailwind CSS",
+        "Hugo Server"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      }
+    }
+  ]
+}

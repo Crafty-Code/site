@@ -1,0 +1,23 @@
+{{/* Language Switcher Dropdown using .Site.Languages */}}
+{{ if gt (len .Site.Languages) 1 }}
+  <div class="language-switcher">
+    <form>
+      <select onchange="if (this.value) window.location.href=this.value">
+        {{ range .Site.Languages }}
+          {{ $selectedLang := .Lang }}
+          {{ $translation := first 1 (where $.Translations "Lang" $selectedLang) }}
+          {{ if gt (len $translation) 0 }}
+            <option value="{{ (index $translation 0).RelPermalink }}" {{ if eq $.Site.Language.Lang $selectedLang }}selected{{ end }}>
+              {{ .LanguageName }}
+            </option>
+          {{ else }}
+            {{ $home := site.GetPage (printf "/%s/" $selectedLang) }}
+            <option value="{{ $home.RelPermalink }}" {{ if eq $.Site.Language.Lang $selectedLang }}selected{{ end }}>
+              {{ .LanguageName }}
+            </option>
+          {{ end }}
+        {{ end }}
+      </select>
+    </form>
+  </div>
+{{ end }}
