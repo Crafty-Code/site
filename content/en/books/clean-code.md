@@ -12,7 +12,7 @@ price = "$29.99"
 pages = 464
 publisher = "Prentice Hall"
 isbn = "978-0132350884"
-image = "/images/books/clean-code-cover.jpg"
+image = "/images/books/clean-code-cover.svg"
 affiliate_link = "https://amazon.com/dp/0132350884"
 +++
 

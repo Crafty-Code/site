@@ -2,6 +2,47 @@ date_format = "2 January 2006"
 show_reading_time = true
 showLanguageSwitcher = true
 
+# Site branding
+logo = "/images/logo.png"
+title_image = "/images/title.png"
+
 [buymeacoffee]
 username = "craftycode" # Replace with your Buy Me a Coffee username
 enabled = true
+
+# Social Sharing Configuration
+[sharing]
+  # Enable sharing for different content types
+  enable_blog_sharing = true
+  enable_book_sharing = true
+  enable_page_sharing = false
+  
+  # Available sharing platforms
+  [sharing.platforms]
+    twitter = true
+    linkedin = true
+    facebook = true
+    reddit = true
+    pinterest = false
+    whatsapp = false
+    telegram = false
+    email = true
+    copy_link = true
+    
+  # Custom sharing messages
+  [sharing.messages]
+    twitter_prefix = "Check out this article:"
+    email_subject_prefix = "Interesting read:"
+    
+  # Sharing section customization
+  [sharing.display]
+    show_section_title = true
+    blog_section_title = "Share this article"
+    book_section_title = "Share this book review"
+    page_section_title = "Share this page"
+    
+  # Analytics configuration
+  [sharing.analytics]
+    enable_tracking = true
+    track_google_analytics = true
+    track_gtm = false

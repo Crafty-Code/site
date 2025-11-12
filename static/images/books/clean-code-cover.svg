@@ -1,0 +1,38 @@
+<svg width="400" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="600" fill="#1e3a8a"/>
+  
+  <!-- Border -->
+  <rect x="10" y="10" width="380" height="580" fill="none" stroke="#93c5fd" stroke-width="2"/>
+  
+  <!-- Title Background -->
+  <rect x="30" y="100" width="340" height="200" fill="#1e40af" opacity="0.8"/>
+  
+  <!-- Title Text -->
+  <text x="200" y="160" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#f0f9ff" text-anchor="middle">
+    CLEAN CODE
+  </text>
+  
+  <text x="200" y="200" font-family="Arial, sans-serif" font-size="18" fill="#bfdbfe" text-anchor="middle">
+    A Handbook of Agile
+  </text>
+  
+  <text x="200" y="230" font-family="Arial, sans-serif" font-size="18" fill="#bfdbfe" text-anchor="middle">
+    Software Craftsmanship
+  </text>
+  
+  <!-- Author -->
+  <text x="200" y="400" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#f0f9ff" text-anchor="middle">
+    Robert C. Martin
+  </text>
+  
+  <!-- Publisher -->
+  <text x="200" y="550" font-family="Arial, sans-serif" font-size="16" fill="#93c5fd" text-anchor="middle">
+    Prentice Hall
+  </text>
+  
+  <!-- Placeholder indicator -->
+  <text x="200" y="480" font-family="Arial, sans-serif" font-size="12" fill="#60a5fa" text-anchor="middle" opacity="0.6">
+    [Placeholder Image]
+  </text>
+</svg>
