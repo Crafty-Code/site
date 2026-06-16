@@ -26,10 +26,10 @@
     languageDirection = 'ltr'
     languageName = 'Français'
     weight = 4
-[ie]
-    contentDir = 'content/ie'
+[ga]
+    contentDir = 'content/ga'
     disabled = false
-    languageCode = 'ie-IE'
+    languageCode = 'ga-IE'
     languageDirection = 'ltr'
     languageName = 'Gaeilge'
     weight = 5

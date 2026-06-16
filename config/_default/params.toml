@@ -6,10 +6,6 @@ showLanguageSwitcher = true
 logo = "/images/logo.png"
 title_image = "/images/title.png"
 
-[buymeacoffee]
-username = "craftycode" # Replace with your Buy Me a Coffee username
-enabled = true
-
 # Social Sharing Configuration
 [sharing]
   # Enable sharing for different content types

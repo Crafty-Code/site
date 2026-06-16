@@ -6,7 +6,9 @@ help: ## Show this help message
 	@echo 'Targets:'
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "  %-15s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
-build: css-build ## Build the complete site for production
+build: ## Build the complete site for production
+	hugo --gc --minify
+	$(MAKE) css-build
 	hugo --gc --minify
 
 dev: ## Start development server with CSS watching
