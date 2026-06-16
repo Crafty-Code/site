@@ -1,9 +1,9 @@
 +++
-title = "Over Crafty Code"
+title = "Over Aigenc.ie"
 date = 2024-07-09 21:12:53+01:00
 draft = false
 type = "page"
-description = "Crafty Code verkent het snijvlak van softwareontwikkeling en business in de EU, met een focus op duurzaamheid, leiderschap en echte impact. Geschreven door Jeff, een ervaren software engineer en business strateeg, behandelt de blog technologische trends, businessstrategie en praktische inzichten voor startups en ondernemers."
+description = "Aigenc.ie verkent het snijvlak van softwareontwikkeling en business in de EU, met een focus op duurzaamheid, leiderschap en echte impact. Geschreven door Jeff, een ervaren software engineer en business strateeg, behandelt de blog technologische trends, businessstrategie en praktische inzichten voor startups en ondernemers."
 keywords = [
     "softwareontwikkeling",
     "EU-business",
@@ -28,17 +28,17 @@ tags = [
     "ondernemerschap",
     "software engineering",
 ]
-summary = "Bij Crafty Code is het doel om de wereld van Software Development te verbinden met zijn plek in de echte wereld.\n\nHoewel er al een overvloed aan content is die zich richt op de VS, zal Crafty Code zich richten op het software development- en zakelijke landschap van de EU."
-og_title = "Crafty Code: Een verkenning van softwareontwikkeling, business en duurzaamheid in de EU"
-og_description = "Duik in Crafty Code voor inzichten over softwareontwikkeling, bedrijfsstrategie, duurzaamheid en technologische trends in de EU. Onder leiding van Jeff, een ervaren software engineer en strateeg, verbindt deze blog technologie met echte impact."
+summary = "Bij Aigenc.ie is het doel om de wereld van Software Development te verbinden met zijn plek in de echte wereld.\n\nHoewel er al een overvloed aan content is die zich richt op de VS, zal Aigenc.ie zich richten op het software development- en zakelijke landschap van de EU."
+og_title = "Aigenc.ie: Een verkenning van softwareontwikkeling, business en duurzaamheid in de EU"
+og_description = "Duik in Aigenc.ie voor inzichten over softwareontwikkeling, bedrijfsstrategie, duurzaamheid en technologische trends in de EU. Onder leiding van Jeff, een ervaren software engineer en strateeg, verbindt deze blog technologie met echte impact."
 translated = true
 original_language = "en"
 translated_to = "dutch"
 +++
 
-Bij Crafty Code is het doel om de wereld van Software Development te verbinden met zijn plek in de echte wereld.
+Bij Aigenc.ie is het doel om de wereld van Software Development te verbinden met zijn plek in de echte wereld.
 
-Hoewel er al veel content is die zich richt op de VS, zal Crafty Code zich focussen op het software development- en zakelijke landschap van de EU.
+Hoewel er al veel content is die zich richt op de VS, zal Aigenc.ie zich focussen op het software development- en zakelijke landschap van de EU.
 
 ## Mijn naam is Jeff
 

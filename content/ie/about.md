@@ -1,9 +1,9 @@
 +++
-title = "Maidir le Crafty Code"
+title = "Maidir le Aigenc.ie"
 date = 2024-07-09 21:12:53+01:00
 draft = false
 type = "page"
-description = "Scrúdaíonn Crafty Code an áit a dtagann forbairt bogearraí agus gnó le chéile san AE, le béim ar inbhuanaitheacht, ceannaireacht, agus tionchar sa saol fíor. Scríofa ag Jeff, innealtóir bogearraí a bhfuil taithí aige agus straitéiseoir gnó, clúdaíonn an blag treochtaí teicneolaíochta, straitéis ghnó, agus léargais phraiticiúla do ghnólachtaí nuathionscanta agus fiontraithe."
+description = "Scrúdaíonn Aigenc.ie an áit a dtagann forbairt bogearraí agus gnó le chéile san AE, le béim ar inbhuanaitheacht, ceannaireacht, agus tionchar sa saol fíor. Scríofa ag Jeff, innealtóir bogearraí a bhfuil taithí aige agus straitéiseoir gnó, clúdaíonn an blag treochtaí teicneolaíochta, straitéis ghnó, agus léargais phraiticiúla do ghnólachtaí nuathionscanta agus fiontraithe."
 keywords = [
     "forbairt bogearraí",
     "Gnó an AE",
@@ -28,17 +28,17 @@ tags = [
     "fiontraíocht",
     "innealtóireacht bogearraí",
 ]
-summary = "Ag Crafty Code, is é an sprioc ná an domhan Forbartha Bogearraí a nascadh lena áit sa bhfíorshaol.\n\nCé go bhfuil neart ábhar ann cheana féin atá dírithe ar na Stáit Aontaithe, beidh Crafty Code ag díriú ar thírdhreach forbartha bogearraí agus gnó an AE."
-og_title = "Crafty Code: Ag Iniúchadh Forbairt Bogearraí, Gnó, agus Inbhuanaitheacht san AE"
-og_description = "Téigh i dtaithí ar Crafty Code le haghaidh léargais ar fhorbairt bogearraí, straitéis ghnó, inbhuanaitheacht, agus treochtaí teicneolaíochta san AE. Faoi stiúir Jeff, innealtóir bogearraí agus straitéiseoir a bhfuil taithí aige, nascann an blag seo an teicneolaíocht le tionchar sa saol fíor."
+summary = "Ag Aigenc.ie, is é an sprioc ná an domhan Forbartha Bogearraí a nascadh lena áit sa bhfíorshaol.\n\nCé go bhfuil neart ábhar ann cheana féin atá dírithe ar na Stáit Aontaithe, beidh Aigenc.ie ag díriú ar thírdhreach forbartha bogearraí agus gnó an AE."
+og_title = "Aigenc.ie: Ag Iniúchadh Forbairt Bogearraí, Gnó, agus Inbhuanaitheacht san AE"
+og_description = "Téigh i dtaithí ar Aigenc.ie le haghaidh léargais ar fhorbairt bogearraí, straitéis ghnó, inbhuanaitheacht, agus treochtaí teicneolaíochta san AE. Faoi stiúir Jeff, innealtóir bogearraí agus straitéiseoir a bhfuil taithí aige, nascann an blag seo an teicneolaíocht le tionchar sa saol fíor."
 translated = true
 original_language = "en"
 translated_to = "irish"
 +++
 
-Ag Crafty Code, is é an aidhm ná nasc a chruthú idir domhan na Forbartha Bogearraí agus a áit sa saol fíor.
+Ag Aigenc.ie, is é an aidhm ná nasc a chruthú idir domhan na Forbartha Bogearraí agus a áit sa saol fíor.
 
-Cé go bhfuil neart ábhar ann cheana féin atá dírithe ar SAM, beidh Crafty Code ag díriú ar thírdhreach forbartha bogearraí agus gnó an AE.
+Cé go bhfuil neart ábhar ann cheana féin atá dírithe ar SAM, beidh Aigenc.ie ag díriú ar thírdhreach forbartha bogearraí agus gnó an AE.
 
 ## Is é Jeff an t-ainm atá orm
 

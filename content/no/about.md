@@ -1,9 +1,9 @@
 +++
-title = "Om Crafty Code"
+title = "Om Aigenc.ie"
 date = 2024-07-09 21:12:53+01:00
 draft = false
 type = "page"
-description = "Crafty Code utforsker skjæringspunktet mellom programvareutvikling og forretning i EU, med fokus på bærekraft, lederskap og reell påvirkning. Skrevet av Jeff, en erfaren programvareingeniør og forretningsstrateg, dekker bloggen teknologitrender, forretningsstrategi og praktiske innsikter for startups og gründere."
+description = "Aigenc.ie utforsker skjæringspunktet mellom programvareutvikling og forretning i EU, med fokus på bærekraft, lederskap og reell påvirkning. Skrevet av Jeff, en erfaren programvareingeniør og forretningsstrateg, dekker bloggen teknologitrender, forretningsstrategi og praktiske innsikter for startups og gründere."
 keywords = [
     "programvareutvikling",
     "EU-virksomhet",
@@ -28,17 +28,17 @@ tags = [
     "entreprenørskap",
     "programvareteknikk",
 ]
-summary = "Hos Crafty Code er målet å koble sammen programvareutvikling med dens plass i den virkelige verden.\n\nSelv om det allerede finnes et hav av innhold med fokus på USA, vil Crafty Code rette blikket mot programvareutvikling og forretningslandskapet i EU."
-og_title = "Crafty Code: Utforsker programvareutvikling, forretning og bærekraft i EU"
-og_description = "Fordyp deg i Crafty Code for innsikt om programvareutvikling, forretningsstrategi, bærekraft og teknologitrender i EU. Bloggen ledes av Jeff, en erfaren programvareingeniør og strateg, og kobler teknologi med reell påvirkning i samfunnet."
+summary = "Hos Aigenc.ie er målet å koble sammen programvareutvikling med dens plass i den virkelige verden.\n\nSelv om det allerede finnes et hav av innhold med fokus på USA, vil Aigenc.ie rette blikket mot programvareutvikling og forretningslandskapet i EU."
+og_title = "Aigenc.ie: Utforsker programvareutvikling, forretning og bærekraft i EU"
+og_description = "Fordyp deg i Aigenc.ie for innsikt om programvareutvikling, forretningsstrategi, bærekraft og teknologitrender i EU. Bloggen ledes av Jeff, en erfaren programvareingeniør og strateg, og kobler teknologi med reell påvirkning i samfunnet."
 translated = true
 original_language = "en"
 translated_to = "norwegian"
 +++
 
-Hos Crafty Code er målet å koble programvareutvikling til dens plass i den virkelige verden.
+Hos Aigenc.ie er målet å koble programvareutvikling til dens plass i den virkelige verden.
 
-Selv om det allerede finnes mye innhold med fokus på USA, vil Crafty Code rette blikket mot EU sitt landskap for programvareutvikling og næringsliv.
+Selv om det allerede finnes mye innhold med fokus på USA, vil Aigenc.ie rette blikket mot EU sitt landskap for programvareutvikling og næringsliv.
 
 ## Mitt navn er Jeff
 

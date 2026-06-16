@@ -1,6 +1,6 @@
-baseURL = 'https://craftycode.org/'
+baseURL = 'https://aigenc.ie/'
 languageCode = 'en-GB'
-title = 'Crafty Code'
+title = 'Aigenc.ie'
 content = 'content/'
 
 [services]
