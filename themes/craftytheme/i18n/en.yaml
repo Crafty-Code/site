@@ -6,3 +6,67 @@
   translation: "Keywords"
 - id: tags
   translation: "Tags"
+- id: home
+  translation: "Home"
+- id: welcomeTagline
+  translation: "Welcome to {{ .Title }}!"
+- id: readMore
+  translation: "Read more…"
+- id: words
+  translation: "Words"
+- id: views
+  translation: "Views"
+- id: updated
+  translation: "Updated"
+- id: rating
+  translation: "Rating"
+- id: bookPages
+  translation: "Pages"
+- id: publisher
+  translation: "Publisher"
+- id: price
+  translation: "Price"
+- id: tableOfContents
+  translation: "Table of Contents"
+- id: relatedArticles
+  translation: "Related Articles"
+- id: relatedBooks
+  translation: "Related Books"
+- id: nextArticle
+  translation: "Next Article"
+- id: nextReview
+  translation: "Next Review"
+- id: publishedOn
+  translation: "Published on"
+- id: lastUpdated
+  translation: "Last updated:"
+- id: footerAbout
+  translation: "About"
+- id: footerContact
+  translation: "Contact"
+- id: footerPrivacy
+  translation: "Privacy Policy"
+- id: allRightsReserved
+  translation: "All rights reserved."
+- id: reviewedBy
+  translation: "Reviewed by"
+- id: bookBy
+  translation: "By"
+- id: stayUpdated
+  translation: "Stay Updated"
+- id: stayUpdatedDesc
+  translation: "Get the latest articles and insights delivered straight to your inbox."
+- id: subscribe
+  translation: "Subscribe"
+- id: readyToDive
+  translation: "Ready to dive deeper?"
+- id: readyToDiveDesc
+  translation: "Get your copy and start improving your code today."
+- id: buyOnAmazon
+  translation: "Buy on Amazon"
+- id: cookieConsentText
+  translation: "We use cookies to enhance your experience and analyze site traffic. By continuing to use this site, you consent to our use of cookies."
+- id: accept
+  translation: "Accept"
+- id: decline
+  translation: "Decline"

@@ -6,3 +6,67 @@
   translation: "Nyckelord"
 - id: tags
   translation: "Taggar"
+- id: home
+  translation: "Hem"
+- id: welcomeTagline
+  translation: "Välkommen till {{ .Title }}!"
+- id: readMore
+  translation: "Läs mer…"
+- id: words
+  translation: "Ord"
+- id: views
+  translation: "Visningar"
+- id: updated
+  translation: "Uppdaterad"
+- id: rating
+  translation: "Betyg"
+- id: bookPages
+  translation: "Sidor"
+- id: publisher
+  translation: "Förlag"
+- id: price
+  translation: "Pris"
+- id: tableOfContents
+  translation: "Innehållsförteckning"
+- id: relatedArticles
+  translation: "Relaterade artiklar"
+- id: relatedBooks
+  translation: "Relaterade böcker"
+- id: nextArticle
+  translation: "Nästa artikel"
+- id: nextReview
+  translation: "Nästa recension"
+- id: publishedOn
+  translation: "Publicerad"
+- id: lastUpdated
+  translation: "Senast uppdaterad:"
+- id: footerAbout
+  translation: "Om"
+- id: footerContact
+  translation: "Kontakt"
+- id: footerPrivacy
+  translation: "Integritetspolicy"
+- id: allRightsReserved
+  translation: "Alla rättigheter förbehållna."
+- id: reviewedBy
+  translation: "Recenserad av"
+- id: bookBy
+  translation: "Av"
+- id: stayUpdated
+  translation: "Håll dig uppdaterad"
+- id: stayUpdatedDesc
+  translation: "Få de senaste artiklarna och insikterna direkt till din inkorg."
+- id: subscribe
+  translation: "Prenumerera"
+- id: readyToDive
+  translation: "Redo att dyka djupare?"
+- id: readyToDiveDesc
+  translation: "Skaffa ditt exemplar och börja förbättra din kod idag."
+- id: buyOnAmazon
+  translation: "Köp på Amazon"
+- id: cookieConsentText
+  translation: "Vi använder cookies för att förbättra din upplevelse och analysera webbplatstrafiken. Genom att fortsätta använda den här webbplatsen samtycker du till vår användning av cookies."
+- id: accept
+  translation: "Acceptera"
+- id: decline
+  translation: "Avböja"

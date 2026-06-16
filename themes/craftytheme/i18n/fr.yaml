@@ -6,3 +6,67 @@
   translation: "Mots-clés"
 - id: tags
   translation: "Étiquettes"
+- id: home
+  translation: "Accueil"
+- id: welcomeTagline
+  translation: "Bienvenue sur {{ .Title }} !"
+- id: readMore
+  translation: "Lire la suite…"
+- id: words
+  translation: "Mots"
+- id: views
+  translation: "Vues"
+- id: updated
+  translation: "Mis à jour"
+- id: rating
+  translation: "Note"
+- id: bookPages
+  translation: "Pages"
+- id: publisher
+  translation: "Éditeur"
+- id: price
+  translation: "Prix"
+- id: tableOfContents
+  translation: "Table des matières"
+- id: relatedArticles
+  translation: "Articles similaires"
+- id: relatedBooks
+  translation: "Livres similaires"
+- id: nextArticle
+  translation: "Article suivant"
+- id: nextReview
+  translation: "Revue suivante"
+- id: publishedOn
+  translation: "Publié le"
+- id: lastUpdated
+  translation: "Dernière mise à jour :"
+- id: footerAbout
+  translation: "À propos"
+- id: footerContact
+  translation: "Contact"
+- id: footerPrivacy
+  translation: "Politique de confidentialité"
+- id: allRightsReserved
+  translation: "Tous droits réservés."
+- id: reviewedBy
+  translation: "Révisé par"
+- id: bookBy
+  translation: "Par"
+- id: stayUpdated
+  translation: "Restez informé"
+- id: stayUpdatedDesc
+  translation: "Recevez les derniers articles et analyses directement dans votre boîte mail."
+- id: subscribe
+  translation: "S'abonner"
+- id: readyToDive
+  translation: "Prêt à aller plus loin ?"
+- id: readyToDiveDesc
+  translation: "Obtenez votre exemplaire et commencez à améliorer votre code dès aujourd'hui."
+- id: buyOnAmazon
+  translation: "Acheter sur Amazon"
+- id: cookieConsentText
+  translation: "Nous utilisons des cookies pour améliorer votre expérience et analyser le trafic du site. En continuant à utiliser ce site, vous consentez à l'utilisation de cookies."
+- id: accept
+  translation: "Accepter"
+- id: decline
+  translation: "Refuser"

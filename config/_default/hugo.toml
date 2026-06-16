@@ -22,10 +22,9 @@ theme = 'craftytheme'
     source = 'hugo_stats.json'
     target = 'assets/notwatching/hugo_stats.json'
 
-[params]
-hasCJKLanguage = "false"
+hasCJKLanguage = false
 defaultContentLanguage = "en"
-defaultContentLanguageInSubdir = "false"
+defaultContentLanguageInSubdir = false
 
 [params.social]
 instagram = "crafty.code"

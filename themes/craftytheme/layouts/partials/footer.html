@@ -1,11 +1,11 @@
 <footer class="{{ partial "theme-classes.html" (dict "context" . "type" "footer" "variant" "bg") }} py-8 border-t-2 {{ partial "theme-classes.html" (dict "context" . "type" "footer" "variant" "border") }} shadow-lg">
   <div class="max-w-5xl mx-auto px-4">
     <div class="border-t {{ partial "theme-classes.html" (dict "context" . "type" "footer" "variant" "border") }} pt-4 flex flex-col md:flex-row justify-between items-center text-sm {{ partial "theme-classes.html" (dict "context" . "type" "footer" "variant" "text") }}">
-      <p class="mb-2 md:mb-0">&copy; {{ now.Year }} {{ .Site.Title }}. All rights reserved.</p>
+      <p class="mb-2 md:mb-0">&copy; {{ now.Year }} {{ .Site.Title }}. {{ i18n "allRightsReserved" }}</p>
       <p>
-        <a href="/about/" class="hover:underline {{ partial "theme-classes.html" (dict "context" . "type" "footer" "variant" "link-hover") }}">About</a> |
-        <a href="/contact/" class="hover:underline {{ partial "theme-classes.html" (dict "context" . "type" "footer" "variant" "link-hover") }}">Contact</a> |
-        <a href="/privacy/" class="hover:underline {{ partial "theme-classes.html" (dict "context" . "type" "footer" "variant" "link-hover") }}">Privacy Policy</a>
+        <a href="/about/" class="hover:underline {{ partial "theme-classes.html" (dict "context" . "type" "footer" "variant" "link-hover") }}">{{ i18n "footerAbout" }}</a> |
+        <a href="/contact/" class="hover:underline {{ partial "theme-classes.html" (dict "context" . "type" "footer" "variant" "link-hover") }}">{{ i18n "footerContact" }}</a> |
+        <a href="/privacy/" class="hover:underline {{ partial "theme-classes.html" (dict "context" . "type" "footer" "variant" "link-hover") }}">{{ i18n "footerPrivacy" }}</a>
       </p>
     </div>
   </div>

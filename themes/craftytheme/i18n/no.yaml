@@ -6,3 +6,67 @@
   translation: "Nøkkelord"
 - id: tags
   translation: "Stikkord"
+- id: home
+  translation: "Hjem"
+- id: welcomeTagline
+  translation: "Velkommen til {{ .Title }}!"
+- id: readMore
+  translation: "Les mer…"
+- id: words
+  translation: "Ord"
+- id: views
+  translation: "Visninger"
+- id: updated
+  translation: "Oppdatert"
+- id: rating
+  translation: "Vurdering"
+- id: bookPages
+  translation: "Sider"
+- id: publisher
+  translation: "Utgiver"
+- id: price
+  translation: "Pris"
+- id: tableOfContents
+  translation: "Innholdsfortegnelse"
+- id: relatedArticles
+  translation: "Relaterte artikler"
+- id: relatedBooks
+  translation: "Relaterte bøker"
+- id: nextArticle
+  translation: "Neste artikkel"
+- id: nextReview
+  translation: "Neste anmeldelse"
+- id: publishedOn
+  translation: "Publisert"
+- id: lastUpdated
+  translation: "Sist oppdatert:"
+- id: footerAbout
+  translation: "Om"
+- id: footerContact
+  translation: "Kontakt"
+- id: footerPrivacy
+  translation: "Personvernpolicy"
+- id: allRightsReserved
+  translation: "Alle rettigheter forbeholdt."
+- id: reviewedBy
+  translation: "Anmeldt av"
+- id: bookBy
+  translation: "Av"
+- id: stayUpdated
+  translation: "Hold deg oppdatert"
+- id: stayUpdatedDesc
+  translation: "Få de siste artiklene og innsiktene levert rett til innboksen din."
+- id: subscribe
+  translation: "Abonner"
+- id: readyToDive
+  translation: "Klar for å gå dypere?"
+- id: readyToDiveDesc
+  translation: "Få ditt eksemplar og begynn å forbedre koden din i dag."
+- id: buyOnAmazon
+  translation: "Kjøp på Amazon"
+- id: cookieConsentText
+  translation: "Vi bruker informasjonskapsler for å forbedre din opplevelse og analysere trafikken på nettstedet. Ved å fortsette å bruke dette nettstedet samtykker du til vår bruk av informasjonskapsler."
+- id: accept
+  translation: "Godta"
+- id: decline
+  translation: "Avslå"

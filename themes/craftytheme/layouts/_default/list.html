@@ -14,10 +14,12 @@
         {{ end }}
         <div class="flex-1 w-full">
           <h2 class="text-2xl font-bold mb-4 {{ partial "theme-classes.html" (dict "context" $ "type" "content" "variant" "heading") }}"><a href="{{ .RelPermalink }}" class="hover:{{ partial "theme-classes.html" (dict "context" $ "type" "primary" "variant" "text") }}">{{ .Title }}</a></h2>
+          {{ if ($.Site.Params.show_reading_time | default true) }}
           <div class="text-lg {{ partial "theme-classes.html" (dict "context" $ "type" "content" "variant" "muted") }} mb-4">
-            <span class="font-semibold {{ partial "theme-classes.html" (dict "context" $ "type" "primary" "variant" "text") }}">Reading time:</span> <span>{{ .ReadingTime }} min read</span>
+            {{ i18n "readingTime" (dict "Count" .ReadingTime) }}
           </div>
-          <p><a href="{{ .RelPermalink }}" class="{{ partial "theme-classes.html" (dict "context" $ "type" "primary" "variant" "text") }} hover:underline font-medium text-xl">Read more…</a></p>
+          {{ end }}
+          <p><a href="{{ .RelPermalink }}" class="{{ partial "theme-classes.html" (dict "context" $ "type" "primary" "variant" "text") }} hover:underline font-medium text-xl">{{ i18n "readMore" }}</a></p>
         </div>
       </div>
     {{ end }}

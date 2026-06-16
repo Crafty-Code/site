@@ -114,16 +114,16 @@
       <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
         <div class="flex-1">
           <p class="{{ partial "theme-classes.html" (dict "context" . "type" "content" "variant" "text") }} text-sm">
-            We use cookies to enhance your experience and analyze site traffic. By continuing to use this site, you consent to our use of cookies.
-            <a href="/privacy/" class="{{ partial "theme-classes.html" (dict "context" . "type" "primary" "variant" "text") }} hover:underline">Privacy Policy</a>
+            {{ i18n "cookieConsentText" }}
+            <a href="/privacy/" class="{{ partial "theme-classes.html" (dict "context" . "type" "primary" "variant" "text") }} hover:underline">{{ i18n "footerPrivacy" }}</a>
           </p>
         </div>
         <div class="flex gap-2">
           <button id="cookie-accept" class="{{ partial "theme-classes.html" (dict "context" . "type" "button" "element" "primary") }} px-4 py-2 rounded text-sm font-medium">
-            Accept
+            {{ i18n "accept" }}
           </button>
           <button id="cookie-decline" class="{{ partial "theme-classes.html" (dict "context" . "type" "button" "element" "secondary") }} px-4 py-2 rounded text-sm font-medium">
-            Decline
+            {{ i18n "decline" }}
           </button>
         </div>
       </div>
@@ -179,15 +179,34 @@
     </script>
   {{ end }}
 {{ else }}
-  {{/* Fallback to Hugo's native Google Analytics if no analytics config */}}
+  {{/* Fallback to Hugo's native Google Analytics if no [analytics] params configured */}}
   {{ if .Site.Config.Services.GoogleAnalytics.ID }}
-    <!-- Google Analytics 4 (Hugo native) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Config.Services.GoogleAnalytics.ID }}"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '{{ .Site.Config.Services.GoogleAnalytics.ID }}');
-    </script>
+    {{ $gaId := .Site.Config.Services.GoogleAnalytics.ID }}
+    {{ if not $respectDNT }}
+      <!-- Google Analytics 4 (Hugo native) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id={{ $gaId }}"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{ $gaId }}'{{ if $anonymizeIP }}, { anonymize_ip: true }{{ end }});
+      </script>
+    {{ else }}
+      <!-- Google Analytics 4 with DNT respect -->
+      <script>
+        if (navigator.doNotTrack !== "1" && window.doNotTrack !== "1") {
+          (function() {
+            var script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id={{ $gaId }}';
+            document.head.appendChild(script);
+          })();
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '{{ $gaId }}'{{ if $anonymizeIP }}, { anonymize_ip: true }{{ end }});
+        }
+      </script>
+    {{ end }}
   {{ end }}
 {{ end }}
