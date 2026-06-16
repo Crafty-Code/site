@@ -15,6 +15,7 @@ enabled = true
   # Enable sharing for different content types
   enable_blog_sharing = true
   enable_book_sharing = true
+  enable_craftycode_sharing = true
   enable_page_sharing = false
   
   # Available sharing platforms
