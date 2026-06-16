@@ -27,12 +27,12 @@
       <div class="text-gray-600 dark:text-gray-300">
         <p class="text-sm flex items-center gap-2">
           <i class="fas fa-calendar"></i>
-          Published on {{ $context.Date.Format "January 2, 2006" }}
+          {{ i18n "publishedOn" }} {{ $context.Date.Format ($context.Site.Params.date_format | default "January 2, 2006") }}
         </p>
         {{ if $context.Lastmod }}
           <p class="text-sm flex items-center gap-2 mt-1">
             <i class="fas fa-edit"></i>
-            Last updated: {{ $context.Lastmod.Format "January 2, 2006" }}
+            {{ i18n "lastUpdated" }} {{ $context.Lastmod.Format ($context.Site.Params.date_format | default "January 2, 2006") }}
           </p>
         {{ end }}
       </div>
@@ -47,14 +47,14 @@
         {{ if eq $type "blog" }}
           {{ if $context.NextInSection }}
             <a href="{{ $context.NextInSection.Permalink }}" class="inline-flex items-center gap-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors font-medium text-sm">
-              Next Article
+              {{ i18n "nextArticle" }}
               <i class="fas fa-arrow-right"></i>
             </a>
           {{ end }}
         {{ else if eq $type "book" }}
           {{ if $context.NextInSection }}
             <a href="{{ $context.NextInSection.Permalink }}" class="inline-flex items-center gap-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors font-medium text-sm">
-              Next Review
+              {{ i18n "nextReview" }}
               <i class="fas fa-arrow-right"></i>
             </a>
           {{ end }}

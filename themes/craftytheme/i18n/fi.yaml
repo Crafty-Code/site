@@ -6,3 +6,67 @@
   translation: "Avainsanat"
 - id: tags
   translation: "Tunnisteet"
+- id: home
+  translation: "Etusivu"
+- id: welcomeTagline
+  translation: "Tervetuloa {{ .Title }}!"
+- id: readMore
+  translation: "Lue lisää…"
+- id: words
+  translation: "Sanat"
+- id: views
+  translation: "Näyttökerrat"
+- id: updated
+  translation: "Päivitetty"
+- id: rating
+  translation: "Arvostelu"
+- id: bookPages
+  translation: "Sivuja"
+- id: publisher
+  translation: "Kustantaja"
+- id: price
+  translation: "Hinta"
+- id: tableOfContents
+  translation: "Sisällysluettelo"
+- id: relatedArticles
+  translation: "Aiheeseen liittyvät artikkelit"
+- id: relatedBooks
+  translation: "Aiheeseen liittyvät kirjat"
+- id: nextArticle
+  translation: "Seuraava artikkeli"
+- id: nextReview
+  translation: "Seuraava arvostelu"
+- id: publishedOn
+  translation: "Julkaistu"
+- id: lastUpdated
+  translation: "Viimeksi päivitetty:"
+- id: footerAbout
+  translation: "Tietoja"
+- id: footerContact
+  translation: "Yhteystiedot"
+- id: footerPrivacy
+  translation: "Tietosuojakäytäntö"
+- id: allRightsReserved
+  translation: "Kaikki oikeudet pidätetään."
+- id: reviewedBy
+  translation: "Arvostelija"
+- id: bookBy
+  translation: "Kirjoittanut"
+- id: stayUpdated
+  translation: "Pysy ajan tasalla"
+- id: stayUpdatedDesc
+  translation: "Saa uusimmat artikkelit ja oivallukset suoraan sähköpostiisi."
+- id: subscribe
+  translation: "Tilaa"
+- id: readyToDive
+  translation: "Valmis sukeltamaan syvemmälle?"
+- id: readyToDiveDesc
+  translation: "Hanki oma kappaleesi ja ala parantaa koodiasi tänään."
+- id: buyOnAmazon
+  translation: "Osta Amazonista"
+- id: cookieConsentText
+  translation: "Käytämme evästeitä parantaaksemme kokemustasi ja analysoidaksemme sivuston liikennettä. Jatkamalla tämän sivuston käyttöä hyväksyt evästeiden käytön."
+- id: accept
+  translation: "Hyväksy"
+- id: decline
+  translation: "Hylkää"

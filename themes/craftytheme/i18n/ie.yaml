@@ -6,3 +6,67 @@
   translation: "Eochairfhocail"
 - id: tags
   translation: "Clibeanna"
+- id: home
+  translation: "Baile"
+- id: welcomeTagline
+  translation: "Fáilte go {{ .Title }}!"
+- id: readMore
+  translation: "Léigh tuilleadh…"
+- id: words
+  translation: "Focail"
+- id: views
+  translation: "Amharcanna"
+- id: updated
+  translation: "Nuashonraithe"
+- id: rating
+  translation: "Rátáil"
+- id: bookPages
+  translation: "Leathanaigh"
+- id: publisher
+  translation: "Foilsitheoir"
+- id: price
+  translation: "Praghas"
+- id: tableOfContents
+  translation: "Clár Ábhair"
+- id: relatedArticles
+  translation: "Ailt Ghaolmhara"
+- id: relatedBooks
+  translation: "Leabhair Ghaolmhara"
+- id: nextArticle
+  translation: "An t-alt eile"
+- id: nextReview
+  translation: "An léirmheas eile"
+- id: publishedOn
+  translation: "Foilsithe ar"
+- id: lastUpdated
+  translation: "Nuashonrú is déanaí:"
+- id: footerAbout
+  translation: "Faoi"
+- id: footerContact
+  translation: "Teagmháil"
+- id: footerPrivacy
+  translation: "Polasaí Príobháideachta"
+- id: allRightsReserved
+  translation: "Gach ceart ar cosnamh."
+- id: reviewedBy
+  translation: "Léirmheas ó"
+- id: bookBy
+  translation: "Le"
+- id: stayUpdated
+  translation: "Fan cothrom le dáta"
+- id: stayUpdatedDesc
+  translation: "Faigh na hailt agus na léargais is déanaí go díreach i do bhosca isteach."
+- id: subscribe
+  translation: "Liostáil"
+- id: readyToDive
+  translation: "Réidh le dul níos doimhne?"
+- id: readyToDiveDesc
+  translation: "Faigh do chóip agus tosaigh ag feabhsú do chód inniu."
+- id: buyOnAmazon
+  translation: "Ceannaigh ar Amazon"
+- id: cookieConsentText
+  translation: "Úsáidimid fianáin chun do thaithí a fheabhsú agus trácht an láithreáin a anailísiú. Trí leanúint ar aghaidh ag úsáid an láithreáin seo, tugann tú do thoiliú dár n-úsáid fianán."
+- id: accept
+  translation: "Glac"
+- id: decline
+  translation: "Diúltaigh"

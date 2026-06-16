@@ -6,3 +6,67 @@
   translation: "Trefwoorden"
 - id: tags
   translation: "Tags"
+- id: home
+  translation: "Home"
+- id: welcomeTagline
+  translation: "Welkom bij {{ .Title }}!"
+- id: readMore
+  translation: "Meer lezen…"
+- id: words
+  translation: "Woorden"
+- id: views
+  translation: "Weergaven"
+- id: updated
+  translation: "Bijgewerkt"
+- id: rating
+  translation: "Beoordeling"
+- id: bookPages
+  translation: "Pagina's"
+- id: publisher
+  translation: "Uitgever"
+- id: price
+  translation: "Prijs"
+- id: tableOfContents
+  translation: "Inhoudsopgave"
+- id: relatedArticles
+  translation: "Gerelateerde artikelen"
+- id: relatedBooks
+  translation: "Gerelateerde boeken"
+- id: nextArticle
+  translation: "Volgend artikel"
+- id: nextReview
+  translation: "Volgende recensie"
+- id: publishedOn
+  translation: "Gepubliceerd op"
+- id: lastUpdated
+  translation: "Laatste update:"
+- id: footerAbout
+  translation: "Over ons"
+- id: footerContact
+  translation: "Contact"
+- id: footerPrivacy
+  translation: "Privacybeleid"
+- id: allRightsReserved
+  translation: "Alle rechten voorbehouden."
+- id: reviewedBy
+  translation: "Beoordeeld door"
+- id: bookBy
+  translation: "Door"
+- id: stayUpdated
+  translation: "Blijf op de hoogte"
+- id: stayUpdatedDesc
+  translation: "Ontvang de laatste artikelen en inzichten rechtstreeks in uw inbox."
+- id: subscribe
+  translation: "Abonneren"
+- id: readyToDive
+  translation: "Klaar om dieper te duiken?"
+- id: readyToDiveDesc
+  translation: "Haal uw exemplaar en begin vandaag nog met het verbeteren van uw code."
+- id: buyOnAmazon
+  translation: "Kopen op Amazon"
+- id: cookieConsentText
+  translation: "Wij gebruiken cookies om uw ervaring te verbeteren en het websiteverkeer te analyseren. Door deze site te blijven gebruiken, stemt u in met ons gebruik van cookies."
+- id: accept
+  translation: "Accepteren"
+- id: decline
+  translation: "Weigeren"

@@ -6,3 +6,67 @@
   translation: "Schlüsselwörter"
 - id: tags
   translation: "Stichworte"
+- id: home
+  translation: "Startseite"
+- id: welcomeTagline
+  translation: "Willkommen bei {{ .Title }}!"
+- id: readMore
+  translation: "Mehr lesen…"
+- id: words
+  translation: "Wörter"
+- id: views
+  translation: "Aufrufe"
+- id: updated
+  translation: "Aktualisiert"
+- id: rating
+  translation: "Bewertung"
+- id: bookPages
+  translation: "Seiten"
+- id: publisher
+  translation: "Verlag"
+- id: price
+  translation: "Preis"
+- id: tableOfContents
+  translation: "Inhaltsverzeichnis"
+- id: relatedArticles
+  translation: "Ähnliche Artikel"
+- id: relatedBooks
+  translation: "Ähnliche Bücher"
+- id: nextArticle
+  translation: "Nächster Artikel"
+- id: nextReview
+  translation: "Nächste Rezension"
+- id: publishedOn
+  translation: "Veröffentlicht am"
+- id: lastUpdated
+  translation: "Zuletzt aktualisiert:"
+- id: footerAbout
+  translation: "Über uns"
+- id: footerContact
+  translation: "Kontakt"
+- id: footerPrivacy
+  translation: "Datenschutzrichtlinie"
+- id: allRightsReserved
+  translation: "Alle Rechte vorbehalten."
+- id: reviewedBy
+  translation: "Rezensiert von"
+- id: bookBy
+  translation: "Von"
+- id: stayUpdated
+  translation: "Auf dem Laufenden bleiben"
+- id: stayUpdatedDesc
+  translation: "Erhalten Sie die neuesten Artikel und Einblicke direkt in Ihren Posteingang."
+- id: subscribe
+  translation: "Abonnieren"
+- id: readyToDive
+  translation: "Bereit, tiefer einzutauchen?"
+- id: readyToDiveDesc
+  translation: "Holen Sie sich Ihr Exemplar und beginnen Sie noch heute, Ihren Code zu verbessern."
+- id: buyOnAmazon
+  translation: "Auf Amazon kaufen"
+- id: cookieConsentText
+  translation: "Wir verwenden Cookies, um Ihr Erlebnis zu verbessern und den Website-Traffic zu analysieren. Durch die weitere Nutzung dieser Website stimmen Sie der Verwendung von Cookies zu."
+- id: accept
+  translation: "Akzeptieren"
+- id: decline
+  translation: "Ablehnen"
