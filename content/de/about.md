@@ -1,9 +1,9 @@
 +++
-title = "Über Crafty Code"
+title = "Über Aigenc.ie"
 date = 2024-07-09 21:12:53+01:00
 draft = false
 type = "page"
-description = "Crafty Code untersucht die Schnittstelle zwischen Softwareentwicklung und Business in der EU, mit einem Fokus auf Nachhaltigkeit, Leadership und echten Auswirkungen. Geschrieben von Jeff, einem erfahrenen Software Engineer und Business Strategen, behandelt der Blog Technologietrends, Geschäftsstrategien und praxisnahe Einblicke für Startups und Unternehmer:innen."
+description = "Aigenc.ie untersucht die Schnittstelle zwischen Softwareentwicklung und Business in der EU, mit einem Fokus auf Nachhaltigkeit, Leadership und echten Auswirkungen. Geschrieben von Jeff, einem erfahrenen Software Engineer und Business Strategen, behandelt der Blog Technologietrends, Geschäftsstrategien und praxisnahe Einblicke für Startups und Unternehmer:innen."
 keywords = [
     "Softwareentwicklung",
     "EU-Geschäft",
@@ -28,17 +28,17 @@ tags = [
     "Entrepreneurship",
     "Software Engineering",
 ]
-summary = "Bei Crafty Code geht es darum, die Welt der Softwareentwicklung mit ihrem Platz in der realen Welt zu verbinden.\n\nWährend es bereits eine Fülle von Inhalten mit Fokus auf die USA gibt, wird sich Crafty Code auf die Softwareentwicklung und die Geschäftswelt in der EU konzentrieren."
-og_title = "Crafty Code: Einblicke in Softwareentwicklung, Business und Nachhaltigkeit in der EU"
-og_description = "Tauche ein in Crafty Code für Einblicke in Softwareentwicklung, Geschäftsstrategie, Nachhaltigkeit und Technologietrends in der EU. Geleitet von Jeff, einem erfahrenen Software Engineer und Strategen, verbindet dieser Blog Technologie mit echtem Einfluss auf die Welt."
+summary = "Bei Aigenc.ie geht es darum, die Welt der Softwareentwicklung mit ihrem Platz in der realen Welt zu verbinden.\n\nWährend es bereits eine Fülle von Inhalten mit Fokus auf die USA gibt, wird sich Aigenc.ie auf die Softwareentwicklung und die Geschäftswelt in der EU konzentrieren."
+og_title = "Aigenc.ie: Einblicke in Softwareentwicklung, Business und Nachhaltigkeit in der EU"
+og_description = "Tauche ein in Aigenc.ie für Einblicke in Softwareentwicklung, Geschäftsstrategie, Nachhaltigkeit und Technologietrends in der EU. Geleitet von Jeff, einem erfahrenen Software Engineer und Strategen, verbindet dieser Blog Technologie mit echtem Einfluss auf die Welt."
 translated = true
 original_language = "en"
 translated_to = "german"
 +++
 
-Bei Crafty Code geht es darum, die Welt der Softwareentwicklung mit ihrem Platz in der realen Welt zu verbinden.
+Bei Aigenc.ie geht es darum, die Welt der Softwareentwicklung mit ihrem Platz in der realen Welt zu verbinden.
 
-Während es bereits eine Fülle von Inhalten mit Fokus auf die USA gibt, konzentriert sich Crafty Code auf die europäische Softwareentwicklungs- und Geschäftswelt.
+Während es bereits eine Fülle von Inhalten mit Fokus auf die USA gibt, konzentriert sich Aigenc.ie auf die europäische Softwareentwicklungs- und Geschäftswelt.
 
 ## Mein Name ist Jeff
 

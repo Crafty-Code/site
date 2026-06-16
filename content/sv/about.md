@@ -1,9 +1,9 @@
 +++
-title = "## Om Crafty Code"
+title = "## Om Aigenc.ie"
 date = 2024-07-09 21:12:53+01:00
 draft = false
 type = "page"
-description = "Crafty Code utforskar skärningspunkten mellan mjukvaruutveckling och affärer inom EU, med fokus på hållbarhet, ledarskap och verklig påverkan. Bloggen, skriven av Jeff – en erfaren mjukvaruingenjör och affärsstrateg – täcker teknologitrender, affärsstrategi och praktiska insikter för startups och entreprenörer."
+description = "Aigenc.ie utforskar skärningspunkten mellan mjukvaruutveckling och affärer inom EU, med fokus på hållbarhet, ledarskap och verklig påverkan. Bloggen, skriven av Jeff – en erfaren mjukvaruingenjör och affärsstrateg – täcker teknologitrender, affärsstrategi och praktiska insikter för startups och entreprenörer."
 keywords = [
     "programvaruutveckling",
     "EU-verksamhet",
@@ -28,17 +28,17 @@ tags = [
     "entreprenörskap",
     "mjukvaruingenjörskap",
 ]
-summary = "På Crafty Code är målet att koppla samman mjukvaruutvecklingens värld med dess plats i verkligheten.\n\nÄven om det redan finns ett överflöd av innehåll med fokus på USA, kommer Crafty Code att fokusera på mjukvaruutveckling och affärslandskapet inom EU."
-og_title = "Crafty Code: Utforska mjukvaruutveckling, affärer och hållbarhet i EU"
-og_description = "Fördjupa dig i Crafty Code för insikter om mjukvaruutveckling, affärsstrategi, hållbarhet och teknologitrender inom EU. Bloggen leds av Jeff, en erfaren mjukvaruingenjör och strateg, och kopplar ihop teknik med verklig påverkan."
+summary = "På Aigenc.ie är målet att koppla samman mjukvaruutvecklingens värld med dess plats i verkligheten.\n\nÄven om det redan finns ett överflöd av innehåll med fokus på USA, kommer Aigenc.ie att fokusera på mjukvaruutveckling och affärslandskapet inom EU."
+og_title = "Aigenc.ie: Utforska mjukvaruutveckling, affärer och hållbarhet i EU"
+og_description = "Fördjupa dig i Aigenc.ie för insikter om mjukvaruutveckling, affärsstrategi, hållbarhet och teknologitrender inom EU. Bloggen leds av Jeff, en erfaren mjukvaruingenjör och strateg, och kopplar ihop teknik med verklig påverkan."
 translated = true
 original_language = "en"
 translated_to = "swedish"
 +++
 
-På Crafty Code är målet att koppla samman mjukvaruutvecklingens värld med dess plats i verkliga livet.
+På Aigenc.ie är målet att koppla samman mjukvaruutvecklingens värld med dess plats i verkliga livet.
 
-Även om det redan finns massor av innehåll med fokus på USA, kommer Crafty Code att fokusera på mjukvaruutveckling och affärslandskapet i EU.
+Även om det redan finns massor av innehåll med fokus på USA, kommer Aigenc.ie att fokusera på mjukvaruutveckling och affärslandskapet i EU.
 
 ## Mitt namn är Jeff
 
